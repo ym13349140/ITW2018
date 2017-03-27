@@ -1,0 +1,259 @@
+@charset "utf-8";
+body {
+	background-size: contain;
+	background-color: #E3E3E3;
+	margin: 0;
+	/*background-image: url("../background-images/bg-1.jpg");
+	background-repeat: no-repeat;
+	background-position: top center;
+	background-attachment: fixed;*/
+}
+
+ul, ol, dl { /* 由於瀏覽器之間的差異，最佳作法是在清單中使用零寬度的欄位間隔及邊界。為了保持一致，您可以在這裡指定所要的量，或在清單包含的清單項目 (LI、DT、DD) 上指定所要的量。請記住，除非您寫入較為特定的選取器，否則在此執行的作業將重疊顯示到 .nav 清單。 */
+	padding: 3px;
+	margin: 0;
+	background-color: #FFF;
+}
+h1, h2, h4, h5, h6, p {
+	margin-top: 10px;	 /* 移除上方邊界可以解決邊界可能從其包含的區塊逸出的問題。剩餘的下方邊界可以保持區塊不與接在後面的元素接觸。 */
+	padding-right: 15px;
+	padding-left: 15px; /* 將欄位間隔加入至區塊內元素的兩側 (而不是區塊元素本身)，即可不需執行任何方塊模型的計算作業。具有側邊欄位間隔的巢狀區塊也可當做替代方法。 */
+	color: #666;
+	font-family: sans-serif'Helvetica Neue', Helvetica, Arial, sans-serif;
+	line-height: 15px;
+	margin-bottom: -10px;
+}
+h3 {
+	margin-top: 10px;	 /* 移除上方邊界可以解決邊界可能從其包含的區塊逸出的問題。剩餘的下方邊界可以保持區塊不與接在後面的元素接觸。 */
+	padding-right: 15px;
+	padding-left: 15px; /* 將欄位間隔加入至區塊內元素的兩側 (而不是區塊元素本身)，即可不需執行任何方塊模型的計算作業。具有側邊欄位間隔的巢狀區塊也可當做替代方法。 */
+	color: #009;
+	font-family: sans-serif'Helvetica Neue', Helvetica, Arial, sans-serif;
+	line-height: 25px;
+	font-size: 25px;
+	margin-bottom: 10px;
+}
+a img { /* 這個選取器會移除某些瀏覽器在影像由連結所圍繞時，影像周圍所顯示的預設藍色邊框 */
+	border: none;
+}
+/* ~~ 網站連結的樣式設定必須保持此順序，包括建立滑過 (Hover) 效果的選取器群組在內。~~ */
+a:link {
+	color: #42413C;
+	text-decoration: underline; /* 除非您要設定非常獨特的連結樣式，否則最好提供底線，以便快速看出 */
+}
+a:visited {
+	color: #6E6C64;
+	text-decoration: underline;
+}
+a:hover, a:active, a:focus { /* 這個選取器群組可以讓使用鍵盤導覽的使用者，也和使用滑鼠的使用者一樣擁有相同的滑動體驗。 */
+	text-decoration: none;
+}
+/* ~~ 這個固定寬度的容器環繞著所有其他區塊 ~~ */
+.container {
+	width: 960px;
+	margin: 0 auto; /* 兩側的自動值與寬度結合後，版面便會置中對齊 */
+	background-color: #FFF;
+	font-family: sans-serif'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+/* ~~ 頁首沒有指定的寬度，而會橫跨版面的整個寬度。~~ */
+header {
+	background-color: #FFFFFF;
+	margin-bottom: -15px;
+	margin-top: -12px;
+}
+
+.sidebar1 {
+	float: left;
+	width: 180px;
+	background-color: #FFFFFF;
+	margin-right: 0px;
+	margin-top: 25px;
+	padding-top: 5px;
+	margin-left: 30px;
+}
+.content {
+	padding: 10px 0;
+	width: 640px;
+	float: right;
+	margin-left: 25px;
+	margin-right: 60px;
+	padding-top: 30px;
+}
+
+/* ~~ 這個群組選取器會在 .content 區域空間中提供清單 ~~ */
+.content ul, .content ol {
+	padding: 0 15px 15px 40px; /* 這個欄位間隔反映出上方標題和段落規則中的右方間隔。當欄位間隔位於下方時，便可將清單中的其他元素間隔開來；當位於左方時，則可藉此建立縮排。這些動作均可依需要進行調整。 */
+	margin-top: 10px;
+}
+
+.content ul ul.subitem {
+	padding: 0 0 0 20px;
+	list-style-type: circle;
+}
+
+/* ~~ 導覽清單樣式 (如果選擇使用 Spry 之類的預製飛出選單，則可移除) ~~ */
+ul.nav {
+	list-style: none; /* 這會在下方的內容上建立導覽間的間距 */
+	margin-top: 15px;
+	background-color: #FFFFFF;
+}
+ul.nav li {
+	text-align: justify;
+	background-color: #FFFFFF;
+	white-space:nowrap;
+}
+ul.nav a, ul.nav a:visited { /* 將這些選取器放入群組，即可確保您的連結即使在受到點擊後仍保有按鈕外觀 */
+	padding-top: 5px;
+	padding-right: 5px;
+	padding-left: 15px;
+	padding-bottom: 5px;
+	display: block; /* 這會為連結提供區塊屬性，使連結能填滿包含它的整個 LI，讓整個區域都能回應滑鼠點按動作。 */
+	width: 160px;  /*這個寬度使整個按鈕都可用於 IE6 的點按動作。如果不需要支援 IE6，就可將其移除。請從側邊列容器的寬度減去此連結的間距來計算適當的寬度。 */
+	text-decoration: none;
+	background-color: #FFFFFF;
+}
+ul.nav a:hover, ul.nav a:active/*, ul.nav a:focus*/ { /* 這會同時變更滑鼠及鍵盤導覽器的背景及文字顏色 */
+	background-color: #3D90CE;
+	color: #FFFFFF;
+}
+
+/*20170209 修改: 去除對 ul.nav a:focus 的顏色和背景設定*/
+
+/* ~~ 頁尾 ~~ */
+footer {
+	position: relative;/* 這會為 IE6 提供 hasLayout 以進行適當的清除動作 */
+	clear: both;
+	width: 940px;
+	margin-right: 10px;
+	background-color: #FFF;
+	text-align:center;	/*圖片排版*/
+}
+
+/*圖片排版*/
+footer img {
+	display: inline-block;
+	padding: 0 5px;
+}
+
+footer a:link {
+	text-decoration: none;
+}
+
+/*HTML 5 支援 – 設定新的 HTML 5 標籤以顯示區塊並使瀏覽器能夠正確顯示標籤。 */
+header, section, footer, aside, article, figure {
+	display: block;
+}
+.copyright {
+	text-align: center;
+	background-color: #2E7FB9;
+	color: #FFFFFF;
+	text-transform: capitalize;
+	font-weight: lighter;
+	letter-spacing: 2px;
+	border-top-width: 2px;
+	font-family: "Source Sans Pro";
+	padding-top: 20px;
+	width: 960px;
+	padding-bottom: 50px;
+	margin: 0 auto;
+}
+hr {
+	border:0; height:1px; background-color:#d4d4d4;
+	color:#d4d4d4	/* IE6 */
+}
+.up {
+	position:fixed;
+	top:0px;
+	margin:0 auto;
+}
+.sidebar1 ul{
+	list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #f1f1f1;
+}
+
+.sidebar1 li a {
+	display: block;
+	color: #000;
+	padding-top: 8px;
+	padding-right: 0;
+	padding-left: 10px;
+	padding-bottom: 8px;
+	text-decoration: none;
+}
+
+.sidebar1 li a.active {
+	background-color: #398FCD;
+	color: white;
+	padding-left: 10px;
+}
+
+.sidebar1 li a:hover:not(.active) {
+	background-color: #4C5962;
+	color: white;
+}
+
+/*20170209 修改: 修改 Paper Submission 按鈕的背景顏色和文字以便強調*/
+.sidebar1 li.PaperSubmit a {
+	font-weight: bold;
+	background: #F9ED3A;
+}
+
+section p{
+	color: #000000;
+	font-family: sans-serif'Helvetica Neue', Helvetica, Arial, sans-serif;
+	line-height: 20px;
+	text-align: justify;
+	margin-bottom: 15px;
+}
+
+table {
+	border: 0;
+	border-collpase: collpase;
+	width: 500px;
+	margin-left: 50px;
+	margin-top: -10px;
+} 
+.s3 {
+	color: #000;
+	font-weight: normal;
+	font-size: 12pt;
+}
+
+.video-container {
+ position: relative;
+ padding-bottom: 56.25%;
+ padding-top: 30px;
+ height: 0;
+ overflow: hidden;
+}
+.video-container iframe,
+.video-container object,
+.video-container embed {
+ position: absolute;
+ top: 0;
+ left: 10px;
+ width: 100%;
+ height: 100%;
+}
+
+#sponsers {
+	width: 960px;
+	clear: both;
+	position: relative;
+	margin: 0 30px;
+	text-align: center;
+}
+
+.sponser-img {
+	display: inline-block;
+	height: 100px;
+	border: 1px solid #e4ecf3;
+	margin-bottom: 10px;
+}
+
+.sponser-img img{
+	height: 100px;
+}
