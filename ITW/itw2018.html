@@ -1,34 +1,51 @@
 <!DOCTYPE html>
-<!-- saved from url=(0040)http://itw2017.ee.nthu.edu.tw/index.html -->
+
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
     <meta name="renderer" content="webkit">
-    <meta name="viewport"
-      content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+
     <title>ITW2018</title>
+
     <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet" type="text/css">
     <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="css/main.css" rel="stylesheet" type="text/css">
+
     <script src="js/jquery-3.1.0.min.js"></script>
     <script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
   </head>
-  <body> 
+
+  <body>
+    
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Project name</a>
+        </div>
+      </div>
+    </nav>
+
     <div class="content-wrap">
       <div id="content-container" class="container">
+        
+        <!-- 轮播图 -->
         <div class="row">
-          <!--img src="./banner-01.jpg" alt="" longdesc="images/banner-01.jpg" width="100%"-->
           <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
             <ol class="carousel-indicators">
               <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
               <li data-target="#carousel-example-generic" data-slide-to="1"></li>
               <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-              <li data-target="#carousel-example-generic" data-slide-to="3"></li>
             </ol>
-
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
               <div class="item active">
@@ -43,39 +60,16 @@
                 <img class="d-block img-fluid"
                          src="./images/carousel_3-min.jpg" alt="图片3">
               </div>
-              <div class="item">
-                <img class="d-block img-fluid"
-                         src="./images/carousel_4-min.jpg" alt="图片4">
-              </div>
             </div>
           </div>
         </div>
+
+        <!-- 导航栏标签的内容容器 -->
         <div id="detail-content" class="row">
-          <div id="content-nav">
-            <div id="nav-list" class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-              <ul class="nav list-group">
-                <li class="list-group-item active"><a class="list-title overflow-ellipsis">ITW2018<span class="pull-right"><i class="fa fa-chevron-down"></i></span></a>
-                  <ul class="sub-menu">
-                    <li class="overflow-ellipsis active"><a href="#">Welcome</a></li>
-                    <li class="overflow-ellipsis"><a href="#">Registration</a></li>
-                    <li class="overflow-ellipsis"><a href="#">Committee</a></li>
-                    <li class="overflow-ellipsis"><a href="#">Social Program</a></li>
-                  </ul>
-                </li>
-                <li class="list-group-item"><a class="list-title overflow-ellipsis">ABCDE<span class="pull-right"><i class="fa fa-chevron-down"></i></span></a>
-                  <ul class="sub-menu">
-                    <li class="overflow-ellipsis"><a href="#">Welcome</a></li>
-                    <li class="overflow-ellipsis"><a href="#">Registration</a></li>
-                    <li class="overflow-ellipsis"><a href="#">Committee</a></li>
-                    <li class="overflow-ellipsis" data-toggle="tooltip" title="Social Programewwqeqwqwqwqwqwqwqwqwqw"><a href="#">Social Programewwqeqwqwqwqwqwqwqwqwqw</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-          </div>
           <div id="content-article">
-            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+
               <article>
+
                 <section>
                   <h2>Introduction
                     <hr>
@@ -95,6 +89,7 @@
                   unforgettable experience visiting and enjoying some of the most
                   dazzling attractions in Kaohsiung. </p>
                 </section>
+
                 <section>
                   <h2>Call for Papers
                     <hr>
@@ -105,47 +100,50 @@
                   </p>
                   <ul>
                     <li>Information Theory for Content Distribution</li>
-                    <li style="list-style-type: none"> &nbsp;&nbsp;&nbsp;&nbsp; -
+                    <li> &nbsp;&nbsp;&nbsp;&nbsp; -
                       Distributed data storage</li>
-                    <li style="list-style-type: none"> &nbsp;&nbsp;&nbsp;&nbsp; -
+                    <li> &nbsp;&nbsp;&nbsp;&nbsp; -
                       Peer-to-peer network coded broadcasting</li>
-                    <li style="list-style-type: none"> &nbsp;&nbsp;&nbsp;&nbsp; - 
+                    <li> &nbsp;&nbsp;&nbsp;&nbsp; - 
                       Coded caching for wireless and wireline transmissions</li>
-                    <li style="list-style-type: none"> &nbsp;&nbsp;&nbsp;&nbsp; -
+                    <li> &nbsp;&nbsp;&nbsp;&nbsp; -
                       Delay-constrained communications</li>
                   </ul>
                   <ul>
                     <li>Information Theory and Biology</li>
-                    <li style="list-style-type: none"> &nbsp;&nbsp;&nbsp;&nbsp; -
+                    <li> &nbsp;&nbsp;&nbsp;&nbsp; -
                       Information theory and intercellular communications</li>
-                    <li style="list-style-type: none"> &nbsp;&nbsp;&nbsp;&nbsp; -
+                    <li> &nbsp;&nbsp;&nbsp;&nbsp; -
                       Information theory and neuroscience</li>
-                    <li style="list-style-type: none"> &nbsp;&nbsp;&nbsp;&nbsp; -
+                    <li> &nbsp;&nbsp;&nbsp;&nbsp; -
                       Information-theoretical analysis of biologically-inspired</li>
                   </ul>
                   <ul>
                     <li>Information Theory and Quantum Communications</li>
-                    <li style="list-style-type: none"> &nbsp;&nbsp;&nbsp;&nbsp; -
+                    <li> &nbsp;&nbsp;&nbsp;&nbsp; -
                       Quantum information</li>
-                    <li style="list-style-type: none"> &nbsp;&nbsp;&nbsp;&nbsp; -
+                    <li> &nbsp;&nbsp;&nbsp;&nbsp; -
                       Quantum computation</li>
-                    <li style="list-style-type: none"> &nbsp;&nbsp;&nbsp;&nbsp; -
+                    <li> &nbsp;&nbsp;&nbsp;&nbsp; -
                       Quantum cryptography</li>
                   </ul>
                   <ul>
                     <li>Information Theory and Coding for Memories</li>
-                    <li style="list-style-type: none"> &nbsp;&nbsp;&nbsp;&nbsp; -
+                    <li> &nbsp;&nbsp;&nbsp;&nbsp; -
                       New coding techniques for non-volatile memory channels</li>
-                    <li style="list-style-type: none"> &nbsp;&nbsp;&nbsp;&nbsp; -
+                    <li> &nbsp;&nbsp;&nbsp;&nbsp; -
                       Coding and signal processing for dense memory</li>
-                    <li style="list-style-type: none"> &nbsp;&nbsp;&nbsp;&nbsp; -
+                    <li> &nbsp;&nbsp;&nbsp;&nbsp; -
                       Multi-dimensional coding for storage channels</li>
                   </ul>
                 </section>
+
               </article>
+
             </div>
-          </div>
         </div>
+
+        <!-- 赞助商logo -->
         <div id="content-sponser" class="row">
           <section id="sponsers">
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 sponser-img">
@@ -168,13 +166,24 @@
             </div>
           </section>
         </div>
-        <footer class="row">
+
+        <!-- 网页尾部 -->
+        <!-- <footer class="row">
           <div class="copyright">
-            <p style="color:#FFF"><i class="fa fa-copyright"></i><span>2018 - ITW2018. All rights reserved</span></p>&nbsp;<br>
-            <p style="color:#FFF"><span>ITW2018 Organizing Committee</span></p>
-            </div>
-        </footer>
+            <p><i class="fa fa-copyright"></i>2018 - ITW2018. All rights reserved</p>&nbsp;<br>
+            <p>ITW2018 Organizing Committee</p>
+          </div>
+        </footer> -->
+
       </div><!--end content-container-->
+      <footer>
+          <div class="copyright">
+              <div class="container">
+                  <i class="fa fa-copyright"></i>2018 - ITW2018. All rights reserved <br>
+                  ITW2018 Organizing Committee
+             </div>
+          </div>
+      </footer>
     </div><!--end content-wrap-->
   </body>
 </html>

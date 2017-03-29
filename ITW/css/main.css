@@ -5,7 +5,7 @@ html,body {
 
 body {
 	background-size: contain;
-	background-color: #E3E3E3;
+	/*background-color: #E3E3E3;*/
 	margin: 0;
 	font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
     word-wrap: break-word;
@@ -14,10 +14,16 @@ body {
     -moz-osx-font-smoothing: grayscale;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
+
 	/*background-image: url("../background-images/web_BG_ext1.png");
 	background-repeat: no-repeat;
 	background-position: top center;
 	background-attachment: fixed;*/
+
+	/*设置全局字体*/
+	font-size: 17px;
+	/*color: #666;*/
+	color: #000;
 }
 
 ul, ol { 
@@ -34,7 +40,7 @@ h1, h2, h4, h5, h6, p {
 	margin-top: 10px;	 /* 移除上方邊界可以解決邊界可能從其包含的區塊逸出的問題。剩餘的下方邊界可以保持區塊不與接在後面的元素接觸。 */
 	padding-right: 15px;
 	padding-left: 15px; /* 將欄位間隔加入至區塊內元素的兩側 (而不是區塊元素本身)，即可不需執行任何方塊模型的計算作業。具有側邊欄位間隔的巢狀區塊也可當做替代方法。 */
-	color: #666;
+	/*color: #666;*/
 	font-family: sans-serif'Helvetica Neue', Helvetica, Arial, sans-serif;
 	line-height: 15px;
 	margin-bottom: -10px;
@@ -65,6 +71,7 @@ a:hover, a:active, a:focus {
 
 .content-wrap {
     height: auto;
+    margin-top:60px; /* 与固定导航栏保持一段边距 */
 }
 
 .content-wrap #content-container {
@@ -118,12 +125,12 @@ a:hover, a:active, a:focus {
 	padding-left: 25px;
 }
 
-#nav-list .sub-menu .active, #nav-list .sub-menu li:focus,#nav-list .sub-menu li:hover {
+#nav-list .sub-menu .active, #nav-list .sub-menu li:focus, #nav-list .sub-menu li:hover {
 	background-color: #36648B;
 	border-bottom: 1px solid #4F94CD;
 }
 
-#nav-list .sub-menu .active > a, #nav-list .sub-menu li:focus > a,#nav-list .sub-menu li:hover > a {
+#nav-list .sub-menu .active > a, #nav-list .sub-menu li:focus > a, #nav-list .sub-menu li:hover > a {
 	color: #FFF;
 }
 
@@ -146,20 +153,14 @@ header, section, footer, aside, article, figure {
 }
 
 .copyright {
+	background: #212121;
+	border-top: 1px solid #444;
 	text-align: center;
-	/*background-color: #2E7FB9;*/
-	background-color: rgb(52,73,94);
-	color: #FFFFFF;
-	text-transform: capitalize;
-	font-weight: lighter;
-	letter-spacing: 2px;
-	border-top-width: 2px;
-	font-family: "Source Sans Pro";
-	padding-top: 20px;
-	width: 100%;
-	padding-bottom: 50px;
-	margin: 0 auto;
+	padding: 20px 0;
+	line-height: 30px;
+	color: #c1c1c1;
 }
+
 hr {
 	border:0; height:1px;
 	background-color:#d4d4d4;
@@ -168,6 +169,7 @@ hr {
 
 #content-sponser {
 	margin-top: 35px;
+	margin-bottom: 35px;
 }
 
 #sponsers {
