@@ -15,27 +15,87 @@
 
     <script src="js/jquery-3.1.0.min.js"></script>
     <script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
   </head>
 
   <body>
     
+    <!-- 固定导航栏 -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Project name</a>
-        </div>
+
+       
+
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Program <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">At Glance</a></li>
+                <li><a href="#">Full Program</a></li>
+                <li><a href="#">Plenary Talks</a></li>
+                <li><a href="#">Invited Papers</a></li>
+                <li><a href="#">Tutorial Call</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Committee <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Organizing Committee</a></li>
+                <li><a href="#">Technical Program Committee</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Call for Papers <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Submission</a></li>
+                <li><a href="#">Author Guideline</a></li>
+                <li><a href="#">Important Dates</a></li>
+                <li><a href="#">CFP Flyer</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Social Events <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Welcome Reception</a></li>
+                <li><a href="#">Night Cruise</a></li>
+                <li><a href="#">Banquet</a></li>
+                <li><a href="#">Excursion</a></li>
+                <li><a href="#">Strolling at SYSU Campus</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Registration</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Venue <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Main Hall</a></li>
+                <li><a href="#">Session Theatres</a></li>
+                <li><a href="#">Guest Rooms</a></li>
+                <li><a href="#">From Airport</a></li>
+                <li><a href="#">From Train Station</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Accommodation</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Travel <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">About Guangzhou</a></li>
+                <li><a href="#">About SYSU</a></li>
+                <li><a href="#">Cantonese Cuisine</a></li>
+                <li><a href="#">Visa Information</a></li>
+                <li><a href="#">Guangzhou to Hong Kong</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+
       </div>
     </nav>
 
+
     <div class="content-wrap">
-      <div id="content-container" class="container">
+      <div class="container">
         
         <!-- 轮播图 -->
         <div class="row">
@@ -65,86 +125,79 @@
         </div>
 
         <!-- 导航栏标签的内容容器 -->
-        <div id="detail-content" class="row">
-          <div id="content-article">
+        <div class="detail-content" >
+            <article>
 
-              <article>
+              <section class="row">
+                <h2>Introduction
+                  <hr>
+                </h2>
+                <p> &nbsp;&nbsp;&nbsp;&nbsp; The 2017 IEEE Information Theory Workshop
+                will take place in Kaohsiung, Taiwan, from November 6 to 10, 2017.
+                Based at the southern tip of the island and facing the Taiwan
+                Strait, Kaohsiung is the second largest city in Taiwan and is one of
+                the major seaports in Asia. Love-River cruises, night markets,
+                delicious seafood, and day tours out into nature or to historic
+                Tainan are some of the many attractions awaiting you in Southern
+                Taiwan. Situated directly by the waterfront, the Kaohsiung
+                Exhibition Center (KEC) serves as workshop venue. It is a brand-new
+                and multi-functional facility, designed by an international,
+                pro-environment team of architects and built in a shape reminding of
+                a billowing sail. The workshop participants will have an
+                unforgettable experience visiting and enjoying some of the most
+                dazzling attractions in Kaohsiung. </p>
+              </section>
 
-                <section>
-                  <h2>Introduction
-                    <hr>
-                  </h2>
-                  <p> &nbsp;&nbsp;&nbsp;&nbsp; The 2017 IEEE Information Theory Workshop
-                  will take place in Kaohsiung, Taiwan, from November 6 to 10, 2017.
-                  Based at the southern tip of the island and facing the Taiwan
-                  Strait, Kaohsiung is the second largest city in Taiwan and is one of
-                  the major seaports in Asia. Love-River cruises, night markets,
-                  delicious seafood, and day tours out into nature or to historic
-                  Tainan are some of the many attractions awaiting you in Southern
-                  Taiwan. Situated directly by the waterfront, the Kaohsiung
-                  Exhibition Center (KEC) serves as workshop venue. It is a brand-new
-                  and multi-functional facility, designed by an international,
-                  pro-environment team of architects and built in a shape reminding of
-                  a billowing sail. The workshop participants will have an
-                  unforgettable experience visiting and enjoying some of the most
-                  dazzling attractions in Kaohsiung. </p>
-                </section>
+              <section class="row">
+                <h2>Call for Papers
+                  <hr>
+                </h2>
+                <p style="margin-bottom: 0px;">Interested authors are encouraged to submit previously unpublished
+                contributions in all areas of information theory with special
+                emphasis on the following:
+                </p>
 
-                <section>
-                  <h2>Call for Papers
-                    <hr>
-                  </h2>
-                  <p style="margin-bottom: 0px;">Interested authors are encouraged to submit previously unpublished
-                  contributions in all areas of information theory with special
-                  emphasis on the following:
-                  </p>
-                  <ul>
-                    <li>Information Theory for Content Distribution</li>
-                    <li> &nbsp;&nbsp;&nbsp;&nbsp; -
-                      Distributed data storage</li>
-                    <li> &nbsp;&nbsp;&nbsp;&nbsp; -
-                      Peer-to-peer network coded broadcasting</li>
-                    <li> &nbsp;&nbsp;&nbsp;&nbsp; - 
-                      Coded caching for wireless and wireline transmissions</li>
-                    <li> &nbsp;&nbsp;&nbsp;&nbsp; -
-                      Delay-constrained communications</li>
-                  </ul>
-                  <ul>
-                    <li>Information Theory and Biology</li>
-                    <li> &nbsp;&nbsp;&nbsp;&nbsp; -
-                      Information theory and intercellular communications</li>
-                    <li> &nbsp;&nbsp;&nbsp;&nbsp; -
-                      Information theory and neuroscience</li>
-                    <li> &nbsp;&nbsp;&nbsp;&nbsp; -
-                      Information-theoretical analysis of biologically-inspired</li>
-                  </ul>
-                  <ul>
-                    <li>Information Theory and Quantum Communications</li>
-                    <li> &nbsp;&nbsp;&nbsp;&nbsp; -
-                      Quantum information</li>
-                    <li> &nbsp;&nbsp;&nbsp;&nbsp; -
-                      Quantum computation</li>
-                    <li> &nbsp;&nbsp;&nbsp;&nbsp; -
-                      Quantum cryptography</li>
-                  </ul>
-                  <ul>
-                    <li>Information Theory and Coding for Memories</li>
-                    <li> &nbsp;&nbsp;&nbsp;&nbsp; -
-                      New coding techniques for non-volatile memory channels</li>
-                    <li> &nbsp;&nbsp;&nbsp;&nbsp; -
-                      Coding and signal processing for dense memory</li>
-                    <li> &nbsp;&nbsp;&nbsp;&nbsp; -
-                      Multi-dimensional coding for storage channels</li>
-                  </ul>
-                </section>
+                <br>
+                <ul style="list-style:none;margin:0;padding:0">
+                  <li>Information Theory for Content Distribution</li>
+                  <li>- Distributed data storage</li>
+                  <li>- Peer-to-peer network coded broadcasting</li>
+                  <li>- Coded caching for wireless and wireline transmissions</li>
+                  <li>- Delay-constrained communications</li>
+                </ul>
+                <br>
+                <ul style="list-style:none;margin:0;padding:0">
+                  <li>Information Theory for Content Distribution</li>
+                  <li>- Distributed data storage</li>
+                  <li>- Peer-to-peer network coded broadcasting</li>
+                  <li>- Coded caching for wireless and wireline transmissions</li>
+                  <li>- Delay-constrained communications</li>
+                </ul>
 
-              </article>
+              </section>
 
-            </div>
+              <section class="row">
+                <h2>Video
+                  <hr>
+                </h2>
+                <div class="col-md-4">
+                  <video style="max-width:100%;" src="movie.ogg" controls="controls"></video>
+                </div>
+                <div class="col-md-8">
+                  <p style="margin-bottom: 0px;">According to the Ministry of Foreign Affairs, citizens of the following countries can visit Taiwan without visa for a certain period.
+    Andorra, Australia, Austria, Belgium, Bulgaria, Canada, Chile, Croatia, Cyprus, Czech Republic, Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Iceland, Ireland, Israel, Italy, Japan, Republic of Korea, Latvia, Liechtenstein, Lithuania, Luxembourg, Malaysia, Malta, Monaco, the Netherlands, New Zealand, Norway, Poland, Portugal, Romania, San Marino, Singapore, Slovakia, Slovenia, Spain, Sweden, Switzerland, U.K., U.S.A. and Vatican City State.
+
+    For details or up-to-date information of visa application, you shall check the link of the Ministry of Foreign Affairs provided above. If you have to apply for a visa, this website also provides you the link to your nearest Taiwan Embassy. An invitation letter for Visa Application will be issued upon request when necessary.
+                </p>
+                </div>
+              </section>  
+
+            </article>
         </div>
 
+
         <!-- 赞助商logo -->
-        <div id="content-sponser" class="row">
+        <div id="sponser-content" class="row">
           <section id="sponsers">
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 sponser-img">
               <a href="https://www.ieee.org/index.html" target="_blank"><img src="./images/IEEE.png" alt="IEEE"></a>
@@ -166,16 +219,9 @@
             </div>
           </section>
         </div>
-
-        <!-- 网页尾部 -->
-        <!-- <footer class="row">
-          <div class="copyright">
-            <p><i class="fa fa-copyright"></i>2018 - ITW2018. All rights reserved</p>&nbsp;<br>
-            <p>ITW2018 Organizing Committee</p>
-          </div>
-        </footer> -->
-
       </div><!--end content-container-->
+
+      <!-- 网页尾部 -->
       <footer>
           <div class="copyright">
               <div class="container">
@@ -184,6 +230,7 @@
              </div>
           </div>
       </footer>
+
     </div><!--end content-wrap-->
   </body>
 </html>

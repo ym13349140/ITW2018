@@ -1,7 +1,4 @@
 @charset "utf-8";
-html,body {
-	height: 100%;
-}
 
 body {
 	background-size: contain;
@@ -21,145 +18,21 @@ body {
 	background-attachment: fixed;*/
 
 	/*设置全局字体*/
-	font-size: 17px;
+	font-size: 16px;
 	/*color: #666;*/
 	color: #000;
 }
 
-ul, ol { 
-	padding: 3px;
-	margin: 0;
-	background-color: #FFF;
-}
 
-ul li {
-	list-style: none;
-}
-
-h1, h2, h4, h5, h6, p {
-	margin-top: 10px;	 /* 移除上方邊界可以解決邊界可能從其包含的區塊逸出的問題。剩餘的下方邊界可以保持區塊不與接在後面的元素接觸。 */
-	padding-right: 15px;
-	padding-left: 15px; /* 將欄位間隔加入至區塊內元素的兩側 (而不是區塊元素本身)，即可不需執行任何方塊模型的計算作業。具有側邊欄位間隔的巢狀區塊也可當做替代方法。 */
-	/*color: #666;*/
-	font-family: sans-serif'Helvetica Neue', Helvetica, Arial, sans-serif;
-	line-height: 15px;
-	margin-bottom: -10px;
-}
-
-h3 {
-	margin-top: 10px;	 /* 移除上方邊界可以解決邊界可能從其包含的區塊逸出的問題。剩餘的下方邊界可以保持區塊不與接在後面的元素接觸。 */
-	padding-right: 15px;
-	padding-left: 15px; /* 將欄位間隔加入至區塊內元素的兩側 (而不是區塊元素本身)，即可不需執行任何方塊模型的計算作業。具有側邊欄位間隔的巢狀區塊也可當做替代方法。 */
-	color: #009;
-	font-family: sans-serif'Helvetica Neue', Helvetica, Arial, sans-serif;
-	line-height: 25px;
-	font-size: 25px;
-	margin-bottom: 10px;
-}
-
-a:link {
-	color: #42413C;
-	text-decoration: none;
-}
-a:visited {
-	text-decoration: none;
-}
-a:hover, a:active, a:focus { 
-	cursor: hand;
-	text-decoration: none;
-}
-
-.content-wrap {
-    height: auto;
-    margin-top:60px; /* 与固定导航栏保持一段边距 */
-}
-
-.content-wrap #content-container {
-    height: auto;
-    background-color: #FFF;
-}
-
-#detail-content {
-	margin-top: 20px;
-}
-
-#nav-list {
-	overflow: hidden;
-}
-
-#nav-list .list-group-item > a:hover,#nav-list .list-group-item > a:active,#nav-list .list-group-item > a:focus {
-	color: #FFF;
-	background-color: #4F94CD;
-}
-
-#nav-list .list-group-item {
-	padding: 0px;
-}
-
-#nav-list .list-group-item > a {
-	padding-left: 15px;
-	border-bottom: 1px solid #ddd;
-	font-size: 16px;
-}
-
-.list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
-    z-index: 2;
-    background-color: #4F94CD;
-    border-color: #4F94CD;
-}
-
-.list-group-item.active > a, .list-group-item.active:focus > a, .list-group-item.active:hover > a {
-    color: #FFF;
-}
-
-#nav-list .sub-menu {
-	list-style: none;
-	padding: 0px;
-}
-
-#nav-list .sub-menu li{
-	padding: 4px 0;
-}
-
-#nav-list .sub-menu li a{
-	padding-left: 25px;
-}
-
-#nav-list .sub-menu .active, #nav-list .sub-menu li:focus, #nav-list .sub-menu li:hover {
-	background-color: #36648B;
-	border-bottom: 1px solid #4F94CD;
-}
-
-#nav-list .sub-menu .active > a, #nav-list .sub-menu li:focus > a, #nav-list .sub-menu li:hover > a {
-	color: #FFF;
-}
-
-footer {
-	position: relative;
-}
-
-footer img {
-	display: inline-block;
-	padding: 0 5px;
-}
-
-footer a:link {
-	text-decoration: none;
-}
-
-/*HTML 5 支援 – 設定新的 HTML 5 標籤以顯示區塊並使瀏覽器能夠正確顯示標籤。 */
-header, section, footer, aside, article, figure {
+/*header, section, footer, aside, article, figure {
 	display: block;
-}
+}*/
 
-.copyright {
-	background: #212121;
-	border-top: 1px solid #444;
-	text-align: center;
-	padding: 20px 0;
-	line-height: 30px;
-	color: #c1c1c1;
-}
+/*.overflow-ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}*/
 
 hr {
 	border:0; height:1px;
@@ -167,61 +40,12 @@ hr {
 	color:#d4d4d4	/* IE6 */
 }
 
-#content-sponser {
-	margin-top: 35px;
-	margin-bottom: 35px;
+.content-wrap {
+    margin-top:60px; /* 与固定导航栏保持一段边距 */
 }
 
-#sponsers {
-	position: relative;
-	margin: 0 15px;
-	text-align: left;
-}
 
-.sponser-img {
-	margin-bottom: 10px;
-	-webkit-transition: all 0.3s ease;
-    -moz-transition: all 0.3s ease;
-    -o-transition: all 0.3s ease;
-    transition: all 0.3s ease;
-}
-
-.sponser-img:hover {
-    transform: translateY(-6px);
-    -webkit-transform: translateY(-6px);
-    -moz-transform: translateY(-6px);
-    box-shadow: 0 26px 40px -24px rgba(0, 36, 100, 0.3);
-    -webkit-box-shadow: 0 26px 40px -24px rgba(0, 36, 100, 0.3);
-    -moz-box-shadow: 0 26px 40px -24px rgba(0, 36, 100, 0.3);
-    -webkit-transition: all 0.3s ease;
-    -moz-transition: all 0.3s ease;
-    -o-transition: all 0.3s ease;
-    transition: all 0.3s ease;
-}
-
-.sponser-img img{
-	width: 100%;
-	border: 1px solid #e4ecf3;
-}
-
-.overflow-ellipsis {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
-
-article * {
-	line-height: 20px;
-}
-
-article section {
-	margin-bottom: 30px;
-}
-
-article section > * {
-	padding: 0 15px;
-}
-
+/* 轮播图 */
 .carousel-inner > .item {
     overflow: hidden;
 }
@@ -237,4 +61,52 @@ article section > * {
 
 #carousel-example-generic ol {
 	background-color: transparent;
+}
+
+/* 网页尾部赞助商 */
+#sponser-content {
+	margin-top: 150px;
+	margin-bottom: 40px;
+}
+
+#sponser-content #sponsers {
+	position: relative;
+	margin: 0 15px;
+}
+
+#sponser-content .sponser-img {
+	margin-bottom: 10px;
+	-webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+#sponser-content .sponser-img:hover {
+    transform: translateY(-6px);
+    -webkit-transform: translateY(-6px);
+    -moz-transform: translateY(-6px);
+    box-shadow: 0 26px 40px -24px rgba(0, 36, 100, 0.3);
+    -webkit-box-shadow: 0 26px 40px -24px rgba(0, 36, 100, 0.3);
+    -moz-box-shadow: 0 26px 40px -24px rgba(0, 36, 100, 0.3);
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+#sponser-content .sponser-img img{
+	width: 100%;
+	border: 1px solid #e4ecf3;
+}
+
+
+/* 网页尾部著作权 */
+.copyright {
+	background: #212121;
+	border-top: 1px solid #444;
+	text-align: center;
+	padding: 20px 0;
+	line-height: 30px;
+	color: #c1c1c1;
 }
