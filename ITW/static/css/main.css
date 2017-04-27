@@ -46,7 +46,7 @@ nav .dropdown-menu li:focus > a,nav .dropdown-menu li:hover > a {
 }
 
 .content-wrap {
-    /*margin-top:60px; !* 与固定导航栏保持一段边距 *!*/
+    margin-top:60px; /* 与固定导航栏保持一段边距 */
 }
 
 
