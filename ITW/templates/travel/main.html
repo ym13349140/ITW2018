@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}ITW 2018{% endblock %}
+{% block header_ext %}{% endblock %}
+
+{% block content %}
+    <div id="article-content" class="container">
+        <!-- 导航栏标签的内容容器 -->
+        <div class="detail-content">
+            {% if tag == "guangzhou" %}
+                {% include 'travel/guangzhou.html' %}
+            {% elif tag == "sysu" %}
+                {% include 'travel/sysu.html' %}
+            {% elif tag == "food" %}
+                {% include 'travel/food.html' %}
+            {% elif tag == "visa" %}
+                {% include 'travel/visa.html' %}
+            {% elif tag == "hongkong" %}
+                {% include 'travel/hongkong.html' %}
+            {% endif %}
+        </div>
+      </div>
+{% endblock %}
+

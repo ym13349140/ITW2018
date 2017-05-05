@@ -4,59 +4,16 @@
 {% block header_ext %}{% endblock %}
 
 {% block content %}
-    <div class="container">
+    <div id="article-content" class="container">
         <!-- 导航栏标签的内容容器 -->
-        <div class="detail-content" >
-            <article>
-              <section class="row">
-                <h2>Welcome to ITW 2018 in Guangzhou!
-                  <hr>
-                </h2>
-                  <p>ITW 2018 solicits and welcomes original contributions on the frontiers of information theory, coding theory and their applications, as well as the frontiers with other fields such as data science, biology, and signal processing. The conference structure consists of a daily plenary seminar followed by two parallel sessions throughout the day.</p>
-
-                  <p>Guangzhou, the third city in mainland China and known as the "Southern Capital," is renowned for the enterprising spirit and open-mindedness of its people throughout its history of over 2,000 years. The conference attendees will have an opportunity to sample a vibrant local culture and partake of some of the best Cantonese cuisine. The conference venue is the Sun Yat-Sen University Kaifeng Hotel, located within the university campus where the attendees can explore many historic architectures and artifacts, including the famous Swacey Hall, Xing Pavilion, Scholar Archway and etc.</p>
-
-                  <p>The conference includes many opportunities for informal interaction through social events, including the welcome reception on Nov. 25th, Pearl River night cruise on Nov. 26th, banquet at the Sky No. 1 Restaurant on Nov. 27th, and an excursion to Baiyun Mountain on Nov. 28th. A pleasant surprise awaits the attendees who stay at the conference through its final day.</p>
-
-                  <p>We look forward to adding to the tradition of successful ITWs in mainland China, including ITW Beijing 1988 and Chengdu 2006. With appreciation and anticipation, we look forward to welcoming you in Guangzhou.</p>
-
-                  <p>The general co-chairs,<br>
-                  Pingzhi Fan, Aria Nosratinia, Li Chen</p>
-
-              </section>
-
-              <section class="row">
-                <h2>Scope of Submission
-                  <hr>
-                </h2>
-                <p style="margin-bottom: 0">Original papers on Information and Coding Theory are encouraged for submission. Our special interests that do not limit the scope of submission include:</p>
-
-                <ul>
-                  <li>Information Theory and its Applications</li>
-                  <li>Frontiers of Coding Theory and Practice</li>
-                  <li>Boundaries between Information Theory and Data Science, Biology and Signal Processing</li>
-                  <li>Network Information Theory</li>
-                  <li>Network Coding and Distributed Storage</li>
-                  <li>Information Theoretic Security</li>
-                </ul>
-              </section>
-
-              <section class="row">
-                <h2>Important Dates
-                  <hr>
-                </h2>
-                  <p>Paper submission &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; May 18, 2018</p>
-                  <p>Acceptance notification &nbsp;&nbsp;&nbsp;	August 13, 2018</p>
-                  <p>Final paper submission &nbsp;&nbsp;&nbsp;	September 13, 2018</p>
-
-{#                <table border="1px">#}
-{#                    <tr><td>Paper submission</td><td>May 18, 2018</td></tr>#}
-{#                    <tr><td>Acceptance notification</td><td>August 13, 2018</td></tr>#}
-{#                    <tr><td>Final paper submission</td><td>September 13, 2018</td></tr>#}
-{#                </table>#}
-              </section>
-
-            </article>
+        <div class="detail-content">
+            {% if tab == "home" %}
+                {% include 'main/home.html' %}
+            {% elif tab == "committee" %}
+                {% include 'committee/committee.html' %}
+            {% elif tab == "papers" %}
+                {% include 'papers/papers.html' %}
+            {% endif %}
         </div>
       </div>
 {% endblock %}

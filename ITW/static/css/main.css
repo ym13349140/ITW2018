@@ -111,10 +111,51 @@ nav .dropdown-menu li:focus > a,nav .dropdown-menu li:hover > a {
 
 /* 网页尾部著作权 */
 .copyright {
-	background: #212121;
-	border-top: 1px solid #444;
+	/*background: #212121;*/
+    background: rgb(248,248,248);
+	border-top: 1px solid #e7e7e7;
 	text-align: center;
 	padding: 20px 0;
 	line-height: 30px;
-	color: #c1c1c1;
+	/*color: #c1c1c1;*/
+    color: #000;
+}
+
+.campus-row {
+    padding-top:20px;
+    padding-bottom: 20px;
+}
+
+.campus-row .col-md-3 {
+    padding-right:0px;
+}
+
+#sysu-scenes .row:nth-child(n+2) {
+    padding-top: 20px;
+}
+
+#sysu-scenes .row h4 {
+    padding: 0 15px;
+}
+
+#sysu-scenes .row img, #cantonese_dishes .ten-dish img {
+    border: 1px #CCCCCC solid;
+    padding: 2px;
+    margin: 5px 5px;
+    background: #FFFFFF;
+}
+
+#cantonese_dishes .ten-dish {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 49%;
+    padding: 0 10px;
+}
+
+#cantonese_dishes .dish-name {
+    margin-bottom: 20px;
 }

@@ -16,6 +16,8 @@ def create_app(config_name):
     # Register all the filter.
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
+    from .travel import travel as travel_blueprint
+    app.register_blueprint(travel_blueprint)
     # from .user import user as user_blueprint
     # app.register_blueprint(user_blueprint, url_prefix='/user')
 

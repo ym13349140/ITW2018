@@ -10,16 +10,4 @@ function hide_sub_menu(tag) {
 
 $(document).ready(function () {
 	$('.overflow-ellipsis').tooltip();
-
-	/*tab*/
-	$(".navbar-nav li > a").click(function () {
-		$(".navbar-nav li").removeClass("active");
-		$(this).parent().addClass("active");
-	});
-
-	$(".navbar-nav .dropdown-menu a").click(function () {
-		$(".navbar-nav li").removeClass("active");
-		$(this).parent().parent().parent().addClass("active");
-	});
-
 });

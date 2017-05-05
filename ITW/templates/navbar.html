@@ -4,57 +4,57 @@
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li>
-            <a href="#">Home</a>
+        <li class="{% if tab == 'home' %}active{% endif %}">
+            <a href="{{ url_for('main.index') }}" class="content-tab level-1">Home</a>
         </li>
 
-        <li class="dropdown" onmouseover="show_sub_menu('#sub-menu1');" onmouseout="hide_sub_menu('#sub-menu1');">
-          <a href="#" aria-haspopup="true" aria-expanded="false">Program <span><i class="fa fa-sm fa-caret-down" style="font-size: 14px"></i></span></a>
+        <li class="dropdown{% if tab == 'program' %} active{% endif %}" onmouseover="show_sub_menu('#sub-menu1');" onmouseout="hide_sub_menu('#sub-menu1');">
+          <a href="#" class="content-tab level-1" aria-haspopup="true" aria-expanded="false">Program <span><i class="fa fa-sm fa-caret-down" style="font-size: 14px"></i></span></a>
           <ul id="sub-menu1" class="dropdown-menu">
-            <li><a href="#">At a Glance</a></li>
-            <li><a href="#">Full Program</a></li>
-            <li><a href="#">Plenary Talks</a></li>
-            <li><a href="#">Invited Papers</a></li>
-            <li><a href="#">Tutorial Call</a></li>
-            <li><a href="#">Social Events</a></li>
+            <li><a href="#" class="content-tab level-2">At a Glance</a></li>
+            <li><a href="#" class="content-tab level-2">Full Program</a></li>
+            <li><a href="#" class="content-tab level-2">Plenary Talks</a></li>
+            <li><a href="#" class="content-tab level-2">Invited Papers</a></li>
+            <li><a href="#" class="content-tab level-2">Tutorial Call</a></li>
+            <li><a href="#" class="content-tab level-2">Social Events</a></li>
           </ul>
         </li>
 
-        <li>
-          <a href="#">Committee</a>
+        <li class="{% if tab == 'committee' %}active{% endif %}">
+          <a href="{{ url_for('main.committee') }}" class="content-tab level-1">Committee</a>
         </li>
 
-        <li>
-          <a href="#">Call for Papers</a>
+        <li class="{% if tab == 'papers' %}active{% endif %}">
+          <a href="{{ url_for('main.papers') }}" class="content-tab level-1">Call for Papers</a>
         </li>
 
-        <li>
-            <a href="#">Registration</a>
+        <li class="{% if tab == 'registration' %}active{% endif %}">
+            <a href="#" class="content-tab level-1">Registration</a>
         </li>
 
-        <li class="dropdown" onmouseover="show_sub_menu('#sub-menu5');" onmouseout="hide_sub_menu('#sub-menu5');">
-          <a href="#" aria-haspopup="true" aria-expanded="false">Venue <span><i class="fa fa-sm fa-caret-down" style="font-size: 14px"></i></span></a>
+        <li class="dropdown{% if tab == 'venue' %} active{% endif %}" onmouseover="show_sub_menu('#sub-menu5');" onmouseout="hide_sub_menu('#sub-menu5');">
+          <a href="#" class="content-tab level-1" aria-haspopup="true" aria-expanded="false">Venue <span><i class="fa fa-sm fa-caret-down" style="font-size: 14px"></i></span></a>
           <ul id="sub-menu5" class="dropdown-menu">
-            <li><a href="#">Main Hall</a></li>
-            <li><a href="#">Session Theatres</a></li>
-            <li><a href="#">Guest Rooms</a></li>
-            <li><a href="#">From Airport</a></li>
-            <li><a href="#">From Train Station</a></li>
+            <li><a href="#" class="content-tab level-2">Main Hall</a></li>
+            <li><a href="#" class="content-tab level-2">Session Theatres</a></li>
+            <li><a href="#" class="content-tab level-2">Guest Rooms</a></li>
+            <li><a href="#" class="content-tab level-2">From Airport</a></li>
+            <li><a href="#" class="content-tab level-2">From Train Station</a></li>
           </ul>
         </li>
 
-        <li>
-            <a href="#">Accommodation</a>
+        <li class="{% if tab == 'accommodation' %}active{% endif %}">
+            <a href="#" class="content-tab level-1">Accommodation</a>
         </li>
 
-        <li class="dropdown" onmouseover="show_sub_menu('#sub-menu6');" onmouseout="hide_sub_menu('#sub-menu6');">
-          <a href="#" aria-haspopup="true" aria-expanded="false">Travel <span><i class="fa fa-sm fa-caret-down" style="font-size: 14px"></i></span></a>
+        <li class="dropdown{% if tab == 'travel' %} active{% endif %}" onmouseover="show_sub_menu('#sub-menu6');" onmouseout="hide_sub_menu('#sub-menu6');">
+          <a href="{{ url_for('travel.index') }}" class="content-tab level-1" aria-haspopup="true" aria-expanded="false">Travel <span><i class="fa fa-sm fa-caret-down" style="font-size: 14px"></i></span></a>
           <ul id="sub-menu6" class="dropdown-menu">
-            <li><a href="#">About Guangzhou</a></li>
-            <li><a href="#">About SYSU</a></li>
-            <li><a href="#">Cantonese Cuisine</a></li>
-            <li><a href="#">Visa Information</a></li>
-            <li><a href="#">Guangzhou to Hong Kong</a></li>
+            <li><a href="{{ url_for('travel.index') }}" class="content-tab level-2">About Guangzhou</a></li>
+            <li><a href="{{ url_for('travel.sysu') }}" class="content-tab level-2">About SYSU</a></li>
+            <li><a href="{{ url_for('travel.food') }}" class="content-tab level-2">Cantonese Cuisine</a></li>
+            <li><a href="{{ url_for('travel.visa') }}" class="content-tab level-2">Visa Information</a></li>
+            <li><a href="{{ url_for('travel.hongkong') }}" class="content-tab level-2">Guangzhou to Hong Kong</a></li>
           </ul>
         </li>
 {#        <li><a href="#">Contact Us</a></li>#}
