@@ -11,12 +11,11 @@
         <li class="dropdown{% if tab == 'program' %} active{% endif %}" onmouseover="show_sub_menu('#sub-menu1');" onmouseout="hide_sub_menu('#sub-menu1');">
           <a href="#" class="content-tab level-1" aria-haspopup="true" aria-expanded="false">Program <span><i class="fa fa-sm fa-caret-down" style="font-size: 14px"></i></span></a>
           <ul id="sub-menu1" class="dropdown-menu">
-            <li><a href="#" class="content-tab level-2">At a Glance</a></li>
-            <li><a href="#" class="content-tab level-2">Full Program</a></li>
-            <li><a href="#" class="content-tab level-2">Plenary Talks</a></li>
-            <li><a href="#" class="content-tab level-2">Invited Papers</a></li>
-            <li><a href="#" class="content-tab level-2">Tutorial Call</a></li>
-            <li><a href="#" class="content-tab level-2">Social Events</a></li>
+            <li><a href="{{ url_for('program.glance') }}" class="content-tab level-2">At a Glance</a></li>
+            <li><a href="{{ url_for('program.full_program') }}" class="content-tab level-2">Full Program</a></li>
+            <li><a href="{{ url_for('program.invited_papers') }}" class="content-tab level-2">Invited Papers</a></li>
+            <li><a href="{{ url_for('program.tutorial_call') }}" class="content-tab level-2">Tutorial Call</a></li>
+            <li><a href="{{ url_for('program.social_events') }}" class="content-tab level-2">Social Events</a></li>
           </ul>
         </li>
 

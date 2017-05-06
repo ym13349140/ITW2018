@@ -6,6 +6,7 @@ from config import config
 
 db = SQLAlchemy()
 
+
 def create_app(config_name):
     app = Flask(__name__)
     app.config.from_object(config[config_name])
@@ -18,8 +19,8 @@ def create_app(config_name):
     app.register_blueprint(main_blueprint)
     from .travel import travel as travel_blueprint
     app.register_blueprint(travel_blueprint)
-    # from .user import user as user_blueprint
-    # app.register_blueprint(user_blueprint, url_prefix='/user')
+    from .program import program as program_blueprint
+    app.register_blueprint(program_blueprint, url_prefix='/program')
 
     return app
 
