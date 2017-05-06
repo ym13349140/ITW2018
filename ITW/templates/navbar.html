@@ -31,15 +31,8 @@
             <a href="#" class="content-tab level-1">Registration</a>
         </li>
 
-        <li class="dropdown{% if tab == 'venue' %} active{% endif %}" onmouseover="show_sub_menu('#sub-menu5');" onmouseout="hide_sub_menu('#sub-menu5');">
-          <a href="#" class="content-tab level-1" aria-haspopup="true" aria-expanded="false">Venue <span><i class="fa fa-sm fa-caret-down" style="font-size: 14px"></i></span></a>
-          <ul id="sub-menu5" class="dropdown-menu">
-            <li><a href="#" class="content-tab level-2">Main Hall</a></li>
-            <li><a href="#" class="content-tab level-2">Session Theatres</a></li>
-            <li><a href="#" class="content-tab level-2">Guest Rooms</a></li>
-            <li><a href="#" class="content-tab level-2">From Airport</a></li>
-            <li><a href="#" class="content-tab level-2">From Train Station</a></li>
-          </ul>
+        <li class="{% if tab == 'venue' %}active{% endif %}">
+            <a href="{{ url_for('main.venue') }}" class="content-tab level-1">Venue</a>
         </li>
 
         <li class="{% if tab == 'accommodation' %}active{% endif %}">

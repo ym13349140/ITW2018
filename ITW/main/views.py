@@ -20,3 +20,9 @@ def committee():
 def papers():
         return render_template("main/main.html",
                                tab='papers')
+
+
+@main.route('/venue')
+def venue():
+        return render_template("main/main.html",
+                               tab='venue')
