@@ -4,35 +4,35 @@ from . import travel
 from flask import render_template, jsonify, request
 
 
-@travel.route('/travle/about_GuangZhou')
+@travel.route('/travel/about_GuangZhou')
 def index():
     return render_template("travel/main.html",
                            tab="travel",
                            tag="guangzhou")
 
 
-@travel.route('/travle/about_SYSU')
+@travel.route('/travel/about_SYSU')
 def sysu():
         return render_template("travel/main.html",
                                tab="travel",
                                tag='sysu')
 
 
-@travel.route('/travle/Cantonese_Cuisine')
+@travel.route('/travel/Cantonese_Cuisine')
 def food():
         return render_template("travel/main.html",
                                tab="travel",
                                tag='food')
 
 
-@travel.route('/travle/Visa_Information')
+@travel.route('/travel/Visa_Information')
 def visa():
         return render_template("travel/main.html",
                                tab="travel",
                                tag='visa')
 
 
-@travel.route('/travle/Hong_Kong')
+@travel.route('/travel/Hong_Kong')
 def hongkong():
         return render_template("travel/main.html",
                                tab="travel",

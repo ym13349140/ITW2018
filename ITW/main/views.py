@@ -26,3 +26,15 @@ def papers():
 def venue():
         return render_template("main/main.html",
                                tab='venue')
+
+
+@main.route('/registration')
+def registration():
+        return render_template("main/main.html",
+                               tab='registration')
+
+
+@main.route('/accommodation')
+def accommodation():
+        return render_template("main/main.html",
+                               tab='accommodation')

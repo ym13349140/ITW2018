@@ -28,7 +28,7 @@
         </li>
 
         <li class="{% if tab == 'registration' %}active{% endif %}">
-            <a href="#" class="content-tab level-1">Registration</a>
+            <a href="{{ url_for('main.registration') }}" class="content-tab level-1">Registration</a>
         </li>
 
         <li class="{% if tab == 'venue' %}active{% endif %}">
@@ -36,7 +36,7 @@
         </li>
 
         <li class="{% if tab == 'accommodation' %}active{% endif %}">
-            <a href="#" class="content-tab level-1">Accommodation</a>
+            <a href="{{ url_for('main.accommodation') }}" class="content-tab level-1">Accommodation</a>
         </li>
 
         <li class="dropdown{% if tab == 'travel' %} active{% endif %}" onmouseover="show_sub_menu('#sub-menu6');" onmouseout="hide_sub_menu('#sub-menu6');">
