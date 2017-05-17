@@ -37,3 +37,10 @@ def social_events():
     return render_template("program/main.html",
                            tab="program",
                            tag="social_events")
+
+
+@program.route('/plenary_talks')
+def plenary_talks():
+    return render_template("program/main.html",
+                           tab="program",
+                           tag="plenary_talks")
