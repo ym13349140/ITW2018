@@ -1,5 +1,10 @@
 @charset "utf-8";
 
+html{
+
+}
+
+
 body {
 	background-size: contain;
 	/*background-color: #E3E3E3;*/
@@ -12,20 +17,19 @@ body {
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
 
-	/*background-image: url("../background-images/web_BG_ext1.png");
-	background-repeat: no-repeat;
-	background-position: top center;
-	background-attachment: fixed;*/
+    /*background-image: url("../images/bg.jpg");*/
+	/*background-repeat: repeat;*/
+	/*background-position: top center;*/
+	/*background-attachment: fixed;*/
+    background-color: #FFFFFF;
+
 
 	/*设置全局字体*/
-	font-size: 16px;
+	font-size: 15px;
 	/*color: #666;*/
 	color: #000;
 }
 
-p{
-    font-size: 15px;
-}
 
 /*header, section, footer, aside, article, figure {
 	display: block;
@@ -52,8 +56,14 @@ nav .dropdown-menu li:focus > a,nav .dropdown-menu li:hover > a {
 
 }
 
+.content-wrap section{
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
 .container{
-    max-width: 900px;
+    background-color: #FFFFFF;
+    width: 900px;
 }
 
 /* 轮播图 */
