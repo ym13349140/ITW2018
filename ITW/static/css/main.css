@@ -162,3 +162,60 @@ nav .dropdown-menu li:focus > a,nav .dropdown-menu li:hover > a {
 #cantonese_dishes .dish-name {
     margin-bottom: 20px;
 }
+
+#at-glance-box {
+    margin-left: -80px;
+}
+
+#time-line {
+    text-align: right;
+    text-decoration: underline;
+}
+
+.table {
+  border: 2px solid rgba(122,197,205,0.5);
+}
+.table-bordered > thead > tr > th,
+.table-bordered > tbody > tr > th,
+.table-bordered > tfoot > tr > th,
+.table-bordered > thead > tr > td,
+.table-bordered > tbody > tr > td,
+.table-bordered > tfoot > tr > td {
+   border: 2px solid rgba(122,197,205,0.5);
+}
+
+#at-glance th, #at-glance td {
+    text-align: center;
+    font-size: 14px;
+}
+
+.time-box {
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    border: 2px solid #ccc;
+}
+
+#time-table > p .time-box {
+    vertical-align: middle;
+}
+
+#time-table > p .box-left {
+    margin-right: 10px;
+}
+
+.box-left {
+    margin-right: 20px;
+}
+
+.box-1 {
+    background: #E7F3F4;
+}
+
+.box-2 {
+    background: #0070C0;
+}
+
+#at-glance .p-bottom {
+    margin-bottom: 0px;
+}
