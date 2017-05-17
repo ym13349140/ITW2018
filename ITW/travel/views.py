@@ -18,13 +18,6 @@ def sysu():
                                tag='sysu')
 
 
-@travel.route('/travel/Cantonese_Cuisine')
-def food():
-        return render_template("travel/main.html",
-                               tab="travel",
-                               tag='food')
-
-
 @travel.route('/travel/Visa_Information')
 def visa():
         return render_template("travel/main.html",
