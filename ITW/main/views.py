@@ -29,8 +29,8 @@ def venue():
 
 
 @main.route('/show_driver')
-def show_driver(content):
-        return content
+def show_driver():
+        return request.args.get('content')
 
 
 @main.route('/registration')
