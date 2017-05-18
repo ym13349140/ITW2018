@@ -1,28 +1,26 @@
 <article>
-    <section class="row">
-        <h1>Venue
-            <hr>
-        </h1>
+    <section class="row" style="margin-top: 20px;">
         <p>
-            The conference will take place in Sun Yat-sen Kaifeng Hotel which is a four-star standard boutique hotel of 296 guest rooms. It locates within the university campus that hosts many historic architectures and artifacts (<a href="{{ url_for("travel.sysu") }}">University map</a>). It is also on the Pearl River bank with most of its guestrooms enjoying a panoramic view of the city’s modern presentation.
+            The conference will take place in <a href="http://www.syskaifeng.com/en_US/index.html">Sun Yat-sen Kaifeng Hotel</a> which is a four-star standard boutique hotel of 296 guest rooms. It locates within the university campus that hosts many historic architectures and artifacts (<a href="{{ url_for("travel.sysu") }}">University map</a>). It is also on the Pearl River bank with most of its guestrooms enjoying a panoramic view of the city’s modern presentation.
         </p>
     </section>
 
-    <section class="row">
-        <div>
-            <div class="col-lg-6 col-md-6 col-sm-6" style="margin-bottom: 20px;">
-                <div><img src="{{ url_for('static',filename='images/venue/1.jpg') }}" width="100%"></div>
-                <div class="text-center"><h4>The Main Hall</h4></div>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-6" style="margin-bottom: 50px;">
-                <div><img src="{{ url_for('static',filename='images/venue/2.jpg') }}" width="100%"></div>
-                <div class="text-center"><h4>Section Theatres</h4></div>
-            </div>
-        </div>
+    <section class="row" style="margin-top: 20px;">
         <div>
             <div class="col-lg-6 col-md-6 col-sm-6">
                 <div><img src="{{ url_for('static',filename='images/venue/3.jpg') }}" width="100%"></div>
                 <div class="text-center"><h4>Sun Yat-sen Kaifeng Hotel</h4></div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6" style="margin-bottom: 20px; ">
+                <div><img src="{{ url_for('static',filename='images/venue/1.jpg') }}" width="100%"></div>
+                <div class="text-center"><h4>The Main Hall</h4></div>
+            </div>
+
+        </div>
+        <div>
+            <div class="col-lg-6 col-md-6 col-sm-6" style="margin-bottom: 30px;">
+                <div><img src="{{ url_for('static',filename='images/venue/2.jpg') }}" width="100%"></div>
+                <div class="text-center"><h4>Section Theatres</h4></div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6">
                 <div><img src="{{ url_for('static',filename='images/venue/4.jpg') }}" width="100%"></div>
@@ -32,23 +30,20 @@
     </section>
 
     <section class="row">
-        <h2>From Baiyun International Airport
+        <h4>From Baiyun International Airport
             <hr>
-        </h2>
-        <div class="col-md-12">
-            <img style="width: 100%;" src="{{ url_for('static',filename='images/venue/5.jpg') }}">
-        </div>
+        </h4>
+        <p>By Taxi: cost ~ 200 RMB, <a href="{{ url_for('main.show_driver',content='海珠区中山大学南校区，中大凯丰酒店') }}">show the driver</a></p>
+        <p>By Metro: cost 12 RMB, </p>
         <br>
     </section>
 
     <section class="row">
-        <h2>From Guangzhou East Train Station
+        <h4>From Guangzhou East Train Station
             <hr>
-        </h2>
-        <div class="col-md-12">
-            <img style="width: 100%;" src="{{ url_for('static',filename='images/venue/6.jpg') }}">
-        </div>
-        <br>
+        </h4>
+        <p>By Taxi: cost ~ 200 RMB, <a href="{{ url_for('main.show_driver',content='海珠区中山大学南校区，中大凯丰酒店') }}">show the driver</a></p>
+        <p>By Metro: cost 12 RMB, </p>
     </section>
 </article>
 

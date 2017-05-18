@@ -28,6 +28,11 @@ def venue():
                                tab='venue')
 
 
+@main.route('/show_driver')
+def show_driver(content):
+        return content
+
+
 @main.route('/registration')
 def registration():
         return render_template("main/main.html",
