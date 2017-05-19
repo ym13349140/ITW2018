@@ -17,12 +17,10 @@ body {
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
 
-    /*background-image: url("../images/bg.jpg");*/
-	/*background-repeat: repeat;*/
+    background-image: url("../images/bg2.jpg");
+	background-repeat: repeat;
 	/*background-position: top center;*/
-	/*background-attachment: fixed;*/
-    background-color: #FFFFFF;
-
+	background-attachment: fixed;
 
 	/*设置全局字体*/
 	font-size: 15px;
@@ -52,11 +50,16 @@ nav .dropdown-menu li:focus > a,nav .dropdown-menu li:hover > a {
 	color: #FFF;
 }
 
+#article-content{
+    background-color: #FFFFFF;
+}
+
 .content-wrap {
     margin-top: 10px;
 }
 
 .content-wrap section{
+    margin-top: 10px;
     padding-right: 10px;
     padding-left: 10px;
 }
