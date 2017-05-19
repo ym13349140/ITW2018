@@ -17,11 +17,12 @@ body {
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
 
-    background-image: url("../images/bg2.jpg");
-	background-repeat: no-repeat;
-    background-size: 100% 100%;
-	/*background-position: top center;*/
-	background-attachment: fixed;
+    background-color: #E7E7E7;
+    /*background-image: url("../images/bg1.jpg");*/
+	/*background-repeat: no-repeat;*/
+    /*background-size: 100% 100%;*/
+	/*!*background-position: top center;*!*/
+	/*background-attachment: fixed;*/
 
 	/*设置全局字体*/
 	font-size: 15px;
@@ -222,7 +223,7 @@ nav .dropdown-menu li:focus > a,nav .dropdown-menu li:hover > a {
 }
 
 .box-1 {
-    background: #E7F3F4;
+    background:#FFFF00; /*#E7F3F4;*/
 }
 
 .box-2 {
