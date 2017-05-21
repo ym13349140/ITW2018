@@ -138,6 +138,10 @@ nav .dropdown-menu li:focus > a,nav .dropdown-menu li:hover > a {
     color: #000;
 }
 
+#scope-of-submission li{
+    list-style: square;
+}
+
 .campus-row {
     padding-top:20px;
     padding-bottom: 20px;
@@ -186,16 +190,17 @@ nav .dropdown-menu li:focus > a,nav .dropdown-menu li:hover > a {
     text-decoration: underline;
 }
 
-.table {
-  border: 2px solid rgba(122,197,205,0.5);
+table#at-glance {
+  border: 2px solid #CCC;
 }
+
 .table-bordered > thead > tr > th,
 .table-bordered > tbody > tr > th,
 .table-bordered > tfoot > tr > th,
 .table-bordered > thead > tr > td,
 .table-bordered > tbody > tr > td,
 .table-bordered > tfoot > tr > td {
-   border: 2px solid rgba(122,197,205,0.5);
+   border: 2px solid #CCC;
 }
 
 #at-glance th, #at-glance td {
