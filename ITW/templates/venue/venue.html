@@ -33,21 +33,24 @@
         <h4>From Baiyun International Airport
             <hr>
         </h4>
-        <p>1) By Taxi: cost ~ 200 RMB, time ~ 50 mins, <a href="{{ url_for('main.show_driver',content='广州市海珠区滨江东路中大北门中大凯丰酒店（中大学人馆）') }}">show the driver</a></p>
+        <p>1) By Taxi: cost ~ 200 RMB, time ~ 50 mins, <a href="{{ url_for('main.show_driver') }}" target="_blank">show the driver</a></p>
+        <p>2) By Airport Express Shuttle: cost ~ 20 RMB, time ~ 1 hr. Line 6(To <i>New Pearl River International Hotel</i>) </p>
         <p>3) By Metro: cost 12 RMB, time ~ 1 hr 30 mins</p>
-        <p>Note that Sun Yat-sen University metro station is 2km away from the venue. You are recommended to further take a taxi from the station.</p>
         <div><img src="{{ url_for('static', filename='images/venue/route1.png') }}" width="90%"></div>
         <br>
+        <p>Note that Sun Yat-sen University metro station is 2km away from the venue. You are recommended to further take a taxi from the station.</p>
+
     </section>
 
     <section class="row">
         <h4>From Guangzhou East Train Station
             <hr>
         </h4>
-        <p>1) By Taxi: cost ~ 40 RMB, time ~ 25 mins, <a href="{{ url_for('main.show_driver',content='广州市海珠区滨江东路中大北门中大凯丰酒店（中大学人馆）') }}">show the driver</a></p>
+        <p>1) By Taxi: cost ~ 40 RMB, time ~ 25 mins, <a href="{{ url_for('main.show_driver') }} " target="_blank">show the driver</a></p>
         <p>2) By Metro: cost 4 RMB, time ~ 23 mins</p>
+        <div><img src="{{ url_for('static', filename='images/venue/route2.png') }}"  width="100%"></div>
         <p>Note that Sun Yat-sen University metro station is 2km away from the venue. You are recommended to further take a taxi from the station.</p>
-        <div><img src="{{ url_for('static', filename='images/venue/route2.png') }}" width="100%"></div>
+
     </section>
 </article>
 

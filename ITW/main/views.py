@@ -30,7 +30,7 @@ def venue():
 
 @main.route('/show_driver')
 def show_driver():
-        return request.args.get('content')
+        return render_template("venue/show_driver.html")
 
 
 @main.route('/registration')
