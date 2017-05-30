@@ -12,13 +12,13 @@
 
 把项目文件上传到服务器上，并安装好数据库（目前没有用到数据库服务，因此没有安装）、虚拟环境 virtualenv 以及服务守护程序 supervisord。安装的具体细节参考我以前所写的 [Linux 服务器部署](https://github.com/Zouzhp3/Learn/blob/master/Flask/ch4%20Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2.md)。
 
-本项目的路径是`/home/netlab513/ITW2018`，虚拟环境目录在`/home/netlab513/ITW2018/venv`中。当需要在服务器上用命令行运行服务时，需要先激活虚拟环境，然后再运行。
+本项目的路径是`/home/{{账户名}}/ITW2018`，虚拟环境目录在`/home/{{账户名}}/ITW2018/venv`中。当需要在服务器上用命令行运行服务时，需要先激活虚拟环境，然后再运行。
 
 本项目所属的 supervisord 脚本的路径是`/etc/supervisord.d/ITW2018.ini`，内容如下：
 ```
 [program:ITW2018] 
-command=/home/netlab513/ITW2018/venv/bin/python manage.py #runserver -h 0.0.0.0 -p 80
-directory=/home/netlab513/ITW2018
+command=/home/{{账户名}}/ITW2018/venv/bin/python manage.py #runserver -h 0.0.0.0 -p 80
+directory=/home/{{账户名}}/ITW2018
 user=root
 ```
 
