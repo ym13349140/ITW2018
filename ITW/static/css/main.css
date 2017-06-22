@@ -238,3 +238,11 @@ table#at-glance {
 #at-glance .p-bottom {
     margin-bottom: 0px;
 }
+
+#multi_list ul{
+    list-style: none;
+}
+
+#multi_list ul li{
+    margin-top: 5px;
+}
