@@ -30,6 +30,14 @@ body {
 	color: #000;
 }
 
+a:link,a:active {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
 
 /*header, section, footer, aside, article, figure {
 	display: block;
@@ -67,7 +75,7 @@ nav .dropdown-menu li:focus > a,nav .dropdown-menu li:hover > a {
 }
 
 .container{
-    width: 900px;
+    width: 940px;
 }
 
 /* 轮播图 */

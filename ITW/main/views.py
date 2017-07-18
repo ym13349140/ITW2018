@@ -43,3 +43,9 @@ def registration():
 def accommodation():
         return render_template("main/main.html",
                                tab='accommodation')
+
+
+@main.route('/ISTC')
+def istc():
+    return render_template("main/main.html",
+                           tab="istc")

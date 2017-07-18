@@ -17,7 +17,7 @@
             <li><a href="{{ url_for('program.invited_papers') }}" class="content-tab level-2">Invited Papers</a></li>
             <li><a href="{{ url_for('program.tutorial_call') }}" class="content-tab level-2">Tutorial Call</a></li>
             <li><a href="{{ url_for('program.social_events') }}" class="content-tab level-2">Social Events</a></li>
-            </ul>
+          </ul>
         </li>
 
         <li class="{% if tab == 'committee' %}active{% endif %}">
@@ -48,6 +48,10 @@
             <li><a href="{{ url_for('travel.visa') }}" class="content-tab level-2">Visa Information</a></li>
             <li><a href="{{ url_for('travel.hongkong') }}" class="content-tab level-2">Guangzhou ←→ Hong Kong</a></li>
           </ul>
+        </li>
+
+        <li class="{% if tab == 'istc' %}active{% endif %}">
+            <a href="{{ url_for('main.istc') }}" class="content-tab level-1">ISTC 2018</a>
         </li>
       </ul>
     </div>
