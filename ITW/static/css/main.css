@@ -75,7 +75,13 @@ nav .dropdown-menu li:focus > a,nav .dropdown-menu li:hover > a {
 }
 
 .container{
-    width: 940px;
+    width: 900px;
+}
+
+.navbar .container {
+    width: 950px;
+    margin: 0 auto;
+    text-align: center;
 }
 
 /* 轮播图 */
