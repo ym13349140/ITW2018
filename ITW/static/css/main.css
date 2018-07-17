@@ -260,3 +260,49 @@ table#at-glance {
 #multi_list ul li{
     margin-top: 5px;
 }
+
+.short-content {
+    font-size: 14px;
+}
+
+.complete-content {
+    font-size: 14px;
+    display: none;
+}
+
+.function-span {
+    color: #337ab7;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.function-span:hover,
+.function-span:active {
+    font-weight: 600;
+}
+
+.abstract-line {
+    line-height: 30px;
+}
+
+.paper-block {
+    margin-bottom: 35px;
+}
+
+.paper-block .block-header {
+    border-bottom: 2px solid #888888;
+    border-top: 2px solid #888888;
+}
+
+.paper-block .paper-title {
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+.paper-block .author-list {
+    color: #333333;
+}
+
+.block-paper-list {
+    margin-bottom: 20px;
+}

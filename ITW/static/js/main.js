@@ -10,4 +10,13 @@ function hide_sub_menu(tag) {
 
 $(document).ready(function () {
 	$('.overflow-ellipsis').tooltip();
+	$('.read-more').click(function() {
+		$(this).parent().parent().hide();
+		$(this).parent().parent().next().show();
+	});
+	$('.read-less').click(function() {
+		$(this).parent().parent().hide();
+		$(this).parent().parent().prev().show();
+	});
 });
+
