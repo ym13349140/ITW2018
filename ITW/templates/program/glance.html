@@ -3,7 +3,7 @@
         <h4>Program at a Glance
             <hr>
         </h4>
-        <div id="at-glance-box">
+        <div id="at-glance-box" class="hidden-xs">
             <div id="time-line" class="col-lg-2 col-md-2 col-sm-2">
                 <p style="margin-top: 70px;">8:30am</p>
                 <p style="margin-top: 85px;">1:10pm</p>
@@ -100,6 +100,9 @@
             </table>
                 <p><span class="time-box box-1 box-left"></span><span style="margin-right: 30px">4 papers / section</span><span class="time-box box-2 box-left"></span><span>5 papers / section</span></p>
             </div>
+        </div>
+        <div class="visible-xs">
+            <img class="time-table-img" src="{{ url_for('static', filename='images/program/glance/time-table.png') }}" alt="会议时间一览表">
         </div>
         <br>
         <p style="margin-left: 10px;">Note: Coffee and Cake are provided between sections.</p>
