@@ -5,18 +5,34 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li class="{% if tab == 'home' %}active{% endif %}">
-            <a href="{{ url_for('main.index') }}" class="content-tab level-1">Home</a>
+          <a href="{{ url_for('main.index') }}" class="content-tab level-1">Home</a>
         </li>
 
         <li class="dropdown{% if tab == 'program' %} active{% endif %}" onmouseover="show_sub_menu('#sub-menu1');" onmouseout="hide_sub_menu('#sub-menu1');">
-          <a href="#" class="content-tab level-1" aria-haspopup="true" aria-expanded="false">Program <span><i class="fa fa-sm fa-caret-down" style="font-size: 14px"></i></span></a>
+          <a href="#" class="content-tab level-1" aria-haspopup="true" aria-expanded="false">Program
+            <span>
+              <i class="fa fa-sm fa-caret-down" style="font-size: 14px"></i>
+            </span>
+          </a>
           <ul id="sub-menu1" class="dropdown-menu">
-            <li><a href="{{ url_for('program.glance') }}" class="content-tab level-2">At a Glance</a></li>
-            <li><a href="{{ url_for('program.full_program') }}" class="content-tab level-2">Full Program</a></li>
-            <li><a href="{{ url_for('program.plenary_talks') }}" class="content-tab level-2">Plenary Talks</a></li>
-            <li><a href="{{ url_for('program.invited_papers') }}" class="content-tab level-2">Invited Papers</a></li>
-            <li><a href="{{ url_for('program.tutorial_call') }}" class="content-tab level-2">Tutorials</a></li>
-            <li><a href="{{ url_for('program.social_events') }}" class="content-tab level-2">Social Events</a></li>
+            <li>
+              <a href="{{ url_for('program.glance') }}" class="content-tab level-2">At a Glance</a>
+            </li>
+            <li>
+              <a href="{{ url_for('program.full_program') }}" class="content-tab level-2">Full Program</a>
+            </li>
+            <li>
+              <a href="{{ url_for('program.plenary_talks') }}" class="content-tab level-2">Plenary Talks</a>
+            </li>
+            <li>
+              <a href="{{ url_for('program.invited_papers') }}" class="content-tab level-2">Invited Papers</a>
+            </li>
+            <li>
+              <a href="{{ url_for('program.tutorial_call') }}" class="content-tab level-2">Tutorials</a>
+            </li>
+            <li>
+              <a href="{{ url_for('program.social_events') }}" class="content-tab level-2">Social Events</a>
+            </li>
           </ul>
         </li>
 
@@ -28,97 +44,164 @@
           <a href="{{ url_for('main.papers') }}" class="content-tab level-1">Call for Papers</a>
         </li>
 
-        <li class="{% if tab == 'registration' %}active{% endif %}">
-            <a href="{{ url_for('main.registration') }}" class="content-tab level-1">Registration</a>
+        <li class="{% if tab == 'registration' %}active{% endif %}" onmouseover="show_sub_menu('#sub-menu2');" onmouseout="hide_sub_menu('#sub-menu2');">
+          <a href="#" class="content-tab level-1" aria-haspopup="true" aria-expanded="false">Registration
+            <span>
+              <i class="fa fa-sm fa-caret-down" style="font-size: 14px"></i>
+            </span>
+            <ul id="sub-menu2" class="dropdown-menu">
+              <li>
+                <a href="{{ url_for('registration.registrations') }}" class="content-tab level-2">Registration</a>
+              </li>
+              <li>
+                <a href="{{ url_for('registration.student_travel_grant') }}" class="content-tab level-2">Student Travel Grant</a>
+              </li>
+            </ul>
+          </a>
         </li>
 
         <li class="{% if tab == 'venue' %}active{% endif %}">
-            <a href="{{ url_for('main.venue') }}" class="content-tab level-1">Venue</a>
+          <a href="{{ url_for('main.venue') }}" class="content-tab level-1">Venue</a>
         </li>
 
         <li class="{% if tab == 'accommodation' %}active{% endif %}">
-            <a href="{{ url_for('main.accommodation') }}" class="content-tab level-1">Accommodation</a>
+          <a href="{{ url_for('main.accommodation') }}" class="content-tab level-1">Accommodation</a>
         </li>
 
         <li class="dropdown{% if tab == 'travel' %} active{% endif %}" onmouseover="show_sub_menu('#sub-menu6');" onmouseout="hide_sub_menu('#sub-menu6');">
-          <a href="{{ url_for('travel.index') }}" class="content-tab level-1" aria-haspopup="true" aria-expanded="false">Travel <span><i class="fa fa-sm fa-caret-down" style="font-size: 14px"></i></span></a>
+          <a href="{{ url_for('travel.index') }}" class="content-tab level-1" aria-haspopup="true" aria-expanded="false">Travel
+            <span>
+              <i class="fa fa-sm fa-caret-down" style="font-size: 14px"></i>
+            </span>
+          </a>
           <ul id="sub-menu6" class="dropdown-menu">
-            <li><a href="{{ url_for('travel.index') }}" class="content-tab level-2">About Guangzhou</a></li>
-            <li><a href="{{ url_for('travel.sysu') }}" class="content-tab level-2">About SYSU</a></li>
-            <li><a href="{{ url_for('travel.visa') }}" class="content-tab level-2">Visa Information</a></li>
-            <li><a href="{{ url_for('travel.hongkong') }}" class="content-tab level-2">Guangzhou ←→ Hong Kong</a></li>
+            <li>
+              <a href="{{ url_for('travel.index') }}" class="content-tab level-2">About Guangzhou</a>
+            </li>
+            <li>
+              <a href="{{ url_for('travel.sysu') }}" class="content-tab level-2">About SYSU</a>
+            </li>
+            <li>
+              <a href="{{ url_for('travel.visa') }}" class="content-tab level-2">Visa Information</a>
+            </li>
+            <li>
+              <a href="{{ url_for('travel.hongkong') }}" class="content-tab level-2">Guangzhou ←→ Hong Kong</a>
+            </li>
           </ul>
         </li>
 
         <li class="{% if tab == 'istc' %}active{% endif %}">
-            <a href="{{ url_for('main.istc') }}" class="content-tab level-1">ISTC 2018</a>
+          <a href="{{ url_for('main.istc') }}" class="content-tab level-1">ISTC 2018</a>
         </li>
       </ul>
     </div>
+
+    {# 手机端显示 #}
     <div id="navbar" class="navbar-mobile visible-xs">
-        <div class="dropdown" style="display: inline-block">
-          <a href="#" data-toggle="dropdown" class="navbar-more dropdown-toggle">
-                <i class="fa fa-align-justify"></i></a>
-          <ul class="dropdown-menu">
-            <li class="{% if tab == 'home' %}active{% endif %}">
-                <a href="{{ url_for('main.index') }}" class="content-tab level-1">Home</a>
-            </li>
+      <div class="dropdown" style="display: inline-block">
+        <a href="#" data-toggle="dropdown" class="navbar-more dropdown-toggle">
+          <i class="fa fa-align-justify"></i>
+        </a>
+        <ul class="dropdown-menu">
+          <li class="{% if tab == 'home' %}active{% endif %}">
+            <a href="{{ url_for('main.index') }}" class="content-tab level-1">Home</a>
+          </li>
 
-            <li class="dropdown{% if tab == 'program' %} active{% endif %}" onmouseover="show_sub_menu('#sub-menu1');" onmouseout="hide_sub_menu('#sub-menu1');">
-              <a href="#" class="content-tab level-1" aria-haspopup="true" aria-expanded="false">Program <span><i class="fa fa-sm fa-caret-down" style="font-size: 14px"></i></span></a>
-              <ul id="sub-menu1" class="sub-menu">
-                <li><a href="{{ url_for('program.glance') }}" class="content-tab level-2">At a Glance</a></li>
-                <li><a href="{{ url_for('program.full_program') }}" class="content-tab level-2">Full Program</a></li>
-                <li><a href="{{ url_for('program.plenary_talks') }}" class="content-tab level-2">Plenary Talks</a></li>
-                <li><a href="{{ url_for('program.invited_papers') }}" class="content-tab level-2">Invited Papers</a></li>
-                <li><a href="{{ url_for('program.tutorial_call') }}" class="content-tab level-2">Tutorials</a></li>
-                <li><a href="{{ url_for('program.social_events') }}" class="content-tab level-2">Social Events</a></li>
+          <li class="dropdown{% if tab == 'program' %} active{% endif %}" onmouseover="show_sub_menu('#sub-menu1');" onmouseout="hide_sub_menu('#sub-menu1');">
+            <a href="#" class="content-tab level-1" aria-haspopup="true" aria-expanded="false">Program
+              <span>
+                <i class="fa fa-sm fa-caret-down" style="font-size: 14px"></i>
+              </span>
+            </a>
+            <ul id="sub-menu1" class="sub-menu">
+              <li>
+                <a href="{{ url_for('program.glance') }}" class="content-tab level-2">At a Glance</a>
+              </li>
+              <li>
+                <a href="{{ url_for('program.full_program') }}" class="content-tab level-2">Full Program</a>
+              </li>
+              <li>
+                <a href="{{ url_for('program.plenary_talks') }}" class="content-tab level-2">Plenary Talks</a>
+              </li>
+              <li>
+                <a href="{{ url_for('program.invited_papers') }}" class="content-tab level-2">Invited Papers</a>
+              </li>
+              <li>
+                <a href="{{ url_for('program.tutorial_call') }}" class="content-tab level-2">Tutorials</a>
+              </li>
+              <li>
+                <a href="{{ url_for('program.social_events') }}" class="content-tab level-2">Social Events</a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="{% if tab == 'committee' %}active{% endif %}">
+            <a href="{{ url_for('main.committee') }}" class="content-tab level-1">Committee</a>
+          </li>
+
+          <li class="{% if tab == 'papers' %}active{% endif %}">
+            <a href="{{ url_for('main.papers') }}" class="content-tab level-1">Call for Papers</a>
+          </li>
+
+          <li class="{% if tab == 'registration' %}active{% endif %}" onmouseover="show_sub_menu('#sub-menu2');" onmouseout="hide_sub_menu('#sub-menu2');">
+            <a href="#" class="content-tab level-1" aria-haspopup="true" aria-expanded="false">Registration
+              <span>
+                <i class="fa fa-sm fa-caret-down" style="font-size: 14px"></i>
+              </span>
+              <ul id="sub-menu2" class="dropdown-menu">
+                <li>
+                  <a href="{{ url_for('registration.registrations') }}" class="content-tab level-2">Registration</a>
+                </li>
+                <li>
+                  <a href="{{ url_for('registration.student_travel_grant') }}" class="content-tab level-2">Student Travel Grant</a>
+                </li>
               </ul>
-            </li>
+            </a>
+          </li>
 
-            <li class="{% if tab == 'committee' %}active{% endif %}">
-              <a href="{{ url_for('main.committee') }}" class="content-tab level-1">Committee</a>
-            </li>
+          <li class="{% if tab == 'venue' %}active{% endif %}">
+            <a href="{{ url_for('main.venue') }}" class="content-tab level-1">Venue</a>
+          </li>
 
-            <li class="{% if tab == 'papers' %}active{% endif %}">
-              <a href="{{ url_for('main.papers') }}" class="content-tab level-1">Call for Papers</a>
-            </li>
+          <li class="{% if tab == 'accommodation' %}active{% endif %}">
+            <a href="{{ url_for('main.accommodation') }}" class="content-tab level-1">Accommodation</a>
+          </li>
 
-            <li class="{% if tab == 'registration' %}active{% endif %}">
-                <a href="{{ url_for('main.registration') }}" class="content-tab level-1">Registration</a>
-            </li>
+          <li class="dropdown{% if tab == 'travel' %} active{% endif %}" onmouseover="show_sub_menu('#sub-menu6');" onmouseout="hide_sub_menu('#sub-menu6');">
+            <a href="{{ url_for('travel.index') }}" class="content-tab level-1" aria-haspopup="true" aria-expanded="false">Travel
+              <span>
+                <i class="fa fa-sm fa-caret-down" style="font-size: 14px"></i>
+              </span>
+            </a>
+            <ul id="sub-menu6" class="sub-menu">
+              <li>
+                <a href="{{ url_for('travel.index') }}" class="content-tab level-2">About Guangzhou</a>
+              </li>
+              <li>
+                <a href="{{ url_for('travel.sysu') }}" class="content-tab level-2">About SYSU</a>
+              </li>
+              <li>
+                <a href="{{ url_for('travel.visa') }}" class="content-tab level-2">Visa Information</a>
+              </li>
+              <li>
+                <a href="{{ url_for('travel.hongkong') }}" class="content-tab level-2">Guangzhou ←→ Hong Kong</a>
+              </li>
+            </ul>
+          </li>
 
-            <li class="{% if tab == 'venue' %}active{% endif %}">
-                <a href="{{ url_for('main.venue') }}" class="content-tab level-1">Venue</a>
-            </li>
-
-            <li class="{% if tab == 'accommodation' %}active{% endif %}">
-                <a href="{{ url_for('main.accommodation') }}" class="content-tab level-1">Accommodation</a>
-            </li>
-
-            <li class="dropdown{% if tab == 'travel' %} active{% endif %}" onmouseover="show_sub_menu('#sub-menu6');" onmouseout="hide_sub_menu('#sub-menu6');">
-              <a href="{{ url_for('travel.index') }}" class="content-tab level-1" aria-haspopup="true" aria-expanded="false">Travel <span><i class="fa fa-sm fa-caret-down" style="font-size: 14px"></i></span></a>
-              <ul id="sub-menu6" class="sub-menu">
-                <li><a href="{{ url_for('travel.index') }}" class="content-tab level-2">About Guangzhou</a></li>
-                <li><a href="{{ url_for('travel.sysu') }}" class="content-tab level-2">About SYSU</a></li>
-                <li><a href="{{ url_for('travel.visa') }}" class="content-tab level-2">Visa Information</a></li>
-                <li><a href="{{ url_for('travel.hongkong') }}" class="content-tab level-2">Guangzhou ←→ Hong Kong</a></li>
-              </ul>
-            </li>
-
-            <li class="{% if tab == 'istc' %}active{% endif %}">
-                <a href="{{ url_for('main.istc') }}" class="content-tab level-1">ISTC 2018</a>
-            </li>
-          </ul>
-        </div>
+          <li class="{% if tab == 'istc' %}active{% endif %}">
+            <a href="{{ url_for('main.istc') }}" class="content-tab level-1">ISTC 2018</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </nav>
 
 
 <div class="container" style="margin-top: 60px;">
-    <!-- 轮播图 -->
-    <div class="row">
-        <img src="{{ url_for('static',filename='images/main.jpg') }}" style="width: 100%;">
-    </div>
+  <!-- 轮播图 -->
+  <div class="row">
+    <img src="{{ url_for('static',filename='images/main.jpg') }}" style="width: 100%;">
+  </div>
 </div>

@@ -21,6 +21,7 @@ def create_app(config_name):
     app.register_blueprint(travel_blueprint)
     from .program import program as program_blueprint
     app.register_blueprint(program_blueprint, url_prefix='/program')
+    from .registration import registration as registration_blueprint
+    app.register_blueprint(registration_blueprint, url_prefix='/registration')
 
     return app
-

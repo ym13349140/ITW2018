@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}ITW 2018{% endblock %}
+{% block header_ext %}{% endblock %}
+
+{% block content %}
+    <div id="article-content" class="container">
+        <!-- 导航栏标签的内容容器 -->
+        <div class="detail-content">
+            {% if tag == "registration" %}
+                {% include 'registration/registration.html' %}
+            {% elif tag == "student_travel_grant"%}
+                {% include 'registration/student_travel_grant.html' %}
+            {% elif tag == "choose_to_register"%}
+                {% include 'registration/choose_to_register.html' %}
+            {% elif tag == "register_mainland"%}
+                {% include 'registration/register_mainland.html' %}
+            {% elif tag == "register_outside"%}
+                {% include 'registration/register_outside.html' %}
+            {% endif %}
+        </div>
+      </div>
+{% endblock %}
+

@@ -10,6 +10,24 @@ class Config:
 
     SECRET_KEY = os.environ.get('SECRET_KEY') or '!@#$%^&*12345678'
     SQLALCHEMY_TRACK_MODIFICATIONS = True
+    
+    MAIL_SERVER = 'smtp.gmail.com'
+    MAIL_USE_SSL = True
+
+    MAIL_USERNAME = 'itw2018gz@gmail.com'
+    MAIL_PASSWORD = 'jux3129ha'
+
+    # MAIL_USERNAME = 'ym13349140@gmail.com'
+    # MAIL_PASSWORD = '310810woainimin'
+
+     
+    # MAIL_SERVER = 'smtp.qq.com'
+    # MAIL_USE_SSL = True
+
+    # MAIL_USERNAME = '1697937077@qq.com'
+    # MAIL_PASSWORD = 'invgarinouiofegg'
+
+    MAIL_SUBJECT_PREFIX = 'ITW2018-Registration Successfully'
 
 
     @staticmethod
@@ -23,7 +41,7 @@ class DevelopmentConfig(Config):
 
     DEBUG = True
     SQLALCHEMY_DATABASE_URI = (os.environ.get('DEV_DATABASE_URL') or
-                               'mysql://root:123456@localhost/itw2018')
+                               'mysql+pymysql://root:ITW#2018itw@localhost/itw2018')
 
 
 class ProductionConfig(Config):
@@ -31,7 +49,7 @@ class ProductionConfig(Config):
         pass
 
     SQLALCHEMY_DATABASE_URI = (os.environ.get('DEV_DATABASE_URL') or
-                               'mysql://root:123456@localhost/itw2018')
+                               'mysql+pymysql://itw2018:ITW#2018itw@localhost/itw2018')
 
 
 config = {

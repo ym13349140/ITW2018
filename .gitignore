@@ -21,3 +21,5 @@ Lancs/static/resource/*
 
 # migrations
 # migrations/
+
+.vscode/*

@@ -309,6 +309,69 @@ table#at-glance {
     margin-bottom: 20px;
 }
 
+.email {
+    color: #337ab7;
+    text-decoration: underline;
+}
+
+#registration-table {
+    border: 1px solid #CCC;
+}
+
+#registration-table > thead > tr > th,
+#registration-table > tbody > tr > th,
+#registration-table > tfoot > tr > th,
+#registration-table > thead > tr > td,
+#registration-table > tbody > tr > td,
+#registration-table > tfoot > tr > td {
+   border: 1px solid #CCC;
+   line-height: 20px;
+   padding-bottom: 5px;
+   padding-top: 5px;
+}
+
+.pull-right {
+    float: right;
+}
+
+#register-totalFee-icon {
+    float: left;
+    line-height: 32px;
+    padding-left: 15px;
+}
+
+.checkbox-wrapper {
+    margin-left: 20px;
+}
+
+
+.checkbox-wrapper .checkbox-inline {
+    margin-right: 20px;
+}
+
+.register-submit {
+    width: 30%;
+}
+
+.radio-toggle {
+    display: none;
+}
+/* .form-horizontal .control-label {
+    text-align: left;
+} */
+
+#modal-alert .modal-dialog {
+    top: 30%;
+    transform: translateY(-50%);
+}
+
+#modal-alert .close {
+    z-index: 9999;
+    position: absolute;
+    right: 8px;
+    top: 3px;
+}
+
 @media (max-width: 767px) {
     .container {
         width: 100%;

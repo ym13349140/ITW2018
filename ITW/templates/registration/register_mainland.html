@@ -1,0 +1,243 @@
+<article id="registration-mainland">
+    <section class="row">
+        <h4>Registration
+            <hr>
+        </h4>
+        <form class="form-horizontal" id="user-register-form" method="post" data-widget-cid="widget-1">
+            <div class="form-group">
+                <label class="control-label col-sm-2 text-left"
+                        for="register-cname">* 姓 名</label>
+                <div class="col-sm-9">
+                    <input id="register-cname" type="text" name="cname"
+                            required="required"
+                            class="form-control"
+                            placeholder="请输入您的姓名">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2 text-left"
+                        for="register-ename">* 英 文 名</label>
+                <div class="col-sm-9">
+                    <input id="register-ename" type="text" name="ename"
+                            required="required"
+                            class="form-control"
+                            placeholder="请输入您的英文名（用作名卡）">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2 text-left"
+                        for="register-pid">* 身 份 证</label>
+                <div class="col-sm-9">
+                    <input id="register-pid" type="text" name="pid"
+                            required="required"
+                            class="form-control"
+                            placeholder="请输入您的身份证号">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2 text-left"
+                        for="register-work-unit">* 单 位</label>
+                <div class="col-sm-9">
+                    <input id="register-work-unit" type="text" name="work-unit"
+                            required="required"
+                            class="form-control"
+                            placeholder="请输入您的工作/学习单位">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2 text-left"
+                        for="register-edas1">论文EDAS编号</label>
+                <div class="col-sm-9">
+                    <input id="register-edas1" type="text" name="edas1"
+                            class="form-control"
+                            placeholder="请输入您的论文EDAS编号">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-9 col-sm-offset-2">
+                    <input id="register-edas2" type="text" name="edas2"
+                            class="form-control"
+                            placeholder="请输入您的论文EDAS编号">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-9 col-sm-offset-2">
+                    <input id="register-edas3" type="text" name="edas3"
+                            class="form-control"
+                            placeholder="请输入您的论文EDAS编号">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2 text-left"
+                        for="register-receipt">* 是否需要发票</label>
+                <div class="col-sm-9">
+                    <label class="checkbox-inline">
+                            <input id="register-receipt1" class="trigger-radio" type="radio" name="receipt"
+                            required="required" value="yes" onchange="showRadio('#receipt-info')"> 是
+                    </label>
+                    <label class="checkbox-inline">
+                            <input id="register-receipt2" type="radio" name="receipt"
+                            required="required" value="no" onchange="hideRadio('#receipt-info')"> 否
+                    </label>
+                </div>
+            </div>
+            <div id="receipt-info" class="radio-toggle">
+                <div class="form-group">
+                    <label class="control-label col-sm-2 text-left"
+                            for="register-receipt-title">发票抬头</label>
+                    <div class="col-sm-9">
+                        <input id="register-receipt-title" type="text" name="receipt-title"
+                                class="form-control"
+                                placeholder="请输入您的发票抬头">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2 text-left"
+                            for="register-receipt-id">纳税人识别号</label>
+                    <div class="col-sm-9">
+                        <input id="register-receipt-id" type="text" name="receipt-id"
+                                class="form-control"
+                                placeholder="请输入您的纳税人识别号">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2 text-left"
+                    for="register-email">* 邮 箱</label>
+                <div class="col-sm-9">
+                    <input id="register-email" type="email" name="email"
+                            required="required"
+                            class="form-control"
+                            placeholder="请输入您的邮箱">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2 text-left"
+                    for="register-vipNum">IEEE 会员号</label>
+                <div class="col-sm-9">
+                    <input id="register-vipNum" type="text" name="vipNum"
+                            required="required"
+                            class="form-control"
+                            placeholder="请输入您的IEEE会员号">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2 text-left"
+                    for="register-money">* 请选择收费标准</label>
+                <div class="col-sm-9">
+                    <select id="register-money" class="form-control" name="money" required onchange="showMoney()">
+                        <option value="0">Full Registration (IT soc)-----------------------------------------------------------------------$590/￥4130</option>
+                        <option value="1">Full Registration (IEEE non IT soc)----------------------------------------------------------$670/￥4690</option>
+                        <option value="2">Full Registration (Non IEEE)-------------------------------------------------------------------$770/￥5390</option>
+                        <option value="3">Student IT soc/IEEE Life member------------------------------------------------------------$240/￥1680</option>
+                        <option value="4">Student (IEEE non IT soc)----------------------------------------------------------------------$290/￥2030</option>
+                        <option value="5">Student (Non IEEE)------------------------------------------------------------------------------$340/￥2380</option>
+                        <option value="6">One Day Registration (With banquet)-------------------------------------------------------$264/￥1848</option>
+                        <option value="7">One Day Registration (Without banquet)---------------------------------------------------$164/￥1148</option>
+                        <option value="8">Student One Day Registration (With banquet)--------------------------------------------$214/￥1498</option>
+                        <option value="9">Student One Day Registration (Without banquet)----------------------------------------$114/￥798</option>
+                        <option value="10">Banquet Only---------------------------------------------------------------------------------------$100/￥700</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2 text-left">总 费 用</label>
+                <div id="register-totalFee-icon" class="text-right">
+                    <span>￥</span>
+                </div>
+                <div class="col-sm-2">
+                    <input id="register-totalFee" type="text" name="totalFee"
+                            required="required"
+                            class="form-control"
+                            readonly
+                            value="4130">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2 text-left">* 是否参加Tutorial</label>
+                <div class="col-sm-9">
+                    <label class="checkbox-inline">
+                            <input id="register-tutorial1" type="radio" name="tutorial"
+                            required="required" value="yes" onchange="showRadio('#tutorial-list')"> 是
+                    </label>
+                    <label class="checkbox-inline">
+                            <input id="register-tutorial2" type="radio" name="tutorial"
+                            required="required" value="no" onchange="hideRadio('#tutorial-list')"> 否
+                    </label>
+                </div>
+            </div>
+            <div id="tutorial-list" class="form-group radio-toggle">
+                <div class="col-sm-9 col-sm-offset-2">
+                    <label class="checkbox-inline">
+                            <input id="register-tutorial1-1" type="radio" name="tutorialItem"
+                            value="Tutorial1"> Tutorial1
+                    </label>
+                    <label class="checkbox-inline">
+                            <input id="register-tutorial2-1" type="radio" name="tutorialItem"
+                            value="Tutorial2"> Tutorial2
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2 text-left">* 是否需要会议通知和邀请函</label>
+                <div class="col-sm-9">
+                    <label class="checkbox-inline">
+                            <input id="register-needInvit1" type="radio" name="needInvite"
+                            required="required" value="yes"> 是
+                    </label>
+                    <label class="checkbox-inline">
+                            <input id="register-needInvit2" type="radio" name="needInvite"
+                            required="required" value="no"> 否
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2 text-left">是否参加外出游览</label>
+                <div class="col-sm-9 checkbox-wrapper">
+                    <label class="checkbox-inline">
+                            <input id="zhujiang" type="checkbox" name="travel"
+                            value="0"> 珠江夜游，11月26号晚
+                    </label>
+                    <label class="checkbox-inline">
+                            <input id="baiyunshan" type="checkbox" name="travel"
+                            value="1"> 登白云山，11月28号下午
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2 text-left">* 饮食偏好</label>
+                <div class="col-sm-9">
+                    <label class="checkbox-inline">
+                            <input id="register-foodPreference1" type="radio" name="foodPreference"
+                            required="required" value="0"> 素食
+                    </label>
+                    <label class="checkbox-inline">
+                            <input id="register-foodPreference2" type="radio" name="foodPreference"
+                            required="required" value="1"> 清真
+                    </label>
+                    <label class="checkbox-inline">
+                            <input id="register-foodPreference3" type="radio" name="foodPreference"
+                            required="required" value="2"> 无
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2 text-left">* 是否参加11月30日举办的中山大学编码与信息理论研讨会</label>
+                <div class="col-sm-9">
+                    <label class="checkbox-inline">
+                            <input id="register-gotoTalk1" type="radio" name="gotoTalk"
+                            required="required" value="yes"> 是
+                    </label>
+                    <label class="checkbox-inline">
+                            <input id="register-gotoTalk2" type="radio" name="gotoTalk"
+                            required="required" value="no"> 否
+                    </label>
+                </div>
+            </div>
+            <input id="is-mainland" type="hidden" name="is-mainland" value="yes">
+            <div class="form-group text-center">
+                <input id="registerSubmit" class="btn btn-info register-submit" type="button" value="提交"/>
+            </div>
+        </form>
+    </section>
+</article>

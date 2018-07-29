@@ -1,7 +1,77 @@
 <article id="registration">
     <section class="row">
-        <h4>Registration<hr></h4>
-        <p>Registration will open by September.</p>
+        <h4>Registration
+            <hr>
+        </h4>
+        <!-- <p>The registration is now open at <a href="{{ url_for('registration.choose_to_register') }}">http://www.itw2018.org/register/choose_to_register</a></p> -->
+        <p><strong>Conference Registration</strong></p>
+        <table id="registration-table" class="table table-bordered">
+            <thead>
+                <tr>
+                    <th class="text-center">Registration Fees</th>
+                    <th class="text-center">Early Registration (Before Sept. 16)</th>
+                    <th class="text-center">Late Registration(After Sept. 16)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="text-center">Full Registration (IT soc)</td>
+                    <td class="text-center">$590/￥4130</td>
+                    <td class="text-center">$690/￥4830</td>
+                </tr>
+                <tr>
+                    <td class="text-center">Full Registration (IEEE non IT soc)</td>
+                    <td class="text-center">$670/￥4690</td>
+                    <td class="text-center">$770/￥5390</td>
+                </tr>
+                <tr>
+                    <td class="text-center">Full Registration (Non IEEE)</td>
+                    <td class="text-center">$770/￥5390</td>
+                    <td class="text-center">$870/￥6090</td>
+                </tr>
+                <tr>
+                    <td class="text-center">Student IT Soc / IEEE Life Member</td>
+                    <td class="text-center">$240/￥1680</td>
+                    <td class="text-center">$340/￥2520</td>
+                </tr>
+                <tr>
+                    <td class="text-center">Student (Non IEEE)</td>
+                    <td class="text-center">$340/￥2380</td>
+                    <td class="text-center">$440/￥3220</td>
+                </tr>
+                <tr>
+                    <td class="text-center">Student (IEEE non IT soc)</td>
+                    <td class="text-center">$290/￥2030</td>
+                    <td class="text-center">$390/￥2870</td>
+                </tr>
+                <tr>
+                    <td class="text-center">One Day Registration (With banquet)</td>
+                    <td class="text-center">$264/￥1848</td>
+                    <td class="text-center">$364/￥2576</td>
+                </tr>
+                <tr>
+                    <td class="text-center">One Day Registration (Without banquet)</td>
+                    <td class="text-center">$164/￥1148</td>
+                    <td class="text-center">$264/￥1876</td>
+                </tr>
+                <tr>
+                    <td class="text-center">Student One Day Registration (With banquet)</td>
+                    <td class="text-center">$214/￥1498</td>
+                    <td class="text-center">$314/￥2226</td>
+                </tr>
+                <tr>
+                    <td class="text-center">Student One Day Registration (Without banquet)</td>
+                    <td class="text-center">$114/￥798</td>
+                    <td class="text-center">$214/￥1526</td>
+                </tr>
+                <tr>
+                    <td class="text-center">Banquet Only</td>
+                    <td class="text-center">$100/￥700</td>
+                    <td class="text-center">$120/￥1400</td>
+                </tr>
+            </tbody>
+        </table>
+        <p><strong>About Registration Fees</strong></p>
         <p>Registration fee includes:</p>
         <ul>
             <li>Admission to all sections;</li>
@@ -12,64 +82,26 @@
             <li>Banquet at Sky No.1 Restaurant on November 27;</li>
             <li>Excursion to Baiyun Mountain on November 28.</li>
         </ul>
-        <p>Each accepted and invited paper must have at least one author registered by Sept 27, 2018 11:59pm Hawaii Time (UTC-10). Accepted papers that have no registered author by that date will not appear in the final program nor the proceedings. Up to 3 papers may be covered by a single full registration. A student registration (reduced fee) covers a single paper.</p>
+
+        <p><strong>Notice about Author Registration</strong></p>
+        <ul>
+            <li>Each accepted and invited paper must have at least one author registered by Sept. 27, 2018 11:59pm Hawaii Time (UTC-10);</li>
+            <li>Accepted papers that have no registered author by that date will not appear in the final program nor the proceedings. Up to 3 papers may be covered by a single full registration. A student registration (reduced fee) covers a single paper;</li>
+            <li>Lunch from November 26 to 29;</li>
+            <li>
+                <div>Participants from outside mainland China please transfer the registration fee to</div>
+                <div>Account：Sun Yat-sen University</div>
+                <div>Bank：Industrial and Commercial bank of China, Guang Dong branch, sub-branch of Sun Yat-sen University</div>
+                <div>Address：No. 135 Xin Gang Xi Road Guang Zhou P.R China</div>
+            </li>
+            <li>
+                <div>Participants from mainland China please transfer the registration fee to</div>
+                <div>户名 ：中山大学</div>
+                <div>开户行：中国工商银行广州中山大学支行</div>
+                <div>账号：3602864809100002723</div>
+            </li>
+            <li>Caution: Please make sure that you write down “number _ITW2018” as the note of your transaction while transferring your registration fee. Your payment can only be traced with a proper note. Without a proper note, your transaction may be lost and we are not responsible for it. After your payment being confirmed, we will notify you via email within 7 working days.</li>
+        </ul>
+        <!-- <p><a href="#" target="_blank">Conference Registration Guide</a></p> -->
     </section>
-{#    <section class="row">#}
-{#        <h4>Budget – Registration Fees<hr></h4>#}
-{#        <table class="table">#}
-{#            <thead>#}
-{#            <tr>#}
-{#                <th>Categories</th>#}
-{#                <th class="text-center">Early Reg. (RMB)</th>#}
-{#                <th class="text-center">Early Reg. (USD)</th>#}
-{#                <th class="text-center">Late Reg. (RMB)</th>#}
-{#                <th class="text-center">Late Reg. (USD)</th>#}
-{#            </tr>#}
-{#            </thead>#}
-{#            <tbody>#}
-{#            <tr>#}
-{#                <td>Full Registration (IT soc)</td>#}
-{#                <td class="text-center">3990</td>#}
-{#                <td class="text-center">570</td>#}
-{#                <td class="text-center">4690</td>#}
-{#                <td class="text-center">670</td>#}
-{#            </tr>#}
-{#            <tr>#}
-{#                <td>Full Registration (IEEE non IT soc)</td>#}
-{#                <td class="text-center">4550</td>#}
-{#                <td class="text-center">650</td>#}
-{#                <td class="text-center">5250</td>#}
-{#                <td class="text-center">750</td>#}
-{#            </tr>#}
-{#            <tr>#}
-{#                <td>Full Registration (Non IEEE)</td>#}
-{#                <td class="text-center">5250</td>#}
-{#                <td class="text-center">750</td>#}
-{#                <td class="text-center">5950</td>#}
-{#                <td class="text-center">850</td>#}
-{#            </tr>#}
-{#            <tr>#}
-{#                <td>Student IT Soc / IEEE Life Member</td>#}
-{#                <td class="text-center">1540</td>#}
-{#                <td class="text-center">220</td>#}
-{#                <td class="text-center">2240</td>#}
-{#                <td class="text-center">320</td>#}
-{#            </tr>#}
-{#            <tr>#}
-{#                <td>Student (IEEE non IT soc)</td>#}
-{#                <td class="text-center">1890</td>#}
-{#                <td class="text-center">270</td>#}
-{#                <td class="text-center">2590</td>#}
-{#                <td class="text-center">370</td>#}
-{#            </tr>#}
-{#            <tr>#}
-{#                <td>Student (Non IEEE)</td>#}
-{#                <td class="text-center">2240</td>#}
-{#                <td class="text-center">320</td>#}
-{#                <td class="text-center">2940</td>#}
-{#                <td class="text-center">420</td>#}
-{#            </tr>#}
-{#            </tbody>#}
-{#        </table>#}
-{#    </section>#}
 </article>

@@ -1,0 +1,209 @@
+<article id="registration-outside">
+    <section class="row">
+        <h4>Registration
+            <hr>
+        </h4>
+        <form class="form-horizontal" id="user-register-form" method="post" data-widget-cid="widget-1">
+            <div class="form-group">
+                <label class="control-label col-sm-3 text-left"
+                        for="register-ename">* Name</label>
+                <div class="col-sm-8">
+                    <input id="register-ename" type="text" name="ename"
+                            required="required"
+                            class="form-control"
+                            placeholder="Please Input Your Name">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3 text-left"
+                        for="register-pid">* Passport/ID card number</label>
+                <div class="col-sm-8">
+                    <input id="register-pid" type="text" name="pid"
+                            required="required"
+                            class="form-control"
+                            placeholder="Please Input Your Passport/ID Card Number">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3 text-left"
+                        for="register-pid">* Country</label>
+                <div class="col-sm-8">
+                    <input id="register-country" type="text" name="country"
+                            required="required"
+                            class="form-control"
+                            placeholder="Please Input Your Country">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3 text-left"
+                        for="register-work-unit">* Affiliation</label>
+                <div class="col-sm-8">
+                    <input id="register-work-unit" type="text" name="work-unit"
+                            required="required"
+                            class="form-control"
+                            placeholder="Please Input Your Affiliation">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3 text-left"
+                        for="register-edas1">Paper EDAS Number</label>
+                <div class="col-sm-8">
+                    <input id="register-edas1" type="text" name="edas1"
+                            class="form-control"
+                            placeholder="Please Input Your Paper EDAS Number">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-8 col-sm-offset-3">
+                    <input id="register-edas2" type="text" name="edas2"
+                            class="form-control"
+                            placeholder="Please Input Your Paper EDAS Number">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-8 col-sm-offset-3">
+                    <input id="register-edas3" type="text" name="edas3"
+                            class="form-control"
+                            placeholder="Please Input Your Paper EDAS Number">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3 text-left"
+                    for="register-email">*E-mail</label>
+                <div class="col-sm-8">
+                    <input id="register-email" type="email" name="email"
+                            required="required"
+                            class="form-control"
+                            placeholder="Please Input Your E-Mail">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3 text-left"
+                    for="register-vipNum">IEEE member number</label>
+                <div class="col-sm-8">
+                    <input id="register-vipNum" type="text" name="vipNum"
+                            required="required"
+                            class="form-control"
+                            placeholder="Please Input Your Member Number">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3 text-left"
+                    for="register-money">* Please select your registration type</label>
+                <div class="col-sm-8">
+                    <select id="register-money" class="form-control" name="money" required onchange="showMoney()">
+                        <option value="0">Full Registration (IT soc)-------------------------------------------------------------$590/￥4130</option>
+                        <option value="1">Full Registration (IEEE non IT soc)------------------------------------------------$670/￥4690</option>
+                        <option value="2">Full Registration (Non IEEE)---------------------------------------------------------$770/￥5390</option>
+                        <option value="3">Student IT soc/IEEE Life member--------------------------------------------------$240/￥1680</option>
+                        <option value="4">Student (IEEE non IT soc)------------------------------------------------------------$290/￥2030</option>
+                        <option value="5">Student (Non IEEE)--------------------------------------------------------------------$340/￥2380</option>
+                        <option value="6">One Day Registration (With banquet)---------------------------------------------$264/￥1848</option>
+                        <option value="7">One Day Registration (Without banquet)-----------------------------------------$164/￥1148</option>
+                        <option value="8">Student One Day Registration (With banquet)----------------------------------$214/￥1498</option>
+                        <option value="9">Student One Day Registration (Without banquet)------------------------------$114/￥798</option>
+                        <option value="10">Banquet Only-----------------------------------------------------------------------------$100/￥700</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3 text-left">Total Fee</label>
+                <div id="register-totalFee-icon" class="text-right">
+                    <span>￥</span>
+                </div>
+                <div class="col-sm-2">
+                    <input id="register-totalFee" type="text" name="totalFee"
+                            required="required"
+                            class="form-control"
+                            readonly
+                            value="4130">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3 text-left">* Will you participate a tutorial on Nov. 25</label>
+                <div class="col-sm-8">
+                    <label class="checkbox-inline">
+                            <input id="register-tutorial1" type="radio" name="tutorial"
+                            required="required" value="yes" onchange="showRadio('#tutorial-list')"> Yes
+                    </label>
+                    <label class="checkbox-inline">
+                            <input id="register-tutorial2" type="radio" name="tutorial"
+                            required="required" value="no" onchange="hideRadio('#tutorial-list')"> No
+                    </label>
+                </div>
+            </div>
+            <div id="tutorial-list" class="form-group radio-toggle">
+                <div class="col-sm-8 col-sm-offset-3">
+                    <label class="checkbox-inline">
+                            <input id="register-tutorial1-1" type="radio" name="tutorialItem"
+                            value="Tutorial1"> Tutorial1
+                    </label>
+                    <label class="checkbox-inline">
+                            <input id="register-tutorial2-1" type="radio" name="tutorialItem"
+                            value="Tutorial2"> Tutorial2
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3 text-left">* Do you need an invitation letter</label>
+                <div class="col-sm-8">
+                    <label class="checkbox-inline">
+                            <input id="register-needInvit1" type="radio" name="needInvite"
+                            required="required" value="yes"> Yes
+                    </label>
+                    <label class="checkbox-inline">
+                            <input id="register-needInvit2" type="radio" name="needInvite"
+                            required="required" value="no"> No
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3 text-left">Will you join the excursions</label>
+                <div class="col-sm-8 checkbox-wrapper">
+                    <label class="checkbox-inline">
+                            <input id="zhujiang" type="checkbox" name="travel"
+                            value="0"> Zhujiang river night cruise (Night, Nov. 26)
+                    </label><br>
+                    <label class="checkbox-inline">
+                            <input id="baiyunshan" type="checkbox" name="travel"
+                            value="1"> Baiyun mountain walk (Afternoon, Nov. 28)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3 text-left">* Dietary Preference</label>
+                <div class="col-sm-8">
+                    <label class="checkbox-inline">
+                            <input id="register-foodPreference1" type="radio" name="foodPreference"
+                            required="required" value="0"> Vegetarian
+                    </label>
+                    <label class="checkbox-inline">
+                            <input id="register-foodPreference2" type="radio" name="foodPreference"
+                            required="required" value="1"> Halal 
+                    </label>
+                    <label class="checkbox-inline">
+                            <input id="register-foodPreference3" type="radio" name="foodPreference"
+                            required="required" value="2"> None
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3 text-left">* Will you participate the SYSU Information and Coding Theory Workshop on Nov. 30</label>
+                <div class="col-sm-8">
+                    <label class="checkbox-inline">
+                            <input id="register-gotoTalk1" type="radio" name="gotoTalk"
+                            required="required" value="yes"> Yes
+                    </label>
+                    <label class="checkbox-inline">
+                            <input id="register-gotoTalk2" type="radio" name="gotoTalk"
+                            required="required" value="no"> No
+                    </label>
+                </div>
+            </div>
+            <input id="is-mainland" type="hidden" name="is-mainland" value="no">
+            <div class="form-group text-center">
+                <input id="registerSubmit" class="btn btn-info register-submit" type="button" value="Submit"/>
+            </div>
+        </form>
+    </section>
+</article>
