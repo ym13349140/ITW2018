@@ -34,6 +34,6 @@ def accommodation():
     return render_template("main/main.html", tab='accommodation')
 
 
-@main.route('/ISTC')
-def istc():
-    return render_template("main/main.html", tab="istc")
+@main.route('/CITW')
+def citw():
+    return render_template("main/main.html", tab="citw")
