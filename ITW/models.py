@@ -35,3 +35,26 @@ class Users(db.Model):
     goto_talk = db.Column(db.String(10), nullable=False)
 
     total_fee = db.Column(db.Integer, nullable=False)
+    
+
+class Reservations(db.Model):
+    __tablename__ = 'reservations'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(50), nullable=False)
+    affiliation = db.Column(db.String(128), nullable=False)
+    checkin_date = db.Column(db.String(50), nullable=False)
+    checkout_date = db.Column(db.String(50), nullable=False)
+    identity_num = db.Column(db.String(50), nullable=False)
+    email = db.Column(db.String(50), nullable=False)
+    room_type = db.Column(db.String(50), nullable=False)
+    
+
+class Rooms(db.Model):
+    __tablename__ = 'rooms'
+    id = db.Column(db.Integer, primary_key=True)
+    type_num = db.Column(db.Integer, nullable=False)
+    type_name = db.Column(db.String(50), nullable=False)
+    total_num = db.Column(db.Integer, nullable=False)
+    available_num = db.Column(db.Integer, nullable=False)
+    price = db.Column(db.Integer, nullable=False)
+    in_date = db.Column(db.Integer, nullable=False)

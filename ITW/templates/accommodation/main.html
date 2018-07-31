@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}ITW 2018{% endblock %}
+{% block header_ext %}{% endblock %}
+
+{% block content %}
+    <div id="article-content" class="container">
+        <!-- 导航栏标签的内容容器 -->
+        <div class="detail-content">
+            {% if tag == "index" %}
+                {% include 'accommodation/accommodation.html' %}
+            {% elif tag == "reservation"%}
+                {% include 'accommodation/reservation.html' %}
+            {% endif %}
+        </div>
+      </div>
+{% endblock %}
+

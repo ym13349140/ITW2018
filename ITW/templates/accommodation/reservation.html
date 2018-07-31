@@ -1,0 +1,104 @@
+<article id="accommodation-reservation">
+    <section class="row">
+        <h4>Reservation System<hr></h4>
+        <p><strong>Please fill the following information</strong></p>
+        <form class="form-horizontal" id="user-reservation-form" method="post" data-widget-cid="widget-1">
+            <div class="form-group">
+                <label class="control-label col-sm-2 text-left"
+                        for="reservation-name">* Name</label>
+                <div class="col-sm-9">
+                    <input id="register-name" type="text" name="name"
+                            required="required"
+                            class="form-control"
+                            placeholder="Please Input Your Name">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2 text-left"
+                        for="reservation-affiliation">* Affiliation</label>
+                <div class="col-sm-9">
+                    <input id="register-affiliation" type="text" name="affiliation"
+                            required="required"
+                            class="form-control"
+                            placeholder="Please Input Your Affiliation">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2 text-left"
+                    for="register-in-date">* Check-in Date</label>
+                <div class="col-sm-9">
+                    <select id="register-in-date" class="form-control" name="in-date" required>
+                        <option value="0" selected>11/24</option>
+                        <option value="1">11/25</option>
+                        <option value="2">11/26</option>
+                        <option value="3">11/27</option>
+                        <option value="4">11/28</option>
+                        <option value="5">11/29</option>
+                        <option value="6">11/30</option>
+                        <option value="7">12/01</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2 text-left"
+                    for="register-out-date">* Check-out Date</label>
+                <div class="col-sm-9">
+                    <select id="register-out-date" class="form-control" name="out-date" required>
+                        <option value="11/24">11/24</option>
+                        <option value="11/25">11/25</option>
+                        <option value="11/26">11/26</option>
+                        <option value="11/27">11/27</option>
+                        <option value="11/28">11/28</option>
+                        <option value="11/29">11/29</option>
+                        <option value="11/30">11/30</option>
+                        <option value="12/01" selected>12/01</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2 text-left"
+                        for="reservation-uid">* Passport / Identity No</label>
+                <div class="col-sm-9">
+                    <input id="register-uid" type="text" name="uid"
+                            required="required"
+                            class="form-control"
+                            placeholder="Please Input Your Passport/Identity No ">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2 text-left"
+                        for="register-email">* E-mail</label>
+                <div class="col-sm-9">
+                    <input id="register-email" type="text" name="email"
+                            required="required"
+                            class="form-control"
+                            placeholder="Please Input Your E-mail">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2 text-left"
+                    for="register-room-type">* Room Type</label>
+                <div class="col-sm-9">
+                    <select id="register-room-type" class="form-control" name="room-type" required>
+                        <optgroup label="City View Room">
+                            <option value="1" {% if num1 == 0 %}disabled{% endif %}>One Queen bed ------------ ￥460</option>
+                            <option value="2" {% if num2 == 0 %}disabled{% endif %}>Two single beds ------------ ￥460</option>
+                        </optgroup>
+                        <optgroup label="River View Room">
+                            <option value="3" {% if num3 == 0 %}disabled{% endif %}>One Queen bed ------------ ￥525</option>
+                            <option value="4" {% if num4 == 0 %}disabled{% endif %}>Two single beds ------------ ￥525</option>
+                        </optgroup>
+                        <option value="5" {% if num5 == 0 %}disabled{% endif %}>Business Suit ------------ ￥725</option>
+                        <option value="6" {% if num6 == 0 %}disabled{% endif %}>River View Suit ------------ ￥880</option>
+                    </select>
+                </div>
+            </div>
+            <input type="hidden" name="op" value="submit">
+            <div class="form-group text-center">
+                <input id="reservationSubmit" class="btn btn-info reservation-submit" type="button" value="Submit"/>
+            </div>
+        </form>
+
+        <p><strong>Note:</strong> The listed price contains only one breakfast. You can pay for the extra breakfast at check-in if needed.</p>
+    </section>
+</article>

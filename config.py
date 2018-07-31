@@ -21,8 +21,6 @@ class Config:
     MAIL_USERNAME = '1697937077@qq.com'
     MAIL_PASSWORD = 'invgarinouiofegg'
 
-    MAIL_SUBJECT_PREFIX = 'ITW2018-Registration Successfully'
-
 
     @staticmethod
     def init_app(app):

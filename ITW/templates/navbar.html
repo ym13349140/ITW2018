@@ -65,7 +65,7 @@
         </li>
 
         <li class="{% if tab == 'accommodation' %}active{% endif %}">
-          <a href="{{ url_for('main.accommodation') }}" class="content-tab level-1">Accommodation</a>
+          <a href="{{ url_for('accommodation.index') }}" class="content-tab level-1">Accommodation</a>
         </li>
 
         <li class="dropdown{% if tab == 'travel' %} active{% endif %}" onmouseover="show_sub_menu('#sub-menu6');" onmouseout="hide_sub_menu('#sub-menu6');">
@@ -164,7 +164,7 @@
           </li>
 
           <li class="{% if tab == 'accommodation' %}active{% endif %}">
-            <a href="{{ url_for('main.accommodation') }}" class="content-tab level-1">Accommodation</a>
+            <a href="{{ url_for('accommodation.index') }}" class="content-tab level-1">Accommodation</a>
           </li>
 
           <li class="dropdown{% if tab == 'travel' %} active{% endif %}" onmouseover="show_sub_menu('#sub-menu6');" onmouseout="hide_sub_menu('#sub-menu6');">

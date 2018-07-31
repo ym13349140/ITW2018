@@ -29,11 +29,6 @@ def show_driver():
     return render_template("venue/show_driver.html")
 
 
-@main.route('/accommodation')
-def accommodation():
-    return render_template("main/main.html", tab='accommodation')
-
-
 @main.route('/CITW')
 def citw():
     return render_template("main/main.html", tab="citw")

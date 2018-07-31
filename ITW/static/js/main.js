@@ -237,5 +237,93 @@ $(document).ready(function () {
 			}
 		});
 	});
+
+	$("#register-in-date").change(function() {
+		let in_date = $("#register-in-date").val();
+		$.ajax({
+			type: "post",
+			url: location.href,
+			data: {
+				op: 'get_num',
+				in_date: in_date,
+			},
+			async: false,
+			success: function (data) {
+				if (data["status"] == "success") {
+					$("#register-room-type").find("option").each(function() {
+						$(this).attr("disabled", false);
+					});
+					if(data['num1'] == 0) {
+						$("#register-room-type option[value='1']").attr('disabled', true);
+					}
+					if(data['num2'] == 0) {
+						$("#register-room-type option[value='2']").attr('disabled', true);
+					}
+					if(data['num3'] == 0) {
+						$("#register-room-type option[value='3']").attr('disabled', true);
+					}
+					if(data['num4'] == 0) {
+						$("#register-room-type option[value='4']").attr('disabled', true);
+					}
+					if(data['num5'] == 0) {
+						$("#register-room-type option[value='5']").attr('disabled', true);
+					}
+					if(data['num6'] == 0) {
+						$("#register-room-type option[value='6']").attr('disabled', true);
+					}
+					// console.log(data['num1'], data['num2'], data['num3'], data['num4'], data['num5'], data['num6']);
+				}
+			}
+		});
+	});
+
+	$("#reservationSubmit").click(function() {
+		if($("#register-name").val() == '') {
+			alert_modal("Please input your name！");
+			return;
+		}
+		else if($("#register-affiliation").val() == '') {
+			alert_modal("Please input your affiliation！");
+			return;
+		}
+		else if($("#register-uid").val() == '') {
+			alert_modal("Please input your Passport/Identity No！");
+			return;
+		}
+		else if($("#register-email").val() == '') {
+			alert_modal("Please input your e-mail！");
+			return;
+		}
+		else if($("#register-room-type").val() == '') {
+			alert_modal("Please select a room type！");
+			return;
+		}
+		else {
+			$.ajax({
+				type: "post",
+				url: location.href,
+				data: new FormData($('#user-reservation-form')[0]),
+				cache: false,
+				processData: false,
+				contentType: false,
+				success: function (data) {
+					if(data.status == "success"){
+						new_html = '<p style="font-size: 20px;font-weight: 600">Reserved Successfully!</p><hr>\
+									<p>Your check-in date：' + data['in_date'] + '</p>\
+									<p>Your check-out date：' + data['out_date'] + '</p>\
+									<p>Your room type is：' + data['room_type'] + '</p>\
+									<p>The price is: ￥' + data['price'] + ' / day</p>';
+						$("#accommodation-reservation .row").html(new_html);
+					}
+					else if(data.status == "no rooms") {
+						alert_modal("There is not enough room left for current type. Please choose another room type!");
+					}
+					else {
+						alert_modal("Submit Successfully!");
+					}
+				}
+			});
+		}
+	});
 });
 
