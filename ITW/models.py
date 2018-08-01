@@ -28,7 +28,7 @@ class Users(db.Model):
     vip_num = db.Column(db.String(50))
     reg_type = db.Column(db.String(128), nullable=False)
     tutorial = db.Column(db.String(10), nullable=False)
-    tutorial_item = db.Column(db.String(50))
+    tutorial_item = db.Column(db.String(128))
     need_invite = db.Column(db.String(10), nullable=False)
     excursion = db.Column(db.String(128), nullable=False)
     food_preference = db.Column(db.String(50), nullable=False)

@@ -115,7 +115,7 @@ def register_mainland():
                     receipt_id=receipt_id, email=email, vip_num=vipNum, reg_type=regType, tutorial=tutorial,
                     tutorial_item=tutorialItem, need_invite=needInvite, excursion=excursion, food_preference=foodPreference,
                     goto_talk=gotoTalk, total_fee=totalFee)
-        template = '<p style="font-size: 20px;font-weight: 600">提交成功! 您的编号为： ' + random_id + '</p>\
+        template = '<p style="font-size: 20px;font-weight: 600">提交成功! 您的编号为：<span style="color:red;">' + random_id + '</span>; 您的总注册费用为：<span style="color:red;">￥ ' + str(totalFee) + '</span></p>\
 										<p>请将注册费转到以下账号：</p>\
 										<p>户名 ：中山大学</p>\
 										<p>开户行：中国工商银行广州中山大学支行 </p>\
@@ -128,7 +128,7 @@ def register_mainland():
         if ret:
             db.session.add(curr_user)
             db.session.commit()
-            return jsonify(status='success', curr_id=random_id)
+            return jsonify(status='success', curr_id=random_id, total_fee=totalFee)
         else:
             return jsonify(status='failed')
 
@@ -209,7 +209,7 @@ def register_outside():
                     edas1=edas1, edas2=edas2, edas3=edas3, email=email, vip_num=vipNum, reg_type=regType, tutorial=tutorial,
                     tutorial_item=tutorialItem, need_invite=needInvite, excursion=excursion, food_preference=foodPreference,
                     goto_talk=gotoTalk, total_fee=totalFee)
-        template = '<p style="font-size: 20px;font-weight: 600">Submit successffully! Your number is ' + random_id + '</p>\
+        template = '<p style="font-size: 20px;font-weight: 600">Submit successffully! Your number is: <span style="color:red;">' + random_id + '</span>; your total fee is：<span style="color:red;">$ ' + str(totalFee) + '</span></p>\
 										<p>Please transfer the registration fee to the following account：</p>\
 										<p>Account：Sun Yat-sen University</p>\
 										<p>Swift Code：ICBKCNBJGDG</p>\
@@ -217,12 +217,12 @@ def register_outside():
 										<p>Address：No. 135 Xin Gang Xi Road Guang Zhou P.R China</p>\
 										<p>Note: Number_ITW2018, e.g., AA001_ITW2018</p><hr>\
 										<p style="color:red;"><strong>Notice：</strong></p>\
-										<p style="text-indent:2;"><strong>Please make sure that you write down “number _ITW2018” as the note of your transaction while transferring your registration fee. Your payment can only be traced with a proper note. Without a proper note, your transaction may be lost and we are not responsible for it. After your payment being confirmed, we will notify you via email within 7 working days.</strong></p>'
+										<p style="text-indent:2;"><strong>While you are transferring the registration fee, you MUST write “NUMBER _ITW2018” as the note of your transaction. Your payment can only be traced with the note. Otherwise, your transaction may be lost and we are not responsible for it. After your payment has been confirmed, we will notify you via email within 7 working days.</strong></p>'
         subject = 'ITW2018-Registration Successfully'
         ret = send_email(email, ename, template, subject)
         if ret:
             db.session.add(curr_user)
             db.session.commit()
-            return jsonify(status='success', curr_id=random_id)
+            return jsonify(status='success', curr_id=random_id, total_fee=totalFee)
         else:
             return jsonify(status='failed')

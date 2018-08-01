@@ -8,42 +8,70 @@ function hide_sub_menu(tag) {
 	$(tag).hide();
 }
 
-function showRadio(tag) {
+function showRadio(tag, is_mainland) {
 	$(tag).slideDown();
 	if(tag === "#tutorial-list") {
-		updateMoney(1);
+		updateMoney(1, is_mainland);
 	}
 }
 
-function hideRadio(tag) {
+function hideRadio(tag, is_mainland) {
 	$(tag).slideUp();
 	if(tag === "#tutorial-list") {
-		updateMoney(0);
+		updateMoney(0, is_mainland);
 	}
 }
 
-function showMoney() {
+function showMoney(is_mainland) {
 	var selected = $("#register-money").val();
-	var money = [4130,4690,5390,1680,2030,2380,1848,1148,1498,798,700];
+	var money;
+	if(is_mainland) {
+		money = [4130,4690,5390,1680,2030,2380,1848,1148,1498,798,700];
+	} 
+	else {
+		money = [590,670,770,240,290,340,264,164,214,114,100];
+	}
 	var total = money[selected];
-	if($("#register-tutorial").prop("checked")) {
-		total = money[selected] + 560;
+	var isChecked = $('input:radio[name="tutorial"]:checked').val();
+	if(isChecked == 'yes') {
+		if(is_mainland) {
+			total = money[selected] + 560;
+		} 
+		else {
+			total = money[selected] + 80;
+		}
 	}
 	$("#register-totalFee").val(total);
 }
 
-function updateMoney(flag) {
+function updateMoney(flag, is_mainland) {
 	var selected = $("#register-money").val();
-	var money = [4130,4690,5390,1680,2030,2380,1848,1148,1498,798,700];
+	var money;
+	if(is_mainland) {
+		money = [4130,4690,5390,1680,2030,2380,1848,1148,1498,798,700];
+	} 
+	else {
+		money = [590,670,770,240,290,340,264,164,214,114,100];
+	}
 	var curr = parseInt($("#register-totalFee").val());
 	var total = curr;
 	if(flag) {
-		total += 560;
+		if(is_mainland) {
+			total += 560;
+		} 
+		else {
+			total += 80;
+		}
 	}
 	else {
-	$("#register-totalFee").val(money[selected]);
+		$("#register-totalFee").val(money[selected]);
 		if(curr != money[selected]) {
-			total -= 560;
+			if(is_mainland) {
+				total -= 560;
+			} 
+			else {
+				total -= 80;
+			}
 		}
 	}
 	$("#register-totalFee").val(total);
@@ -201,9 +229,10 @@ $(document).ready(function () {
 				if(data.status == "success"){
 					// alert("OKOK");
 					let curr_id = data.curr_id;
+					let total_fee = data.total_fee;
 					let new_html;
 					if(is_mainland == 'yes') {
-						new_html = '<h3>提交成功! 您的编号为： ' + curr_id + '</h3>\
+						new_html = '<h3>提交成功! 您的编号为： <span style="color:red;">' + curr_id + '</span>; 您的总注册费用为：<span style="color:red;">￥ ' + total_fee + '</span></h3>\
 										<p>请将注册费转到以下账号：</p>\
 										<p>户名 ：中山大学</p>\
 										<p>开户行：中国工商银行广州中山大学支行 </p>\
@@ -214,7 +243,7 @@ $(document).ready(function () {
 						$("#registration-mainland").html(new_html);
 					}
 					else {
-						new_html = '<h3>Submit successffully! Your number is ' + curr_id + '</h3>\
+						new_html = '<h3>Submit successffully! Your number is:  <span style="color:red;">' + curr_id + '</span>; your total fee is: <span style="color:red;">$ ' + total_fee + '</span></h3>\
 										<p>Please transfer the registration fee to the following account：</p>\
 										<p>Account：Sun Yat-sen University</p>\
 										<p>Swift Code：ICBKCNBJGDG</p>\
@@ -222,7 +251,7 @@ $(document).ready(function () {
 										<p>Address：No. 135 Xin Gang Xi Road Guang Zhou P.R China</p>\
 										<p>Note: Number_ITW2018, e.g., AA001_ITW2018</p><hr>\
 										<p style="color:red;"><strong>Notice：</strong></p>\
-										<p style="text-indent:2;"><strong>Please make sure that you write down “number _ITW2018” as the note of your transaction while transferring your registration fee. Your payment can only be traced with a proper note. Without a proper note, your transaction may be lost and we are not responsible for it. After your payment being confirmed, we will notify you via email within 7 working days.</strong></p>'
+										<p style="text-indent:2;"><strong>While you are transferring the registration fee, you MUST write “NUMBER _ITW2018” as the note of your transaction. Your payment can only be traced with the note. Otherwise, your transaction may be lost and we are not responsible for it. After your payment has been confirmed, we will notify you via email within 7 working days.</strong></p>'
 						$("#registration-outside").html(new_html);
 					}
 				}

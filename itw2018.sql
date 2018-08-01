@@ -32,7 +32,7 @@ CREATE TABLE `reservations` (
   `email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `room_type` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -98,14 +98,14 @@ CREATE TABLE `users` (
   `vip_num` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `reg_type` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
   `tutorial` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `tutorial_item` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `tutorial_item` varchar(128) COLLATE utf8_unicode_ci DEFAULT NULL,
   `need_invite` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `excursion` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
   `food_preference` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `goto_talk` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `total_fee` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -126,4 +126,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-07-31 17:12:07
+-- Dump completed on 2018-08-01 11:06:21

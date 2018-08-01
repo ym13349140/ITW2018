@@ -91,7 +91,7 @@
                 <label class="control-label col-sm-3 text-left"
                     for="register-money">* Please select your registration type</label>
                 <div class="col-sm-8">
-                    <select id="register-money" class="form-control" name="money" required onchange="showMoney()">
+                    <select id="register-money" class="form-control" name="money" required onchange="showMoney(0)">
                         <option value="0">Full Registration (IT soc)-------------------------------------------------------------$590/￥4130</option>
                         <option value="1">Full Registration (IEEE non IT soc)------------------------------------------------$670/￥4690</option>
                         <option value="2">Full Registration (Non IEEE)---------------------------------------------------------$770/￥5390</option>
@@ -109,26 +109,36 @@
             <div class="form-group">
                 <label class="control-label col-sm-3 text-left">Total Fee</label>
                 <div id="register-totalFee-icon" class="text-right">
-                    <span>￥</span>
+                    <span>$</span>
                 </div>
                 <div class="col-sm-2">
                     <input id="register-totalFee" type="text" name="totalFee"
                             required="required"
                             class="form-control"
                             readonly
-                            value="4130">
+                            value="590">
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-sm-3 text-left">* Will you participate a tutorial on Nov. 25</label>
+                <label class="control-label col-sm-3 text-left">* Will you participate a tutorial on Nov. 25 ($ 80)</label>
                 <div class="col-sm-8">
                     <label class="checkbox-inline">
                             <input id="register-tutorial1" type="radio" name="tutorial"
-                            required="required" value="yes" onchange="showRadio('#tutorial-list')"> Yes
+                            required="required" value="yes" onchange="showRadio('#tutorial-list', 0)"> Yes
                     </label>
                     <label class="checkbox-inline">
                             <input id="register-tutorial2" type="radio" name="tutorial"
-                            required="required" value="no" onchange="hideRadio('#tutorial-list')"> No
+                            required="required" value="no" onchange="hideRadio('#tutorial-list', 0)"> No
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-3">
+                    <label class="checkbox-inline">
+                        Tutorial 1: Coded Caching and Distributed Computing: Opportunities and Challenges
+                    </label><br>
+                    <label class="checkbox-inline">
+                        Tutorial 2: Taming Nonconvexity in Information Science
                     </label>
                 </div>
             </div>
@@ -136,11 +146,11 @@
                 <div class="col-sm-8 col-sm-offset-3">
                     <label class="checkbox-inline">
                             <input id="register-tutorial1-1" type="radio" name="tutorialItem"
-                            value="Tutorial1"> Tutorial1
-                    </label>
+                            value="Tutorial1: Coded Caching and Distributed Computing: Opportunities and Challenges"> Tutorial 1
+                    </label><br>
                     <label class="checkbox-inline">
                             <input id="register-tutorial2-1" type="radio" name="tutorialItem"
-                            value="Tutorial2"> Tutorial2
+                            value="Tutorial2: Taming Nonconvexity in Information Science"> Tutorial 2
                     </label>
                 </div>
             </div>
