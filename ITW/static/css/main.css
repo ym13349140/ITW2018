@@ -376,6 +376,10 @@ table#at-glance {
     font-size: 18px;
 }
 
+.line-height-items {
+    line-height: 30px;
+}
+
 @media (max-width: 767px) {
     .container {
         width: 100%;

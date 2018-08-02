@@ -173,6 +173,7 @@ def reservation():
 						<p>Your check-out date：' + str(out_date) + '</p>\
 						<p>Your room type is：' + str(room_dict[curr_room.type_num]) + '</p>\
 						<p>The price is: ￥' + str(curr_room.price) + ' / day</p><hr>\
+                        <p><strong>Note:</strong> The listed price contains only one breakfast. You can pay for the extra breakfast at check-in if needed.</p>\
                         <p>Sent by ITW2018 Organizing Committee</p>'
             subject = 'ITW2018-Reservation Successfully'
             ret = send_email(email, name, template, subject)

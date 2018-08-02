@@ -9,6 +9,8 @@ import sys
 import time, random, string
 
 sys_encoding = sys.getfilesystemencoding()
+# reload(sys)
+# sys.setdefaultencoding('utf-8')
 
 
 @registration.route('/registration')
@@ -82,22 +84,24 @@ def register_mainland():
         tutorialItem = request.form.get('tutorialItem')
         needInvite = request.form.get('needInvite')
         travel = request.form.getlist('travel')
-        excursion = ''
+        excursion = u'no'        
+        if len(travel) > 0:
+            excursion = u''
         for t in travel:
             if t == '0':
-                excursion += '珠江夜游，11月26号晚'
+                excursion = u'珠江夜游，11月26号晚'
                 if len(travel) == 2:
-                    excursion += ', '
+                    excursion += '; '
             elif t == '1':
-                excursion += '登白云山，11月28号下午'
+                excursion += u'登白云山，11月28号下午'
         foodPreference = request.form.get('foodPreference')
         # print "Chinese ", '中文中文中文'.decode('utf-8').encode(sys_encoding) 
         if foodPreference == '0':
-            foodPreference = '素食'
+            foodPreference = u'素食'
         elif foodPreference =='1':
-            foodPreference = '清真'
+            foodPreference = u'清真'
         else:
-            foodPreference = '无'
+            foodPreference = u'无'
         gotoTalk = request.form.get('gotoTalk')
         totalFee = request.form.get('totalFee')
 
@@ -115,20 +119,74 @@ def register_mainland():
                     receipt_id=receipt_id, email=email, vip_num=vipNum, reg_type=regType, tutorial=tutorial,
                     tutorial_item=tutorialItem, need_invite=needInvite, excursion=excursion, food_preference=foodPreference,
                     goto_talk=gotoTalk, total_fee=totalFee)
-        template = '<p style="font-size: 20px;font-weight: 600">提交成功! 您的编号为：<span style="color:red;">' + random_id + '</span>; 您的总注册费用为：<span style="color:red;">￥ ' + str(totalFee) + '</span></p>\
-										<p>请将注册费转到以下账号：</p>\
+        template = u'<p style="font-size: 20px;font-weight: 600">提交成功! 您的转账备注为：<span style="color:red;">' + random_id + u'_ITW2018</span></p>\
+                    <p style="font-size: 20px;font-weight: 600">请将<span style="color:red;"> ￥ ' + str(totalFee) + u'</span> 于9月16日前转入以下账号: </p>\
 										<p>户名 ：中山大学</p>\
 										<p>开户行：中国工商银行广州中山大学支行 </p>\
 										<p>账号：3602864809100002723</p>\
-										<p>备注：编号_ITW2018，例如，AA001_ITW2018</p><hr>\
+                                        <p>备注：' + random_id + u'_ITW2018</p><hr>\
 										<p style="color:red;"><strong>注意：</strong></p>\
-										<p style="text-indent:2;"><strong>请务必在银行转账的备注处填写“编号_ITW2018”，以便我们确认您是否缴费成功。若没有注明上示备注，我们将无法确认您是否缴费，后果请自负。在确认您缴费成功后，我们将会在7个工作日内给您发送缴费成功邮件。</strong></p>'  
+										<ol>\
+											<li>请务必在银行转账的备注处填写系统提供的转账备注，以便我们确认您是否缴费成功。若没有注明上示备注，我们将无法确认您是否缴费成功，后果请自负。在确认您缴费成功后，我们将会在7个工作日内给您发送缴费成功邮件。</li>\
+											<li>请您在9月16日之前完成转账，否则将视为注册失败。</li>\
+											<li>邀请函将会随同注册确认信一同寄给您。</li>\
+										</ol><hr>\
+                                        <p><strong>您的注册信息总览:</strong></p>\
+										<p>姓名：' + cname + u'</p>\
+		 								<p>身份证号：' + pid + u'</p>\
+		 								<p>工作单位：' + affiliation + u'</p>\
+		 								<p>文章编号：'
+        edas = u'无'
+        if edas1:
+            edas = u'' + edas1
+        if edas2:
+            edas = edas + u', '
+            edas = edas + edas2
+        if edas3:
+            edas = edas + u', '
+            edas = edas + edas3
+        print edas
+        template = template + edas + u'</p>'
+        if receipt == 'yes':
+            template = template + u'<p>发票抬头：' + receipt_title + u'</p>\
+									<p>纳税人识别号：' + receipt_id + u'</p>'
+        if vipNum:
+            template = template + u'<p>IEEE 会员号：' + vipNum + u'</p>'
+        template = template + u'<p>注册类型：' + regType + u'</p>'
+        if tutorial == 'yes':
+            template = template + u'<p>Tutorial：' + tutorialItem + u'</p>'
+        else:
+            template = template + u'<p>Tutorial：无</p>'
+        template = template + u'<p>是否需要会议通知和邀请函：' + needInvite + u'</p>\
+                                <p>是否参加外出游览: ' + excursion + u'</p>\
+                                <p>注册费用：￥ ' + str(totalFee) + u'</p>\
+                                <p>转账备注：' + random_id + u'_ITW2018</p>\
+                                <p>饮食偏好：' + foodPreference + u'</p>\
+                                <p>是否参加11月30日举办的中山大学编码与信息理论研讨会: ' + gotoTalk + u'</p>'
         subject = 'ITW2018-Registration Successfully'
         ret = send_email(email, ename, template, subject)
         if ret:
             db.session.add(curr_user)
             db.session.commit()
-            return jsonify(status='success', curr_id=random_id, total_fee=totalFee)
+            return jsonify(status='success',
+                            random_id=random_id,
+                            cname=cname,
+                            pid=pid,
+                            affiliation=affiliation,
+                            edas1=edas1,
+                            edas2=edas2,
+                            edas3=edas3,
+                            receipt=receipt,
+                            receipt_title=receipt_title,
+                            receipt_id=receipt_id,
+                            vip_num=vipNum,
+                            reg_type=regType,
+                            tutorial_item=tutorialItem,
+                            food_preference=foodPreference,
+                            total_fee=totalFee,
+                            need_invite=needInvite,
+                            excursion=excursion,
+                            goto_talk=gotoTalk)
         else:
             return jsonify(status='failed')
 
@@ -152,47 +210,53 @@ def register_outside():
         vipNum = request.form.get('vipNum')
         regType = request.form.get('money')
         if regType == '0':
-            regType = 'Full Registration (IT soc)'
+            regType = u'Full Registration (IT soc)'
         elif regType == '1':
-            regType = 'Full Registration (IEEE non IT soc)'
+            regType = u'Full Registration (IEEE non IT soc)'
         elif regType == '2':
-            regType = 'Full Registration (Non IEEE)'
+            regType = u'Full Registration (Non IEEE)'
         elif regType == '3':
-            regType = 'Student IT soc/IEEE Life member'
+            regType = u'Student IT soc/IEEE Life member'
         elif regType == '4':
-            regType = 'Student (IEEE non IT soc)'
+            regType = u'Student (IEEE non IT soc)'
         elif regType == '5':
-            regType = 'Student (Non IEEE)'
+            regType = u'Student (Non IEEE)'
         elif regType == '6':
-            regType = 'One Day Registration (With banquet)'
+            regType = u'One Day Registration (With banquet)'
         elif regType == '7':
-            regType = 'One Day Registration (Without banquet)'
+            regType = u'One Day Registration (Without banquet)'
         elif regType == '8':
-            regType = 'Student One Day Registration (With banquet)'
+            regType = u'Student One Day Registration (With banquet)'
         elif regType == '9':
-            regType = 'Student One Day Registration (Without banquet)'
+            regType = u'Student One Day Registration (Without banquet)'
         elif regType == '10':
-            regType = 'Banquet Only'
+            regType = u'Banquet Only'
         tutorial = request.form.get('tutorial')
         tutorialItem = request.form.get('tutorialItem')
         needInvite = request.form.get('needInvite')
         travel = request.form.getlist('travel')
-        excursion = ''
+        excursion = u'no'        
+        if len(travel) > 0:
+            excursion = u''
+        gender = ''
+        birthday = ''
         for t in travel:
             if t == '0':
-                excursion += '珠江夜游，11月26号晚'
+                excursion += u'Zhujiang river night cruise (Night, Nov. 26)'
+                gender = request.form.get('gender')
+                birthday = request.form.get('birthday')
                 if len(travel) == 2:
-                    excursion += ', '
+                    excursion += '; '
             elif t == '1':
-                excursion += '登白云山，11月28号下午'
+                excursion += u'Baiyun mountain walk (Afternoon, Nov. 28)'
         foodPreference = request.form.get('foodPreference')
         # print "Chinese ", '中文中文中文'.decode('utf-8').encode(sys_encoding) 
         if foodPreference == '0':
-            foodPreference = '素食'
+            foodPreference = u'Vegetarian'
         elif foodPreference =='1':
-            foodPreference = '清真'
+            foodPreference = u'Halal'
         else:
-            foodPreference = '无'
+            foodPreference = u'None'
         gotoTalk = request.form.get('gotoTalk')
         totalFee = request.form.get('totalFee')
 
@@ -209,20 +273,75 @@ def register_outside():
                     edas1=edas1, edas2=edas2, edas3=edas3, email=email, vip_num=vipNum, reg_type=regType, tutorial=tutorial,
                     tutorial_item=tutorialItem, need_invite=needInvite, excursion=excursion, food_preference=foodPreference,
                     goto_talk=gotoTalk, total_fee=totalFee)
-        template = '<p style="font-size: 20px;font-weight: 600">Submit successffully! Your number is: <span style="color:red;">' + random_id + '</span>; your total fee is：<span style="color:red;">$ ' + str(totalFee) + '</span></p>\
-										<p>Please transfer the registration fee to the following account：</p>\
-										<p>Account：Sun Yat-sen University</p>\
+        template = u'<p style="font-size: 20px;font-weight: 600">Your information has been submitted. Your transaction note is: <span style="color:red;">' + random_id + u'</span><p>\
+                    <p style="font-size: 20px;font-weight: 600">Please transfer <span style="color:red;">$ ' + str(totalFee) + u'</span> to the following account by Sept. 16</p>\
+										<p>Account Name：Sun Yat-sen University</p>\
+										<p>Account Number：3602864809100002723</p>\
 										<p>Swift Code：ICBKCNBJGDG</p>\
 										<p>Bank：Industrial and Commercial bank of China, Guang Dong branch, sub-branch of Sun Yat-sen University</p>\
 										<p>Address：No. 135 Xin Gang Xi Road Guang Zhou P.R China</p>\
-										<p>Note: Number_ITW2018, e.g., AA001_ITW2018</p><hr>\
-										<p style="color:red;"><strong>Notice：</strong></p>\
-										<p style="text-indent:2;"><strong>While you are transferring the registration fee, you MUST write “NUMBER _ITW2018” as the note of your transaction. Your payment can only be traced with the note. Otherwise, your transaction may be lost and we are not responsible for it. After your payment has been confirmed, we will notify you via email within 7 working days.</strong></p>'
+										<p>Transaction Note：' + random_id + u'_ITW2018</p><hr>\
+										<p style="color:red;"><strong>Caution:</strong></p>\
+										<ol>\
+                                            <li>While transferring the registration fee, you MUST write the given transaction note. Your payment can only be traced with the note. Otherwise, your transaction may be lost and we are not responsible for it. After your payment has been confirmed, we will notify you via email within 7 working days.</li>\
+                                            <li>Please transfer your registration fee by Sept. 16. Otherwise, the registration fails.</li>\
+                                            <li>Your invitation letter will be attached to transaction confirmation mail.</li>\
+                                        </ol><hr>\
+                                        <p><strong>Your registration information is shown as follows:</strong></p>\
+										<p>Name：' + ename + u'</p>\
+		 								<p>Passport/ID card number：' + pid + u'</p>\
+                                        <p>Country: ' + country + u'</p>\
+		 								<p>Affiliation: ' + affiliation + u'</p>\
+		 								<p>Paper EDAS Number：'
+        edas = u'None'
+        if edas1:
+            edas = u'' + edas1
+        if edas2:
+            edas = edas + u', '
+            edas = edas + edas2
+        if edas3:
+            edas = edas + u', '
+            edas = edas + edas3
+        template = template + edas + u'</p>'
+        if vipNum:
+            template = template + u'<p>IEEE member number：' + vipNum + u'</p>'
+        template = template + u'<p>Register type: ' + regType + u'</p>'
+        if tutorial == 'yes':
+            template = template + u'<p>Tutorial：' + tutorialItem + u'</p>'
+        else:
+            template = template + u'<p>Tutorial：None</p>'
+        template = template + u'<p>Do you need an invitation letter：' + needInvite + u'</p>\
+                                <p>Will you join the excursions: ' + excursion + u'</p>\
+                                <p>Total register fee：$ ' + str(totalFee) + u'</p>\
+                                <p>transaction note：' + random_id + u'_ITW2018</p>\
+                                <p>Dietary Preference：' + foodPreference + u'</p>\
+                                <p>Will you participate the SYSU Information and Coding Theory Workshop on Nov. 30: ' + gotoTalk + u'</p>'
         subject = 'ITW2018-Registration Successfully'
         ret = send_email(email, ename, template, subject)
         if ret:
             db.session.add(curr_user)
             db.session.commit()
-            return jsonify(status='success', curr_id=random_id, total_fee=totalFee)
+            if gender:
+                curr_user.gender = gender
+                curr_user.birthday = birthday
+                db.session.add(curr_user)
+                db.session.commit()
+            return jsonify(status='success',
+                            random_id=random_id,
+                            ename=ename,
+                            country=country,
+                            pid=pid,
+                            affiliation=affiliation,
+                            edas1=edas1,
+                            edas2=edas2,
+                            edas3=edas3,
+                            vip_num=vipNum,
+                            reg_type=regType,
+                            tutorial_item=tutorialItem,
+                            food_preference=foodPreference,
+                            total_fee=totalFee,
+                            need_invite=needInvite,
+                            excursion=excursion,
+                            goto_talk=gotoTalk)
         else:
             return jsonify(status='failed')

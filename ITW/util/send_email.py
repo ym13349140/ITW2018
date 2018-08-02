@@ -19,17 +19,17 @@ def send_email(receiver, user_name, template, subject, **kwargs):
  
        
         smtp = smtplib.SMTP()
-        # show the debug log
         smtp.set_debuglevel(1)
-        
         # connet
         try:
             smtp.connect(app.config['MAIL_SERVER'],587)
+            # smtp.connect(app.config['MAIL_SERVER'],25)
         except:
             print 'CONNECT ERROR ****'
         # gmail uses ssl
         smtp.starttls()
         # login with username & password
+        # smtp = smtplib.SMTP_SSL(app.config['MAIL_SERVER'],465)
         try:
             smtp.login(my_sender, my_pass)
         except:

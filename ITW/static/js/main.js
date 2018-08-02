@@ -88,6 +88,17 @@ function alert_modal(content, isHtml) {
     obj.modal('show');
 }
 
+function toggleGender() {
+	if($("#zhujiang").prop("checked")) {
+		$("#gender-list").slideDown();
+		$("#birthday-box").slideDown();
+	}
+	else {
+		$("#gender-list").slideUp();
+		$("#birthday-box").slideUp();
+	}
+}
+
 $(document).ready(function () {
 	$('.overflow-ellipsis').tooltip();
 	$('.read-more').click(function() {
@@ -158,8 +169,15 @@ $(document).ready(function () {
 					return;
 				}
 			}
+			let type_num = parseInt($("#register-money").val());
+			if((type_num >= 3 && type_num <= 5) || (type_num >= 8 && type_num <= 9)) {
+				if($("#register-edas2").val() != '' || $("#register-edas3").val() != '') {
+					alert_modal("学生用户仅能填写一项论文EDAS编号！");
+					return;
+				}
+			}
 			let total_fee = $("#register-totalFee").val();
-			$("#total-fee-before").text("您的总费用为：￥ ");
+			$("#total-fee-before").text("您的注册费用为：￥ ");
 			$("#total-fee").text(total_fee);
 			$("#total-fee-after").text("，确认提交？");
 		}
@@ -206,10 +224,28 @@ $(document).ready(function () {
 					return;
 				}
 			}
+			let type_num = parseInt($("#register-money").val());
+			if((type_num >= 3 && type_num <= 5) || (type_num >= 8 && type_num <= 9)) {
+				if($("#register-edas2").val() != '' || $("#register-edas3").val() != '') {
+					alert_modal("Student members can only have one paper EDAS number！");
+					return;
+				}
+			}
+			if($("#zhujiang").prop("checked")) {
+				if(!($("#register-gender1").prop("checked") || $("#register-gender2").prop("checked"))) {
+					alert_modal("Please choose your gender！");
+					return;
+				}
+				if($("#register-birthday").val() == '') {
+					alert_modal("Please set your birthday for insurance！");
+					return;
+				}
+			}
 			let total_fee = $("#register-totalFee").val();
-			$("#total-fee-before").text("Your total fee is：￥ ");
+			$("#total-fee-before").text("Your total fee is：$ ");
 			$("#total-fee").text(total_fee);
-			$("#total-fee-after").text(", Confirm to submit.");
+			$("#total-fee-after").text(".");
+			$("#next-line-content").text("Please confirm then submit.");
 		}
 		$("#submit-comfirm-modal").modal("show");
 	});
@@ -228,30 +264,110 @@ $(document).ready(function () {
 				$("#submit-comfirm-modal").modal("hide");
 				if(data.status == "success"){
 					// alert("OKOK");
-					let curr_id = data.curr_id;
-					let total_fee = data.total_fee;
 					let new_html;
 					if(is_mainland == 'yes') {
-						new_html = '<h3>提交成功! 您的编号为： <span style="color:red;">' + curr_id + '</span>; 您的总注册费用为：<span style="color:red;">￥ ' + total_fee + '</span></h3>\
-										<p>请将注册费转到以下账号：</p>\
+						new_html = '<h3>提交成功! 您的转账备注为： <span style="color:red;">' + data.random_id + '_ITW2018</span></h3>\
+										<h3>请将<span style="color:red;">￥ ' + data.total_fee + '</span> 于9月16日前转入以下账号:</h3>\
 										<p>户名 ：中山大学</p>\
 										<p>开户行：中国工商银行广州中山大学支行 </p>\
 										<p>账号：3602864809100002723</p>\
-										<p>备注：编号_ITW2018，例如，AA001_ITW2018</p><hr>\
+										<p>备注：' + data.random_id + '_ITW2018</p><hr>\
 										<p style="color:red;"><strong>注意：</strong></p>\
-										<p style="text-indent:2;"><strong>请务必在银行转账的备注处填写“编号_ITW2018”，以便我们确认您是否缴费成功。若没有注明上示备注，我们将无法确认您是否缴费，后果请自负。在确认您缴费成功后，我们将会在7个工作日内给您发送缴费成功邮件。</strong></p>'
+										<ol>\
+											<li>请务必在银行转账的备注处填写系统提供的转账备注，以便我们确认您是否缴费成功。若没有注明上示备注，我们将无法确认您是否缴费成功，后果请自负。在确认您缴费成功后，我们将会在7个工作日内给您发送缴费成功邮件。</li>\
+											<li>请您在9月16日之前完成转账，否则将视为注册失败。</li>\
+											<li>邀请函将会随同注册确认信一同寄给您。</li>\
+										</ol><hr>\
+										<p><strong>您的注册信息总览:</strong></p>\
+										<p>姓名：' + data.cname + '</p>\
+										<p>身份证号：' + data.pid + '</p>\
+										<p>工作单位：' + data.affiliation + '</p>\
+										<p>文章编号：';
+						let edas = '无';
+						if(data.edas1) {
+							edas = data.edas1;
+						}
+						if(data.edas2) {
+							edas += '; ';
+							edas += data.edas2;
+						}
+						if(data.edas3) {
+							edas += ', ';
+							edas += data.edas3;
+						}
+						new_html += edas + '</p>';
+						if(data.receipt == 'yes') {
+							new_html += '<p>发票抬头：' + data.receipt_title + '</p>\
+										<p>纳税人识别号：' + data.receipt_id + '</p>';
+						}
+						if(data.vip_num) {
+							new_html += '<p>IEEE 会员号：' + data.vip_num + '</p>';
+						}
+						new_html += '<p>注册类型：' + data.reg_type + '</p>';
+						if(data.tutorial_item) {
+							new_html += '<p>Tutorial：' + data.tutorial_item + '</p>';
+						}
+						else {
+							new_html += '<p>Tutorial：无</p>';
+						}
+						new_html += '<p>是否需要会议通知和邀请函：' + data.need_invite + '</p>\
+									<p>是否参加外出游览：' + data.excursion + '</p>\
+									<p>注册费用：￥ ' + data.total_fee + '</p>\
+									<p>转账备注：' + data.random_id + '_ITW2018</p>\
+									<p>饮食偏好：' + data.food_preference + '</p>\
+									<p>是否参加11月30日举办的中山大学编码与信息理论研讨会: ' + data.goto_talk + '</p>';
 						$("#registration-mainland").html(new_html);
 					}
 					else {
-						new_html = '<h3>Submit successffully! Your number is:  <span style="color:red;">' + curr_id + '</span>; your total fee is: <span style="color:red;">$ ' + total_fee + '</span></h3>\
-										<p>Please transfer the registration fee to the following account：</p>\
+						new_html = '<h3>Your information has been submitted. Your transaction note is:  <span style="color:red;">' + data.random_id + '</span></h3>\
+									<h3>Please transfer <span style="color:red;">$ ' + data.total_fee + ' </span>to the following account by Sept. 16</h3>\
 										<p>Account：Sun Yat-sen University</p>\
 										<p>Swift Code：ICBKCNBJGDG</p>\
+										<p>Account Number：3602864809100002723</p>\
 										<p>Bank：Industrial and Commercial bank of China, Guang Dong branch, sub-branch of Sun Yat-sen University</p>\
 										<p>Address：No. 135 Xin Gang Xi Road Guang Zhou P.R China</p>\
-										<p>Note: Number_ITW2018, e.g., AA001_ITW2018</p><hr>\
-										<p style="color:red;"><strong>Notice：</strong></p>\
-										<p style="text-indent:2;"><strong>While you are transferring the registration fee, you MUST write “NUMBER _ITW2018” as the note of your transaction. Your payment can only be traced with the note. Otherwise, your transaction may be lost and we are not responsible for it. After your payment has been confirmed, we will notify you via email within 7 working days.</strong></p>'
+										<p>Transaction Note：' + data.random_id + '_ITW2018</p><hr>\
+										<p style="color:red;"><strong>Caution:：</strong></p>\
+										<ol>\
+                                            <li>While transferring the registration fee, you MUST write the given transaction note. Your payment can only be traced with the note. Otherwise, your transaction may be lost and we are not responsible for it. After your payment has been confirmed, we will notify you via email within 7 working days.</li>\
+                                            <li>Please transfer your registration fee by Sept. 16. Otherwise, the registration fails.</li>\
+                                            <li>Your invitation letter will be attached to transaction confirmation mail.</li>\
+                                        </ol><hr>\
+                                        <p><strong>Your registration information is shown as follows:</strong></p>\
+										<p>Name：' + data.ename + '</p>\
+		 								<p>Passport/ID card number：' + data.pid + '</p>\
+                                        <p>Country: ' + data.country + '</p>\
+		 								<p>Affiliation：' + data.affiliation + '</p>\
+		 								<p>Paper EDAS Number：';
+						let edas = 'None';
+						if(data.edas1) {
+							edas = data.edas1;
+						}
+						if(data.edas2) {
+							edas += '; ';
+							edas += data.edas2;
+						}
+						if(data.edas3) {
+							edas += ', ';
+							edas += data.edas3;
+						}
+						new_html += edas + '</p>';
+						if(data.vip_num) {
+							new_html += '<p>IEEE member number：' + data.vip_num + '</p>';
+						}
+						new_html += '<p>Registration type：' + data.reg_type + '</p>';
+						if(data.tutorial_item) {
+							new_html += '<p>Tutorial：' + data.tutorial_item + '</p>';
+						}
+						else {
+							new_html += '<p>Tutorial：None</p>';
+						}
+						new_html += '<p>Do you need an invitation letter：' + data.need_invite + '</p>\
+									<p>Will you join the excursions：' + data.excursion + '</p>\
+									<p>Total register fee：$ ' + data.total_fee + '</p>\
+                                	<p>transaction note：' + data.random_id + '_ITW2018</p>\
+                                	<p>Dietary Preference：' + data.food_preference + '</p>\
+                                	<p>Will you participate the SYSU Information and Coding Theory Workshop on Nov. 30: ' + data.goto_talk + '</p>'
 						$("#registration-outside").html(new_html);
 					}
 				}
@@ -341,14 +457,16 @@ $(document).ready(function () {
 									<p>Your check-in date：' + data['in_date'] + '</p>\
 									<p>Your check-out date：' + data['out_date'] + '</p>\
 									<p>Your room type is：' + data['room_type'] + '</p>\
-									<p>The price is: ￥' + data['price'] + ' / day</p>';
+									<p>The price is: ￥' + data['price'] + ' / day</p><hr>\
+									<p><strong>Note:</strong> The listed price contains only one breakfast. You can pay for the extra breakfast at check-in if needed.</p>';
+						alert_modal(new_html);
 						$("#accommodation-reservation .row").html(new_html);
 					}
 					else if(data.status == "no rooms") {
 						alert_modal("There is not enough room left for current type. Please choose another room type!");
 					}
 					else {
-						alert_modal("Submit Successfully!");
+						alert_modal("Submit Failed!");
 					}
 				}
 			});

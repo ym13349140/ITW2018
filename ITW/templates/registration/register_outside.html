@@ -170,13 +170,36 @@
             <div class="form-group">
                 <label class="control-label col-sm-3 text-left">Will you join the excursions</label>
                 <div class="col-sm-8 checkbox-wrapper">
-                    <label class="checkbox-inline">
+                    <label class="checkbox-inline" onclick="toggleGender();">
                             <input id="zhujiang" type="checkbox" name="travel"
                             value="0"> Zhujiang river night cruise (Night, Nov. 26)
                     </label><br>
                     <label class="checkbox-inline">
                             <input id="baiyunshan" type="checkbox" name="travel"
                             value="1"> Baiyun mountain walk (Afternoon, Nov. 28)
+                    </label>
+                </div>
+            </div>
+            <div id="gender-list" class="form-group radio-toggle">
+                <label class="control-label col-sm-3 text-left">* Gender</label>
+                <div class="col-sm-8">
+                    <label class="checkbox-inline">
+                            <input id="register-gender1" type="radio" name="gender"
+                            required="required" value="male"> male
+                    </label>
+                    <label class="checkbox-inline">
+                            <input id="register-gender2" type="radio" name="gender"
+                            required="required" value="female"> female
+                    </label>
+                </div>
+            </div>
+            
+            <div id="birthday-box" class="form-group radio-toggle">
+                <label class="control-label col-sm-3 text-left">* Date of Birth (Needed for insurance)</label>
+                <div class="col-sm-8">
+                    <label class="checkbox-inline">
+                            <input id="register-birthday" type="date" name="birthday"
+                            required="required">
                     </label>
                 </div>
             </div>
@@ -198,7 +221,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-sm-3 text-left">* Will you participate the SYSU Information and Coding Theory Workshop on Nov. 30</label>
+                <label class="control-label col-sm-3 text-left">* Will you participate the SYSU Information and Coding Theory Workshop on Nov. 30 (free)</label>
                 <div class="col-sm-8">
                     <label class="checkbox-inline">
                             <input id="register-gotoTalk1" type="radio" name="gotoTalk"

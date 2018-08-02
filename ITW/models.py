@@ -31,6 +31,8 @@ class Users(db.Model):
     tutorial_item = db.Column(db.String(128))
     need_invite = db.Column(db.String(10), nullable=False)
     excursion = db.Column(db.String(128), nullable=False)
+    gender = db.Column(db.String(10))
+    birthday = db.Column(db.String(50))
     food_preference = db.Column(db.String(50), nullable=False)
     goto_talk = db.Column(db.String(10), nullable=False)
 
