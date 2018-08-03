@@ -242,7 +242,7 @@ $(document).ready(function () {
 				}
 			}
 			let total_fee = $("#register-totalFee").val();
-			$("#total-fee-before").text("Your total fee is：$ ");
+			$("#total-fee-before").text("Your total registration fee is：$ ");
 			$("#total-fee").text(total_fee);
 			$("#total-fee-after").text(".");
 			$("#next-line-content").text("Please confirm then submit.");
@@ -319,19 +319,19 @@ $(document).ready(function () {
 						$("#registration-mainland").html(new_html);
 					}
 					else {
-						new_html = '<h3>Your information has been submitted. Your transaction note is:  <span style="color:red;">' + data.random_id + '</span></h3>\
+						new_html = '<h3>Your information has been submitted. Your transaction note is:  <span style="color:red;">' + data.random_id + '_ITW2018</span></h3>\
 									<h3>Please transfer <span style="color:red;">$ ' + data.total_fee + ' </span>to the following account by Sept. 16</h3>\
-										<p>Account：Sun Yat-sen University</p>\
-										<p>Swift Code：ICBKCNBJGDG</p>\
+										<p>Account Name：Sun Yat-sen University</p>\
 										<p>Account Number：3602864809100002723</p>\
+										<p>Swift Code：ICBKCNBJGDG</p>\
 										<p>Bank：Industrial and Commercial bank of China, Guang Dong branch, sub-branch of Sun Yat-sen University</p>\
 										<p>Address：No. 135 Xin Gang Xi Road Guang Zhou P.R China</p>\
 										<p>Transaction Note：' + data.random_id + '_ITW2018</p><hr>\
-										<p style="color:red;"><strong>Caution:：</strong></p>\
+										<p style="color:red;"><strong>Caution: </strong></p>\
 										<ol>\
                                             <li>While transferring the registration fee, you MUST write the given transaction note. Your payment can only be traced with the note. Otherwise, your transaction may be lost and we are not responsible for it. After your payment has been confirmed, we will notify you via email within 7 working days.</li>\
                                             <li>Please transfer your registration fee by Sept. 16. Otherwise, the registration fails.</li>\
-                                            <li>Your invitation letter will be attached to transaction confirmation mail.</li>\
+                                            <li>Your invitation letter will be included in the transaction confirmation mail.</li>\
                                         </ol><hr>\
                                         <p><strong>Your registration information is shown as follows:</strong></p>\
 										<p>Name：' + data.ename + '</p>\
@@ -364,8 +364,8 @@ $(document).ready(function () {
 						}
 						new_html += '<p>Do you need an invitation letter：' + data.need_invite + '</p>\
 									<p>Will you join the excursions：' + data.excursion + '</p>\
-									<p>Total register fee：$ ' + data.total_fee + '</p>\
-                                	<p>transaction note：' + data.random_id + '_ITW2018</p>\
+									<p>Total registration fee：$ ' + data.total_fee + '</p>\
+                                	<p>Transaction note：' + data.random_id + '_ITW2018</p>\
                                 	<p>Dietary Preference：' + data.food_preference + '</p>\
                                 	<p>Will you participate the SYSU Information and Coding Theory Workshop on Nov. 30: ' + data.goto_talk + '</p>'
 						$("#registration-outside").html(new_html);
@@ -459,7 +459,7 @@ $(document).ready(function () {
 									<p>Your room type is：' + data['room_type'] + '</p>\
 									<p>The price is: ￥' + data['price'] + ' / day</p><hr>\
 									<p><strong>Note:</strong> The listed price contains only one breakfast. You can pay for the extra breakfast at check-in if needed.</p>';
-						alert_modal(new_html);
+						// alert_modal(new_html);
 						$("#accommodation-reservation .row").html(new_html);
 					}
 					else if(data.status == "no rooms") {

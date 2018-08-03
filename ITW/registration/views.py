@@ -53,6 +53,10 @@ def register_mainland():
         edas2 = request.form.get('edas2')
         edas3 = request.form.get('edas3')
         receipt = request.form.get('receipt')
+        if receipt == 'yes':
+            receipt = u'是'
+        else:
+            receipt = u'否'
         receipt_title = request.form.get('receipt-title')
         receipt_id = request.form.get('receipt-id')
         email = request.form.get('email')
@@ -81,10 +85,18 @@ def register_mainland():
         elif regType == '10':
             regType = 'Banquet Only'
         tutorial = request.form.get('tutorial')
+        if tutorial == 'yes':
+            tutorial = u'是'
+        else:
+            tutorial = u'否'
         tutorialItem = request.form.get('tutorialItem')
         needInvite = request.form.get('needInvite')
+        if needInvite == 'yes':
+            needInvite = u'是'
+        else:
+            needInvite = u'否'
         travel = request.form.getlist('travel')
-        excursion = u'no'        
+        excursion = u'否'        
         if len(travel) > 0:
             excursion = u''
         for t in travel:
@@ -103,6 +115,10 @@ def register_mainland():
         else:
             foodPreference = u'无'
         gotoTalk = request.form.get('gotoTalk')
+        if gotoTalk == 'yes':
+            gotoTalk = u'是'
+        else:
+           gotoTalk = u'否'
         totalFee = request.form.get('totalFee')
 
         s1 = ''.join(random.choice(string.ascii_letters) for _ in range(2))
@@ -145,7 +161,6 @@ def register_mainland():
         if edas3:
             edas = edas + u', '
             edas = edas + edas3
-        print edas
         template = template + edas + u'</p>'
         if receipt == 'yes':
             template = template + u'<p>发票抬头：' + receipt_title + u'</p>\
@@ -163,7 +178,7 @@ def register_mainland():
                                 <p>转账备注：' + random_id + u'_ITW2018</p>\
                                 <p>饮食偏好：' + foodPreference + u'</p>\
                                 <p>是否参加11月30日举办的中山大学编码与信息理论研讨会: ' + gotoTalk + u'</p>'
-        subject = 'ITW2018-Registration Successfully'
+        subject = 'ITW 2018 – Registration Step 1 Succeeds'
         ret = send_email(email, ename, template, subject)
         if ret:
             db.session.add(curr_user)
@@ -273,7 +288,7 @@ def register_outside():
                     edas1=edas1, edas2=edas2, edas3=edas3, email=email, vip_num=vipNum, reg_type=regType, tutorial=tutorial,
                     tutorial_item=tutorialItem, need_invite=needInvite, excursion=excursion, food_preference=foodPreference,
                     goto_talk=gotoTalk, total_fee=totalFee)
-        template = u'<p style="font-size: 20px;font-weight: 600">Your information has been submitted. Your transaction note is: <span style="color:red;">' + random_id + u'</span><p>\
+        template = u'<p style="font-size: 20px;font-weight: 600">Your information has been submitted. Your transaction note is: <span style="color:red;">' + random_id + u'_ITW2018</span><p>\
                     <p style="font-size: 20px;font-weight: 600">Please transfer <span style="color:red;">$ ' + str(totalFee) + u'</span> to the following account by Sept. 16</p>\
 										<p>Account Name：Sun Yat-sen University</p>\
 										<p>Account Number：3602864809100002723</p>\
@@ -281,11 +296,11 @@ def register_outside():
 										<p>Bank：Industrial and Commercial bank of China, Guang Dong branch, sub-branch of Sun Yat-sen University</p>\
 										<p>Address：No. 135 Xin Gang Xi Road Guang Zhou P.R China</p>\
 										<p>Transaction Note：' + random_id + u'_ITW2018</p><hr>\
-										<p style="color:red;"><strong>Caution:</strong></p>\
+										<p style="color:red;"><strong>Caution: </strong></p>\
 										<ol>\
                                             <li>While transferring the registration fee, you MUST write the given transaction note. Your payment can only be traced with the note. Otherwise, your transaction may be lost and we are not responsible for it. After your payment has been confirmed, we will notify you via email within 7 working days.</li>\
                                             <li>Please transfer your registration fee by Sept. 16. Otherwise, the registration fails.</li>\
-                                            <li>Your invitation letter will be attached to transaction confirmation mail.</li>\
+                                            <li>Your invitation letter will be included in the transaction confirmation mail.</li>\
                                         </ol><hr>\
                                         <p><strong>Your registration information is shown as follows:</strong></p>\
 										<p>Name：' + ename + u'</p>\
@@ -313,10 +328,10 @@ def register_outside():
         template = template + u'<p>Do you need an invitation letter：' + needInvite + u'</p>\
                                 <p>Will you join the excursions: ' + excursion + u'</p>\
                                 <p>Total register fee：$ ' + str(totalFee) + u'</p>\
-                                <p>transaction note：' + random_id + u'_ITW2018</p>\
+                                <p>Transaction note：' + random_id + u'_ITW2018</p>\
                                 <p>Dietary Preference：' + foodPreference + u'</p>\
                                 <p>Will you participate the SYSU Information and Coding Theory Workshop on Nov. 30: ' + gotoTalk + u'</p>'
-        subject = 'ITW2018-Registration Successfully'
+        subject = 'ITW 2018 – Registration Step 1 Succeeds'
         ret = send_email(email, ename, template, subject)
         if ret:
             db.session.add(curr_user)
@@ -324,7 +339,6 @@ def register_outside():
             if gender:
                 curr_user.gender = gender
                 curr_user.birthday = birthday
-                db.session.add(curr_user)
                 db.session.commit()
             return jsonify(status='success',
                             random_id=random_id,
