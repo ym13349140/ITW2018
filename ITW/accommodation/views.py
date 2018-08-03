@@ -168,11 +168,12 @@ def reservation():
                                             identity_num=uid,
                                             email=email,
                                             room_type=room_dict[curr_room.type_num])
-            template = '<p style="font-size: 20px;font-weight: 600">Reserved Successfully!</p>\
-						<p>Your check-in date：' + str(in_date) + '</p>\
-						<p>Your check-out date：' + str(out_date) + '</p>\
-						<p>Your room type is：' + str(room_dict[curr_room.type_num]) + '</p>\
-						<p>The price is: ￥' + str(curr_room.price) + ' / day</p><hr>\
+            template = u'<p style="font-size: 20px;font-weight: 600">Reserved Successfully!</p>\
+						<p>Your name id：' + str(name) + u'</p>\
+						<p>Your check-in date：' + str(in_date) + u'</p>\
+						<p>Your check-out date：' + str(out_date) + u'</p>\
+						<p>Your room type is：' + str(room_dict[curr_room.type_num]) + u'</p>\
+						<p>The price is: ￥' + str(curr_room.price) + u' / day</p><hr>\
                         <p><strong>Note:</strong> The listed price contains only one breakfast. You can pay for the extra breakfast at check-in if needed.</p>\
                         <p>Sent by ITW2018 Organizing Committee</p>'
             subject = 'ITW2018-Reservation Successfully'
@@ -181,6 +182,7 @@ def reservation():
                 db.session.add(curr_reservation)
                 db.session.commit()
                 return jsonify(status='success',
+                                name=name,
                                 in_date=in_date,
                                 out_date=out_date,
                                 room_type=room_dict[curr_room.type_num],

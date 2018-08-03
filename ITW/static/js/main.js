@@ -454,10 +454,11 @@ $(document).ready(function () {
 				success: function (data) {
 					if(data.status == "success"){
 						new_html = '<p style="font-size: 20px;font-weight: 600">Reserved Successfully!</p><hr>\
-									<p>Your check-in date：' + data['in_date'] + '</p>\
-									<p>Your check-out date：' + data['out_date'] + '</p>\
-									<p>Your room type is：' + data['room_type'] + '</p>\
-									<p>The price is: ￥' + data['price'] + ' / day</p><hr>\
+									<p>Your name is：' + data.name + '</p>\
+									<p>Your check-in date：' + data.in_date + '</p>\
+									<p>Your check-out date：' + data.out_date + '</p>\
+									<p>Your room type is：' + data.room_type + '</p>\
+									<p>The price is: ￥' + data.price + ' / day</p><hr>\
 									<p><strong>Note:</strong> The listed price contains only one breakfast. You can pay for the extra breakfast at check-in if needed.</p>';
 						// alert_modal(new_html);
 						$("#accommodation-reservation .row").html(new_html);
