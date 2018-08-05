@@ -15,6 +15,7 @@ class Users(db.Model):
     random_id = db.Column(db.String(10), nullable=False)
     cname = db.Column(db.String(50))
     ename = db.Column(db.String(50), nullable=False)
+    title = db.Column(db.String(50), nullable=False)
     country = db.Column(db.String(128), nullable=False, default='中国')
     pid = db.Column(db.String(20), nullable=False)
     affiliation = db.Column(db.String(128), nullable=False)

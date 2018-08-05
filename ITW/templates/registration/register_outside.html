@@ -16,6 +16,16 @@
             </div>
             <div class="form-group">
                 <label class="control-label col-sm-3 text-left"
+                        for="register-title">* Title</label>
+                <div class="col-sm-8">
+                    <input id="register-title" type="text" name="title"
+                            required="required"
+                            class="form-control"
+                            placeholder="Please Input Your Title, egg. Prof., Dr., Mr., Ms. etc.">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3 text-left"
                         for="register-pid">* Passport/ID card number</label>
                 <div class="col-sm-8">
                     <input id="register-pid" type="text" name="pid"
@@ -92,17 +102,17 @@
                     for="register-money">* Please select your registration type</label>
                 <div class="col-sm-8">
                     <select id="register-money" class="form-control" name="money" required onchange="showMoney(0)">
-                        <option value="0">Full Registration (IT soc)-------------------------------------------------------------$590/￥4130</option>
-                        <option value="1">Full Registration (IEEE non IT soc)------------------------------------------------$670/￥4690</option>
-                        <option value="2">Full Registration (Non IEEE)---------------------------------------------------------$770/￥5390</option>
-                        <option value="3">Student IT soc/IEEE Life member--------------------------------------------------$240/￥1680</option>
-                        <option value="4">Student (IEEE non IT soc)------------------------------------------------------------$290/￥2030</option>
-                        <option value="5">Student (Non IEEE)--------------------------------------------------------------------$340/￥2380</option>
-                        <option value="6">One Day Registration (With banquet)---------------------------------------------$264/￥1848</option>
-                        <option value="7">One Day Registration (Without banquet)-----------------------------------------$164/￥1148</option>
-                        <option value="8">Student One Day Registration (With banquet)----------------------------------$214/￥1498</option>
-                        <option value="9">Student One Day Registration (Without banquet)------------------------------$114/￥798</option>
-                        <option value="10">Banquet Only-----------------------------------------------------------------------------$100/￥700</option>
+                        <option value="0">Full Registration (IT soc)-----------------------------------------$590/￥4130</option>
+                        <option value="1">Full Registration (IEEE non IT soc)----------------------------$670/￥4690</option>
+                        <option value="2">Full Registration (Non IEEE)-------------------------------------$770/￥5390</option>
+                        <option value="3">Student IT soc/IEEE Life member------------------------------$240/￥1680</option>
+                        <option value="4">Student (IEEE non IT soc)----------------------------------------$290/￥2030</option>
+                        <option value="5">Student (Non IEEE)------------------------------------------------$340/￥2380</option>
+                        <option value="6">One Day Registration (With banquet)-------------------------$264/￥1848</option>
+                        <option value="7">One Day Registration (Without banquet)---------------------$164/￥1148</option>
+                        <option value="8">Student One Day Registration (With banquet)--------------$214/￥1498</option>
+                        <option value="9">Student One Day Registration (Without banquet)----------$114/￥798</option>
+                        <option value="10">Banquet Only---------------------------------------------------------$100/￥700</option>
                     </select>
                 </div>
             </div>
@@ -172,9 +182,9 @@
                 <div class="col-sm-8 checkbox-wrapper">
                     <label class="checkbox-inline" onclick="toggleGender();">
                             <input id="zhujiang" type="checkbox" name="travel"
-                            value="0"> Zhujiang river night cruise (Night, Nov. 26)
+                            value="0"> Pearl river night cruise (Night, Nov. 26)
                     </label><br>
-                    <label class="checkbox-inline">
+                    <label class="checkbox-inline" onclick="toggleGender();">
                             <input id="baiyunshan" type="checkbox" name="travel"
                             value="1"> Baiyun mountain walk (Afternoon, Nov. 28)
                     </label>
@@ -195,15 +205,16 @@
             </div>
             
             <div id="birthday-box" class="form-group radio-toggle">
-                <label class="control-label col-sm-3 text-left">* Date of Birth (Needed for insurance)</label>
+                <label class="control-label col-sm-3 text-left">* Date of Birth</label>
                 <div class="col-sm-8">
-                    <label class="checkbox-inline">
-                            <input id="register-birthday" type="date" name="birthday"
-                            required="required">
-                    </label>
+                    <input id="register-birthday" type="text"
+                            class="form-control"
+                            name="birthday"
+                            required="required"
+                            placeholder="Please input your birthday,formatted as 'YYYY-MM-DD'">
                 </div>
                 <div class="col-sm-8 col-sm-offset-3">
-                    <strong style="color: red;">(The above information is needed for insurance)</strong>
+                    <strong>(The above information is needed for insurance)</strong>
                 </div>
             </div>
             <div class="form-group">

@@ -26,6 +26,16 @@
             </div>
             <div class="form-group">
                 <label class="control-label col-sm-2 text-left"
+                        for="register-title">* 称 谓</label>
+                <div class="col-sm-9">
+                    <input id="register-title" type="text" name="title"
+                            required="required"
+                            class="form-control"
+                            placeholder="请输入您的称谓，例如：教授，博士，先生，女士等">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2 text-left"
                         for="register-pid">* 身 份 证</label>
                 <div class="col-sm-9">
                     <input id="register-pid" type="text" name="pid"
@@ -126,17 +136,17 @@
                     for="register-money">* 请选择收费标准</label>
                 <div class="col-sm-9">
                     <select id="register-money" class="form-control" name="money" required onchange="showMoney(1)">
-                        <option value="0">Full Registration (IT soc)-------------------------------------------------------------$590/￥4130</option>
-                        <option value="1">Full Registration (IEEE non IT soc)------------------------------------------------$670/￥4690</option>
-                        <option value="2">Full Registration (Non IEEE)---------------------------------------------------------$770/￥5390</option>
-                        <option value="3">Student IT soc/IEEE Life member--------------------------------------------------$240/￥1680</option>
-                        <option value="4">Student (IEEE non IT soc)------------------------------------------------------------$290/￥2030</option>
-                        <option value="5">Student (Non IEEE)--------------------------------------------------------------------$340/￥2380</option>
-                        <option value="6">One Day Registration (With banquet)---------------------------------------------$264/￥1848</option>
-                        <option value="7">One Day Registration (Without banquet)-----------------------------------------$164/￥1148</option>
-                        <option value="8">Student One Day Registration (With banquet)----------------------------------$214/￥1498</option>
-                        <option value="9">Student One Day Registration (Without banquet)------------------------------$114/￥798</option>
-                        <option value="10">Banquet Only-----------------------------------------------------------------------------$100/￥700</option>
+                        <option value="0">Full Registration (IT soc)------------------------------------------$590/￥4130</option>
+                        <option value="1">Full Registration (IEEE non IT soc)-----------------------------$670/￥4690</option>
+                        <option value="2">Full Registration (Non IEEE)-------------------------------------$770/￥5390</option>
+                        <option value="3">Student IT soc/IEEE Life member-------------------------------$240/￥1680</option>
+                        <option value="4">Student (IEEE non IT soc)----------------------------------------$290/￥2030</option>
+                        <option value="5">Student (Non IEEE)-------------------------------------------------$340/￥2380</option>
+                        <option value="6">One Day Registration (With banquet)-------------------------$264/￥1848</option>
+                        <option value="7">One Day Registration (Without banquet)---------------------$164/￥1148</option>
+                        <option value="8">Student One Day Registration (With banquet)---------------$214/￥1498</option>
+                        <option value="9">Student One Day Registration (Without banquet)-----------$114/￥798</option>
+                        <option value="10">Banquet Only---------------------------------------------------------$100/￥700</option>
                     </select>
                 </div>
             </div>

@@ -89,7 +89,9 @@ function alert_modal(content, isHtml) {
 }
 
 function toggleGender() {
-	if($("#zhujiang").prop("checked")) {
+	let checked1 = $("#zhujiang").prop("checked");
+	let checked2 = $("#baiyunshan").prop("checked");
+	if(checked1 || checked2) {
 		$("#gender-list").slideDown();
 		$("#birthday-box").slideDown();
 	}
@@ -119,6 +121,10 @@ $(document).ready(function () {
 			}
 			else if($("#register-ename").val() == '') {
 				alert_modal("请输入您的英文名！");
+				return;
+			}
+			else if($("#register-title").val() == '') {
+				alert_modal("请输入您的称谓！");
 				return;
 			}
 			else if($("#register-pid").val() == '') {
@@ -186,6 +192,10 @@ $(document).ready(function () {
 				alert_modal("Please input your name！");
 				return;
 			}
+			else if($("#register-title").val() == '') {
+				alert_modal("Please input your title！");
+				return;
+			}
 			else if($("#register-pid").val() == '') {
 				alert_modal("Please input your passport/ID card number！");
 				return;
@@ -237,7 +247,7 @@ $(document).ready(function () {
 					return;
 				}
 				if($("#register-birthday").val() == '') {
-					alert_modal("Please set your birthday for insurance！");
+					alert_modal("Please input your birthday for insurance！");
 					return;
 				}
 			}
@@ -267,14 +277,14 @@ $(document).ready(function () {
 					let new_html;
 					if(is_mainland == 'yes') {
 						new_html = '<h3>提交成功! 您的转账备注为： <span style="color:red;">' + data.random_id + '_ITW2018</span></h3>\
-										<h3>请将<span style="color:red;">￥ ' + data.total_fee + '</span> 于9月16日前转入以下账号:</h3>\
+										<h3>请将<span style="color:red;">￥ ' + data.total_fee + '</span>于三个工作日内转入以下账号:</h3>\
 										<p>户名 ：中山大学</p>\
 										<p>开户行：中国工商银行广州中山大学支行 </p>\
 										<p>账号：3602864809100002723</p>\
 										<p>备注：' + data.random_id + '_ITW2018</p><hr>\
 										<p style="color:red;"><strong>注意：</strong></p>\
 										<ol>\
-											<li>请务必在银行转账的备注处填写系统提供的转账备注，以便我们确认您是否缴费成功。若没有注明上示备注，我们将无法确认您是否缴费成功，后果请自负。在确认您缴费成功后，我们将会在7个工作日内给您发送缴费成功邮件。</li>\
+											<li>请务必在银行转账的备注处填写系统提供的转账备注，以便我们确认您是否缴费成功。否则，我们将无法确认您的缴费，后果需自负。在确认缴费成功后，我们会在7个工作日内给您发邮件确认。</li>\
 											<li>请您在9月16日之前完成转账，否则将视为注册失败。</li>\
 											<li>邀请函将会随同注册确认信一同寄给您。</li>\
 										</ol><hr>\
@@ -320,7 +330,7 @@ $(document).ready(function () {
 					}
 					else {
 						new_html = '<h3>Your information has been submitted. Your transaction note is:  <span style="color:red;">' + data.random_id + '_ITW2018</span></h3>\
-									<h3>Please transfer <span style="color:red;">$ ' + data.total_fee + ' </span>to the following account by Sept. 16</h3>\
+									<h3>Please transfer <span style="color:red;">$ ' + data.total_fee + ' </span>to the following account within THREE working days.</h3>\
 										<p>Account Name：Sun Yat-sen University</p>\
 										<p>Account Number：3602864809100002723</p>\
 										<p>Swift Code：ICBKCNBJGDG</p>\
@@ -331,9 +341,9 @@ $(document).ready(function () {
 										<ol>\
                                             <li>While transferring the registration fee, you MUST write the given transaction note. Your payment can only be traced with the note. Otherwise, your transaction may be lost and we are not responsible for it. After your payment has been confirmed, we will notify you via email within 7 working days.</li>\
                                             <li>Please transfer your registration fee by Sept. 16. Otherwise, the registration fails.</li>\
-                                            <li>Your invitation letter will be included in the transaction confirmation mail.</li>\
+                                            <li>Your invitation letter will be included in the transaction confirmation email.</li>\
                                         </ol><hr>\
-                                        <p><strong>Your registration information is shown as follows:</strong></p>\
+                                        <p><strong>Your registration information:</strong></p>\
 										<p>Name：' + data.ename + '</p>\
 		 								<p>Passport/ID card number：' + data.pid + '</p>\
                                         <p>Country: ' + data.country + '</p>\

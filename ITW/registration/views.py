@@ -47,6 +47,7 @@ def register_mainland():
     elif request.method == 'POST':
         cname = request.form.get('cname')
         ename = request.form.get('ename')
+        title = request.form.get('title')
         pid = request.form.get('pid')
         affiliation = request.form.get('work-unit')
         edas1 = request.form.get('edas1')
@@ -130,20 +131,20 @@ def register_mainland():
             s2 = ''.join(random.choice(string.digits) for _ in range(3))
             random_id = s1 + s2
             existed = Users.query.filter_by(random_id=random_id).first()
-        curr_user = Users(random_id=random_id, cname=cname, ename=ename, pid=pid, affiliation=affiliation,
+        curr_user = Users(random_id=random_id, cname=cname, ename=ename, title=title, pid=pid, affiliation=affiliation,
                     edas1=edas1, edas2=edas2, edas3=edas3, receipt=receipt, receipt_title=receipt_title,
                     receipt_id=receipt_id, email=email, vip_num=vipNum, reg_type=regType, tutorial=tutorial,
                     tutorial_item=tutorialItem, need_invite=needInvite, excursion=excursion, food_preference=foodPreference,
                     goto_talk=gotoTalk, total_fee=totalFee)
         template = u'<p style="font-size: 20px;font-weight: 600">提交成功! 您的转账备注为：<span style="color:red;">' + random_id + u'_ITW2018</span></p>\
-                    <p style="font-size: 20px;font-weight: 600">请将<span style="color:red;"> ￥ ' + str(totalFee) + u'</span> 于9月16日前转入以下账号: </p>\
+                    <p style="font-size: 20px;font-weight: 600">请将<span style="color:red;"> ￥ ' + str(totalFee) + u'</span> 于三个工作日内转入以下账号: </p>\
 										<p>户名 ：中山大学</p>\
 										<p>开户行：中国工商银行广州中山大学支行 </p>\
 										<p>账号：3602864809100002723</p>\
                                         <p>备注：' + random_id + u'_ITW2018</p><hr>\
 										<p style="color:red;"><strong>注意：</strong></p>\
 										<ol>\
-											<li>请务必在银行转账的备注处填写系统提供的转账备注，以便我们确认您是否缴费成功。若没有注明上示备注，我们将无法确认您是否缴费成功，后果请自负。在确认您缴费成功后，我们将会在7个工作日内给您发送缴费成功邮件。</li>\
+											<li>请务必在银行转账的备注处填写系统提供的转账备注，以便我们确认您是否缴费成功。否则，我们将无法确认您的缴费，后果需自负。在确认缴费成功后，我们会在7个工作日内给您发邮件确认。</li>\
 											<li>请您在9月16日之前完成转账，否则将视为注册失败。</li>\
 											<li>邀请函将会随同注册确认信一同寄给您。</li>\
 										</ol><hr>\
@@ -215,6 +216,7 @@ def register_outside():
             tag="register_outside")
     elif request.method == 'POST':
         ename = request.form.get('ename')
+        title = request.form.get('title')
         pid = request.form.get('pid')
         country = request.form.get('country')
         affiliation = request.form.get('work-unit')
@@ -257,7 +259,7 @@ def register_outside():
         birthday = ''
         for t in travel:
             if t == '0':
-                excursion += u'Zhujiang river night cruise (Night, Nov. 26)'
+                excursion += u'Pearl river night cruise (Night, Nov. 26)'
                 gender = request.form.get('gender')
                 birthday = request.form.get('birthday')
                 if len(travel) == 2:
@@ -284,12 +286,12 @@ def register_outside():
             s2 = ''.join(random.choice(string.digits) for _ in range(3))
             random_id = s1 + s2
             existed = Users.query.filter_by(random_id=random_id).first()
-        curr_user = Users(random_id=random_id, ename=ename, pid=pid, country=country, affiliation=affiliation,
+        curr_user = Users(random_id=random_id, ename=ename, title=title, pid=pid, country=country, affiliation=affiliation,
                     edas1=edas1, edas2=edas2, edas3=edas3, email=email, vip_num=vipNum, reg_type=regType, tutorial=tutorial,
                     tutorial_item=tutorialItem, need_invite=needInvite, excursion=excursion, food_preference=foodPreference,
                     goto_talk=gotoTalk, total_fee=totalFee)
         template = u'<p style="font-size: 20px;font-weight: 600">Your information has been submitted. Your transaction note is: <span style="color:red;">' + random_id + u'_ITW2018</span><p>\
-                    <p style="font-size: 20px;font-weight: 600">Please transfer <span style="color:red;">$ ' + str(totalFee) + u'</span> to the following account by Sept. 16</p>\
+                    <p style="font-size: 20px;font-weight: 600">Please transfer <span style="color:red;">$ ' + str(totalFee) + u'</span> to the following account within THREE working days.</p>\
 										<p>Account Name：Sun Yat-sen University</p>\
 										<p>Account Number：3602864809100002723</p>\
 										<p>Swift Code：ICBKCNBJGDG</p>\
@@ -300,9 +302,9 @@ def register_outside():
 										<ol>\
                                             <li>While transferring the registration fee, you MUST write the given transaction note. Your payment can only be traced with the note. Otherwise, your transaction may be lost and we are not responsible for it. After your payment has been confirmed, we will notify you via email within 7 working days.</li>\
                                             <li>Please transfer your registration fee by Sept. 16. Otherwise, the registration fails.</li>\
-                                            <li>Your invitation letter will be included in the transaction confirmation mail.</li>\
+                                            <li>Your invitation letter will be included in the transaction confirmation email.</li>\
                                         </ol><hr>\
-                                        <p><strong>Your registration information is shown as follows:</strong></p>\
+                                        <p><strong>Your registration information:</strong></p>\
 										<p>Name：' + ename + u'</p>\
 		 								<p>Passport/ID card number：' + pid + u'</p>\
                                         <p>Country: ' + country + u'</p>\
