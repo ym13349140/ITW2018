@@ -26,14 +26,14 @@ function showMoney(is_mainland) {
 	var selected = $("#register-money").val();
 	var money;
 	if(is_mainland) {
-		money = [4130,4690,5390,1680,2030,2380,1848,1148,1498,798,700];
+		money = [4130,4690,5390,2310,2660,3010,1848,1148,1498,798,700];
 	} 
 	else {
-		money = [590,670,770,240,290,340,264,164,214,114,100];
+		money = [590,670,770,330,380,430,264,164,214,114,100];
 	}
 	var total = money[selected];
 	var isChecked = $('input:radio[name="tutorial"]:checked').val();
-	if(isChecked == 'yes') {
+	if(isChecked == 'Yes') {
 		if(is_mainland) {
 			total = money[selected] + 560;
 		} 
@@ -48,10 +48,10 @@ function updateMoney(flag, is_mainland) {
 	var selected = $("#register-money").val();
 	var money;
 	if(is_mainland) {
-		money = [4130,4690,5390,1680,2030,2380,1848,1148,1498,798,700];
+		money = [4130,4690,5390,2310,2660,3010,1848,1148,1498,798,700];
 	} 
 	else {
-		money = [590,670,770,240,290,340,264,164,214,114,100];
+		money = [590,670,770,330,380,430,264,164,214,114,100];
 	}
 	var curr = parseInt($("#register-totalFee").val());
 	var total = curr;
@@ -285,11 +285,11 @@ $(document).ready(function () {
 										<p style="color:red;"><strong>注意：</strong></p>\
 										<ol>\
 											<li>请务必在银行转账的备注处填写系统提供的转账备注，以便我们确认您是否缴费成功。否则，我们将无法确认您的缴费，后果需自负。在确认缴费成功后，我们会在7个工作日内给您发邮件确认。</li>\
-											<li>请您在9月16日之前完成转账，否则将视为注册失败。</li>\
 											<li>邀请函将会随同注册确认信一同寄给您。</li>\
 										</ol><hr>\
 										<p><strong>您的注册信息总览:</strong></p>\
 										<p>姓名：' + data.cname + '</p>\
+                                        <p>称谓：' + data.title + '</p>\
 										<p>身份证号：' + data.pid + '</p>\
 										<p>工作单位：' + data.affiliation + '</p>\
 										<p>文章编号：';
@@ -306,7 +306,7 @@ $(document).ready(function () {
 							edas += data.edas3;
 						}
 						new_html += edas + '</p>';
-						if(data.receipt == 'yes') {
+						if(data.receipt == 'Yes') {
 							new_html += '<p>发票抬头：' + data.receipt_title + '</p>\
 										<p>纳税人识别号：' + data.receipt_id + '</p>';
 						}
@@ -340,11 +340,11 @@ $(document).ready(function () {
 										<p style="color:red;"><strong>Caution: </strong></p>\
 										<ol>\
                                             <li>While transferring the registration fee, you MUST write the given transaction note. Your payment can only be traced with the note. Otherwise, your transaction may be lost and we are not responsible for it. After your payment has been confirmed, we will notify you via email within 7 working days.</li>\
-                                            <li>Please transfer your registration fee by Sept. 16. Otherwise, the registration fails.</li>\
                                             <li>Your invitation letter will be included in the transaction confirmation email.</li>\
                                         </ol><hr>\
                                         <p><strong>Your registration information:</strong></p>\
 										<p>Name：' + data.ename + '</p>\
+                                        <p>Title: ' + data.title + '</p>\
 		 								<p>Passport/ID card number：' + data.pid + '</p>\
                                         <p>Country: ' + data.country + '</p>\
 		 								<p>Affiliation：' + data.affiliation + '</p>\

@@ -28,10 +28,12 @@
                 <label class="control-label col-sm-2 text-left"
                         for="register-title">* 称 谓</label>
                 <div class="col-sm-9">
-                    <input id="register-title" type="text" name="title"
-                            required="required"
-                            class="form-control"
-                            placeholder="请输入您的称谓，例如：教授，博士，先生，女士等">
+                    <select id="register-title" class="form-control" name="title" required>
+                        <option value="教授">教授</option>
+                        <option value="博士">博士</option>
+                        <option value="先生">先生</option>
+                        <option value="女士">女士</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">
@@ -83,11 +85,11 @@
                 <div class="col-sm-9">
                     <label class="checkbox-inline">
                             <input id="register-receipt1" class="trigger-radio" type="radio" name="receipt"
-                            required="required" value="yes" onchange="showRadio('#receipt-info')"> 是
+                            required="required" value="Yes" onchange="showRadio('#receipt-info')"> 是
                     </label>
                     <label class="checkbox-inline">
                             <input id="register-receipt2" type="radio" name="receipt"
-                            required="required" value="no" onchange="hideRadio('#receipt-info')"> 否
+                            required="required" value="No" onchange="hideRadio('#receipt-info')"> 否
                     </label>
                 </div>
             </div>
@@ -139,9 +141,9 @@
                         <option value="0">Full Registration (IT soc)------------------------------------------$590/￥4130</option>
                         <option value="1">Full Registration (IEEE non IT soc)-----------------------------$670/￥4690</option>
                         <option value="2">Full Registration (Non IEEE)-------------------------------------$770/￥5390</option>
-                        <option value="3">Student IT soc/IEEE Life member-------------------------------$240/￥1680</option>
-                        <option value="4">Student (IEEE non IT soc)----------------------------------------$290/￥2030</option>
-                        <option value="5">Student (Non IEEE)-------------------------------------------------$340/￥2380</option>
+                        <option value="3">Student IT soc/IEEE Life member-------------------------------$330/￥2310</option>
+                        <option value="4">Student (IEEE non IT soc)----------------------------------------$380/￥2660</option>
+                        <option value="5">Student (Non IEEE)-------------------------------------------------$430/￥3010</option>
                         <option value="6">One Day Registration (With banquet)-------------------------$264/￥1848</option>
                         <option value="7">One Day Registration (Without banquet)---------------------$164/￥1148</option>
                         <option value="8">Student One Day Registration (With banquet)---------------$214/￥1498</option>
@@ -168,11 +170,11 @@
                 <div class="col-sm-9">
                     <label class="checkbox-inline">
                             <input id="register-tutorial1" type="radio" name="tutorial"
-                            required="required" value="yes" onchange="showRadio('#tutorial-list',1)"> 是
+                            required="required" value="Yes" onchange="showRadio('#tutorial-list',1)"> 是
                     </label>
                     <label class="checkbox-inline">
                             <input id="register-tutorial2" type="radio" name="tutorial"
-                            required="required" value="no" onchange="hideRadio('#tutorial-list',1)"> 否
+                            required="required" value="No" onchange="hideRadio('#tutorial-list',1)"> 否
                     </label>
                 </div>
             </div>
@@ -203,11 +205,11 @@
                 <div class="col-sm-9">
                     <label class="checkbox-inline">
                             <input id="register-needInvit1" type="radio" name="needInvite"
-                            required="required" value="yes"> 是
+                            required="required" value="Yes"> 是
                     </label>
                     <label class="checkbox-inline">
                             <input id="register-needInvit2" type="radio" name="needInvite"
-                            required="required" value="no"> 否
+                            required="required" value="No"> 否
                     </label>
                 </div>
             </div>
@@ -246,11 +248,11 @@
                 <div class="col-sm-9">
                     <label class="checkbox-inline">
                             <input id="register-gotoTalk1" type="radio" name="gotoTalk"
-                            required="required" value="yes"> 是
+                            required="required" value="Yes"> 是
                     </label>
                     <label class="checkbox-inline">
                             <input id="register-gotoTalk2" type="radio" name="gotoTalk"
-                            required="required" value="no"> 否
+                            required="required" value="No"> 否
                     </label>
                 </div>
             </div>

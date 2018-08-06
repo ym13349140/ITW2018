@@ -54,7 +54,7 @@ def register_mainland():
         edas2 = request.form.get('edas2')
         edas3 = request.form.get('edas3')
         receipt = request.form.get('receipt')
-        if receipt == 'yes':
+        if receipt == 'Yes':
             receipt = u'是'
         else:
             receipt = u'否'
@@ -86,13 +86,13 @@ def register_mainland():
         elif regType == '10':
             regType = 'Banquet Only'
         tutorial = request.form.get('tutorial')
-        if tutorial == 'yes':
+        if tutorial == 'Yes':
             tutorial = u'是'
         else:
             tutorial = u'否'
         tutorialItem = request.form.get('tutorialItem')
         needInvite = request.form.get('needInvite')
-        if needInvite == 'yes':
+        if needInvite == 'Yes':
             needInvite = u'是'
         else:
             needInvite = u'否'
@@ -116,7 +116,7 @@ def register_mainland():
         else:
             foodPreference = u'无'
         gotoTalk = request.form.get('gotoTalk')
-        if gotoTalk == 'yes':
+        if gotoTalk == 'Yes':
             gotoTalk = u'是'
         else:
            gotoTalk = u'否'
@@ -145,11 +145,11 @@ def register_mainland():
 										<p style="color:red;"><strong>注意：</strong></p>\
 										<ol>\
 											<li>请务必在银行转账的备注处填写系统提供的转账备注，以便我们确认您是否缴费成功。否则，我们将无法确认您的缴费，后果需自负。在确认缴费成功后，我们会在7个工作日内给您发邮件确认。</li>\
-											<li>请您在9月16日之前完成转账，否则将视为注册失败。</li>\
 											<li>邀请函将会随同注册确认信一同寄给您。</li>\
 										</ol><hr>\
                                         <p><strong>您的注册信息总览:</strong></p>\
 										<p>姓名：' + cname + u'</p>\
+                                        <p>称谓：' + title + u'</p>\
 		 								<p>身份证号：' + pid + u'</p>\
 		 								<p>工作单位：' + affiliation + u'</p>\
 		 								<p>文章编号：'
@@ -163,13 +163,13 @@ def register_mainland():
             edas = edas + u', '
             edas = edas + edas3
         template = template + edas + u'</p>'
-        if receipt == 'yes':
+        if receipt == 'Yes':
             template = template + u'<p>发票抬头：' + receipt_title + u'</p>\
 									<p>纳税人识别号：' + receipt_id + u'</p>'
         if vipNum:
             template = template + u'<p>IEEE 会员号：' + vipNum + u'</p>'
         template = template + u'<p>注册类型：' + regType + u'</p>'
-        if tutorial == 'yes':
+        if tutorial == 'Yes':
             template = template + u'<p>Tutorial：' + tutorialItem + u'</p>'
         else:
             template = template + u'<p>Tutorial：无</p>'
@@ -179,7 +179,7 @@ def register_mainland():
                                 <p>转账备注：' + random_id + u'_ITW2018</p>\
                                 <p>饮食偏好：' + foodPreference + u'</p>\
                                 <p>是否参加11月30日举办的中山大学编码与信息理论研讨会: ' + gotoTalk + u'</p>'
-        subject = 'ITW 2018 – Registration Step 1 Succeeds'
+        subject = u'ITW 2018 - Registration Step 1 Succeeds'
         ret = send_email(email, ename, template, subject)
         if ret:
             db.session.add(curr_user)
@@ -187,6 +187,7 @@ def register_mainland():
             return jsonify(status='success',
                             random_id=random_id,
                             cname=cname,
+                            title=title,
                             pid=pid,
                             affiliation=affiliation,
                             edas1=edas1,
@@ -252,7 +253,7 @@ def register_outside():
         tutorialItem = request.form.get('tutorialItem')
         needInvite = request.form.get('needInvite')
         travel = request.form.getlist('travel')
-        excursion = u'no'        
+        excursion = u'No'        
         if len(travel) > 0:
             excursion = u''
         gender = ''
@@ -301,11 +302,11 @@ def register_outside():
 										<p style="color:red;"><strong>Caution: </strong></p>\
 										<ol>\
                                             <li>While transferring the registration fee, you MUST write the given transaction note. Your payment can only be traced with the note. Otherwise, your transaction may be lost and we are not responsible for it. After your payment has been confirmed, we will notify you via email within 7 working days.</li>\
-                                            <li>Please transfer your registration fee by Sept. 16. Otherwise, the registration fails.</li>\
                                             <li>Your invitation letter will be included in the transaction confirmation email.</li>\
                                         </ol><hr>\
                                         <p><strong>Your registration information:</strong></p>\
 										<p>Name：' + ename + u'</p>\
+                                        <p>Title: ' + title + u'</p>\
 		 								<p>Passport/ID card number：' + pid + u'</p>\
                                         <p>Country: ' + country + u'</p>\
 		 								<p>Affiliation: ' + affiliation + u'</p>\
@@ -323,7 +324,7 @@ def register_outside():
         if vipNum:
             template = template + u'<p>IEEE member number：' + vipNum + u'</p>'
         template = template + u'<p>Register type: ' + regType + u'</p>'
-        if tutorial == 'yes':
+        if tutorial == 'Yes':
             template = template + u'<p>Tutorial：' + tutorialItem + u'</p>'
         else:
             template = template + u'<p>Tutorial：None</p>'
@@ -333,7 +334,7 @@ def register_outside():
                                 <p>Transaction note：' + random_id + u'_ITW2018</p>\
                                 <p>Dietary Preference：' + foodPreference + u'</p>\
                                 <p>Will you participate the SYSU Information and Coding Theory Workshop on Nov. 30: ' + gotoTalk + u'</p>'
-        subject = 'ITW 2018 – Registration Step 1 Succeeds'
+        subject = u'ITW 2018 - Registration Step 1 Succeeds'
         ret = send_email(email, ename, template, subject)
         if ret:
             db.session.add(curr_user)
@@ -345,6 +346,7 @@ def register_outside():
             return jsonify(status='success',
                             random_id=random_id,
                             ename=ename,
+                            title=title,
                             country=country,
                             pid=pid,
                             affiliation=affiliation,
