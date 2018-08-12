@@ -11,7 +11,7 @@
                     <input id="register-cname" type="text" name="cname"
                             required="required"
                             class="form-control"
-                            placeholder="请输入您的姓名">
+                            placeholder="请输入您的姓名" onchange="checkIcon(event, 1);">
                 </div>
             </div>
             <div class="form-group">
@@ -21,7 +21,7 @@
                     <input id="register-ename" type="text" name="ename"
                             required="required"
                             class="form-control"
-                            placeholder="请输入您的英文名（用作名卡）">
+                            placeholder="请输入您的英文名（用作名卡）" onchange="checkIcon(event, 1);">
                 </div>
             </div>
             <div class="form-group">
@@ -43,7 +43,7 @@
                     <input id="register-pid" type="text" name="pid"
                             required="required"
                             class="form-control"
-                            placeholder="请输入您的身份证号">
+                            placeholder="请输入您的身份证号" onchange="checkIcon(event, 1);">
                 </div>
             </div>
             <div class="form-group">
@@ -53,7 +53,7 @@
                     <input id="register-work-unit" type="text" name="work-unit"
                             required="required"
                             class="form-control"
-                            placeholder="请输入您的工作/学习单位">
+                            placeholder="请输入您的工作/学习单位" onchange="checkIcon(event, 1);">
                 </div>
             </div>
             <div class="form-group">
@@ -62,21 +62,21 @@
                 <div class="col-sm-9">
                     <input id="register-edas1" type="text" name="edas1"
                             class="form-control"
-                            placeholder="请输入您的论文EDAS编号">
+                            placeholder="请输入您的论文EDAS编号" onchange="checkIcon(event, 1);">
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-sm-9 col-sm-offset-2">
                     <input id="register-edas2" type="text" name="edas2"
                             class="form-control"
-                            placeholder="请输入您的论文EDAS编号">
+                            placeholder="请输入您的论文EDAS编号" onchange="checkIcon(event, 1);">
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-sm-9 col-sm-offset-2">
                     <input id="register-edas3" type="text" name="edas3"
                             class="form-control"
-                            placeholder="请输入您的论文EDAS编号">
+                            placeholder="请输入您的论文EDAS编号" onchange="checkIcon(event, 1);">
                 </div>
             </div>
             <div class="form-group">
@@ -100,7 +100,7 @@
                     <div class="col-sm-9">
                         <input id="register-receipt-title" type="text" name="receipt-title"
                                 class="form-control"
-                                placeholder="请输入您的发票抬头">
+                                placeholder="请输入您的发票抬头" onchange="checkIcon(event, 1);">
                     </div>
                 </div>
                 <div class="form-group">
@@ -109,7 +109,7 @@
                     <div class="col-sm-9">
                         <input id="register-receipt-id" type="text" name="receipt-id"
                                 class="form-control"
-                                placeholder="请输入您的纳税人识别号">
+                                placeholder="请输入您的纳税人识别号" onchange="checkIcon(event, 1);">
                     </div>
                 </div>
             </div>
@@ -120,7 +120,16 @@
                     <input id="register-email" type="email" name="email"
                             required="required"
                             class="form-control"
-                            placeholder="请输入您的邮箱">
+                            placeholder="请输入您的邮箱" onchange="checkIcon(event, 1);">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2 text-left"
+                    for="register-email1">* 邮 箱 确 认</label>
+                <div class="col-sm-9">
+                    <input id="register-email1" type="email" name="email1"
+                            class="form-control"
+                            placeholder="请再次输入您的邮箱">
                 </div>
             </div>
             <div class="form-group">
@@ -130,7 +139,7 @@
                     <input id="register-vipNum" type="text" name="vipNum"
                             required="required"
                             class="form-control"
-                            placeholder="请输入您的IEEE会员号">
+                            placeholder="请输入您的IEEE会员号" onchange="checkIcon(event, 1);">
                 </div>
             </div>
             <div class="form-group">
@@ -151,11 +160,14 @@
                         <option value="10">Banquet Only---------------------------------------------------------$100/￥700</option>
                     </select>
                 </div>
+                <div class="col-sm-9 col-sm-offset-2" style="line-height: 30px;">
+                    <strong>所有收费标准皆包含游览活动</strong>
+                </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-sm-2 text-left">总 费 用</label>
                 <div id="register-totalFee-icon" class="text-right">
-                    <span>￥</span>
+                    <span>CNY</span>
                 </div>
                 <div class="col-sm-2">
                     <input id="register-totalFee" type="text" name="totalFee"
@@ -166,7 +178,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-sm-2 text-left">* 是否参加Tutorial (￥ 560)</label>
+                <label class="control-label col-sm-2 text-left">* 是否参加11月25号下午的Tutorial (CNY 560)</label>
                 <div class="col-sm-9">
                     <label class="checkbox-inline">
                             <input id="register-tutorial1" type="radio" name="tutorial"
@@ -244,7 +256,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-sm-2 text-left">* 是否参加11月30日举办的中山大学编码与信息理论研讨会(免费)</label>
+                <label class="control-label col-sm-2 text-left"><a href="{{ url_for('main.citw') }}" target="_blank">* 是否参加11月30日举办的中山大学编码与信息理论研讨会(免费)</a></label>
                 <div class="col-sm-9">
                     <label class="checkbox-inline">
                             <input id="register-gotoTalk1" type="radio" name="gotoTalk"

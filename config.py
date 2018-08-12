@@ -10,15 +10,14 @@ class Config:
 
     SECRET_KEY = os.environ.get('SECRET_KEY') or '!@#$%^&*12345678'
     SQLALCHEMY_TRACK_MODIFICATIONS = True
-    
-    # MAIL_SERVER = 'smtp.163.com'
-    # MAIL_USERNAME = 'maize_yang@163.com'
-    # MAIL_PASSWORD = '310810woainiMIN'
-    
-    MAIL_SERVER = 'smtp.qq.com'
-    MAIL_USERNAME = '1697937077@qq.com'
-    MAIL_PASSWORD = 'nrzkfekrpzxidfie'
 
+    MAIL_SERVER = 'mail.sysu.edu.cn'
+    MAIL_USERNAME = 'itw2018@mail.sysu.edu.cn'
+    MAIL_PASSWORD = 'xfjksq'
+
+    # MAIL_SERVER = 'smtp.gmail.com'
+    # MAIL_USERNAME = 'ym13349140@gmail.com'
+    # MAIL_PASSWORD = '310810woainimin'
 
     @staticmethod
     def init_app(app):

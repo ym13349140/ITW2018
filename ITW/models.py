@@ -17,7 +17,7 @@ class Users(db.Model):
     ename = db.Column(db.String(50), nullable=False)
     title = db.Column(db.String(50), nullable=False)
     country = db.Column(db.String(128), nullable=False, default='中国')
-    pid = db.Column(db.String(20), nullable=False)
+    pid = db.Column(db.String(20), nullable=False, default='None')
     affiliation = db.Column(db.String(128), nullable=False)
     edas1 = db.Column(db.String(256))
     edas2 = db.Column(db.String(256))

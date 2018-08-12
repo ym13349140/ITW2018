@@ -91,13 +91,39 @@ function alert_modal(content, isHtml) {
 function toggleGender() {
 	let checked1 = $("#zhujiang").prop("checked");
 	let checked2 = $("#baiyunshan").prop("checked");
-	if(checked1 || checked2) {
-		$("#gender-list").slideDown();
+	let need = $("#register-needInvit1").prop("checked");
+	if(need) {
+		$("#passport-id").slideDown();
 		$("#birthday-box").slideDown();
+		if(checked1 || checked2) {
+			$("#gender-list").slideDown();
+		}
+		else {
+			$("#gender-list").slideUp();
+		}
 	}
 	else {
-		$("#gender-list").slideUp();
-		$("#birthday-box").slideUp();
+		$("#passport-id").slideUp();
+		if(checked1 || checked2) {
+			$("#gender-list").slideDown();
+			$("#birthday-box").slideDown();
+		}
+		else {
+			$("#gender-list").slideUp();
+			$("#birthday-box").slideUp();
+		}
+	}
+}
+
+function checkIcon(ele, is_mainland) {
+	let value = ele.currentTarget.value;
+	if(value.indexOf(',')!=-1 || value.indexOf(';')!=-1 || value.indexOf('，')!=-1 || value.indexOf('；')!=-1) {
+		if(is_mainland) {
+			alert_modal("请注意：请避免输入分号 “；” 与逗号 “，”");
+        }
+        else {
+			alert_modal("Attention: Do Not Include Characters Semicolon ';' or Comma ',' .");
+		}
 	}
 }
 
@@ -143,6 +169,14 @@ $(document).ready(function () {
 				alert_modal("请输入您的邮箱用于接收注册信息！");
 				return;
 			}
+			else if($("#register-email1").val() == '') {
+				alert_modal("请再次输入您的邮箱！");
+				return;
+			}
+			else if($("#register-email").val() != $("#register-email1").val()) {
+				alert_modal("您两次输入的邮箱不符，请重新输入！");
+				return;
+			}
 			else if(!($("#register-tutorial1").prop("checked") || $("#register-tutorial2").prop("checked"))) {
 				alert_modal("请选择是否参加tutorial！");
 				return;
@@ -183,7 +217,7 @@ $(document).ready(function () {
 				}
 			}
 			let total_fee = $("#register-totalFee").val();
-			$("#total-fee-before").text("您的注册费用为：￥ ");
+			$("#total-fee-before").text("您的注册费用为：CNY ");
 			$("#total-fee").text(total_fee);
 			$("#total-fee-after").text("，确认提交？");
 		}
@@ -196,10 +230,6 @@ $(document).ready(function () {
 				alert_modal("Please input your title！");
 				return;
 			}
-			else if($("#register-pid").val() == '') {
-				alert_modal("Please input your passport/ID card number！");
-				return;
-			}
 			else if($("#register-country").val() == '') {
 				alert_modal("Please input your country！");
 				return;
@@ -209,7 +239,15 @@ $(document).ready(function () {
 				return;
 			}
 			else if($("#register-email").val() == '') {
-				alert_modal("Please input your e-mail！");
+				alert_modal("Please input your e-mail address！");
+				return;
+			}
+			else if($("#register-email1").val() == '') {
+				alert_modal("Please input your e-mail address again！");
+				return;
+			}
+			else if($("#register-email").val() != $("#register-email1").val()) {
+				alert_modal("E-mail addresses do not match！");
 				return;
 			}
 			else if(!($("#register-tutorial1").prop("checked") || $("#register-tutorial2").prop("checked"))) {
@@ -241,18 +279,36 @@ $(document).ready(function () {
 					return;
 				}
 			}
-			if($("#zhujiang").prop("checked")) {
-				if(!($("#register-gender1").prop("checked") || $("#register-gender2").prop("checked"))) {
-					alert_modal("Please choose your gender！");
+			if ($("#register-needInvit1").prop("checked")) {
+				if($("#register-pid").val() == '') {
+					alert_modal("Please input your passport/ID card number！");
 					return;
 				}
 				if($("#register-birthday").val() == '') {
 					alert_modal("Please input your birthday for insurance！");
 					return;
 				}
+				if($("#zhujiang").prop("checked") || $("#baiyunshan").prop("checked")) {
+					if(!($("#register-gender1").prop("checked") || $("#register-gender2").prop("checked"))) {
+						alert_modal("Please choose your gender！");
+						return;
+					}
+				}
+			}
+			if ($("#register-needInvit2").prop("checked")) {
+				if($("#zhujiang").prop("checked") || $("#baiyunshan").prop("checked")) {
+					if($("#register-birthday").val() == '') {
+						alert_modal("Please input your birthday！");
+						return;
+					}
+					if(!($("#register-gender1").prop("checked") || $("#register-gender2").prop("checked"))) {
+						alert_modal("Please choose your gender！");
+						return;
+					}
+				}
 			}
 			let total_fee = $("#register-totalFee").val();
-			$("#total-fee-before").text("Your total registration fee is：$ ");
+			$("#total-fee-before").text("Your total registration fee is：USD ");
 			$("#total-fee").text(total_fee);
 			$("#total-fee-after").text(".");
 			$("#next-line-content").text("Please confirm then submit.");
@@ -276,12 +332,12 @@ $(document).ready(function () {
 					// alert("OKOK");
 					let new_html;
 					if(is_mainland == 'yes') {
-						new_html = '<h3>提交成功! 您的转账备注为： <span style="color:red;">' + data.random_id + '_ITW2018</span></h3>\
-										<h3>请将<span style="color:red;">￥ ' + data.total_fee + '</span>于三个工作日内转入以下账号:</h3>\
+						new_html = '<h3>提交成功! 您的转账备注为： <span style="color:red;">' + data.random_id + 'ITW2018</span></h3>\
+										<h3>请将<span style="color:red;">CNY ' + data.total_fee + '</span>于三个工作日内转入以下账号:</h3>\
 										<p>户名 ：中山大学</p>\
 										<p>开户行：中国工商银行广州中山大学支行 </p>\
 										<p>账号：3602864809100002723</p>\
-										<p>备注：' + data.random_id + '_ITW2018</p><hr>\
+										<p>备注：' + data.random_id + 'ITW2018</p><hr>\
 										<p style="color:red;"><strong>注意：</strong></p>\
 										<ol>\
 											<li>请务必在银行转账的备注处填写系统提供的转账备注，以便我们确认您是否缴费成功。否则，我们将无法确认您的缴费，后果需自负。在确认缴费成功后，我们会在7个工作日内给您发邮件确认。</li>\
@@ -322,21 +378,21 @@ $(document).ready(function () {
 						}
 						new_html += '<p>是否需要会议通知和邀请函：' + data.need_invite + '</p>\
 									<p>是否参加外出游览：' + data.excursion + '</p>\
-									<p>注册费用：￥ ' + data.total_fee + '</p>\
-									<p>转账备注：' + data.random_id + '_ITW2018</p>\
+									<p>注册费用：CNY ' + data.total_fee + '</p>\
+									<p>转账备注：' + data.random_id + 'ITW2018</p>\
 									<p>饮食偏好：' + data.food_preference + '</p>\
 									<p>是否参加11月30日举办的中山大学编码与信息理论研讨会: ' + data.goto_talk + '</p>';
 						$("#registration-mainland").html(new_html);
 					}
 					else {
-						new_html = '<h3>Your information has been submitted. Your transaction note is:  <span style="color:red;">' + data.random_id + '_ITW2018</span></h3>\
-									<h3>Please transfer <span style="color:red;">$ ' + data.total_fee + ' </span>to the following account within THREE working days.</h3>\
+						new_html = '<h3>Your information has been submitted. Your transaction note is:  <span style="color:red;">' + data.random_id + 'ITW2018</span></h3>\
+									<h3>Please transfer <span style="color:red;">USD ' + data.total_fee + ' </span>to the following account within THREE working days.</h3>\
 										<p>Account Name：Sun Yat-sen University</p>\
 										<p>Account Number：3602864809100002723</p>\
 										<p>Swift Code：ICBKCNBJGDG</p>\
 										<p>Bank：Industrial and Commercial bank of China, Guang Dong branch, sub-branch of Sun Yat-sen University</p>\
 										<p>Address：No. 135 Xin Gang Xi Road Guang Zhou P.R China</p>\
-										<p>Transaction Note：' + data.random_id + '_ITW2018</p><hr>\
+										<p>Transaction Note：' + data.random_id + 'ITW2018</p><hr>\
 										<p style="color:red;"><strong>Caution: </strong></p>\
 										<ol>\
                                             <li>While transferring the registration fee, you MUST write the given transaction note. Your payment can only be traced with the note. Otherwise, your transaction may be lost and we are not responsible for it. After your payment has been confirmed, we will notify you via email within 7 working days.</li>\
@@ -363,21 +419,21 @@ $(document).ready(function () {
 						}
 						new_html += edas + '</p>';
 						if(data.vip_num) {
-							new_html += '<p>IEEE member number：' + data.vip_num + '</p>';
+							new_html += '<p>IEEE Membership Number：' + data.vip_num + '</p>';
 						}
-						new_html += '<p>Registration type：' + data.reg_type + '</p>';
+						new_html += '<p>Registration Type：' + data.reg_type + '</p>';
 						if(data.tutorial_item) {
 							new_html += '<p>Tutorial：' + data.tutorial_item + '</p>';
 						}
 						else {
 							new_html += '<p>Tutorial：None</p>';
 						}
-						new_html += '<p>Do you need an invitation letter：' + data.need_invite + '</p>\
-									<p>Will you join the excursions：' + data.excursion + '</p>\
-									<p>Total registration fee：$ ' + data.total_fee + '</p>\
-                                	<p>Transaction note：' + data.random_id + '_ITW2018</p>\
+						new_html += '<p>Do You Need an Invitation Letter：' + data.need_invite + '</p>\
+									<p>Will You Join the Excursions：' + data.excursion + '</p>\
+									<p>Total Registration Fee：USD ' + data.total_fee + '</p>\
+                                	<p>Transaction Note：' + data.random_id + 'ITW2018</p>\
                                 	<p>Dietary Preference：' + data.food_preference + '</p>\
-                                	<p>Will you participate the SYSU Information and Coding Theory Workshop on Nov. 30: ' + data.goto_talk + '</p>'
+                                	<p>Will You Participate the SYSU Information and Coding Theory Workshop on Nov. 30: ' + data.goto_talk + '</p>'
 						$("#registration-outside").html(new_html);
 					}
 				}

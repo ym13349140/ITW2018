@@ -136,12 +136,12 @@ def register_mainland():
                     receipt_id=receipt_id, email=email, vip_num=vipNum, reg_type=regType, tutorial=tutorial,
                     tutorial_item=tutorialItem, need_invite=needInvite, excursion=excursion, food_preference=foodPreference,
                     goto_talk=gotoTalk, total_fee=totalFee)
-        template = u'<p style="font-size: 20px;font-weight: 600">提交成功! 您的转账备注为：<span style="color:red;">' + random_id + u'_ITW2018</span></p>\
-                    <p style="font-size: 20px;font-weight: 600">请将<span style="color:red;"> ￥ ' + str(totalFee) + u'</span> 于三个工作日内转入以下账号: </p>\
+        template = u'<p style="font-size: 20px;font-weight: 600">提交成功! 您的转账备注为：<span style="color:red;">' + random_id + u'ITW2018</span></p>\
+                    <p style="font-size: 20px;font-weight: 600">请将<span style="color:red;"> CNY ' + str(totalFee) + u'</span> 于三个工作日内转入以下账号: </p>\
 										<p>户名 ：中山大学</p>\
 										<p>开户行：中国工商银行广州中山大学支行 </p>\
 										<p>账号：3602864809100002723</p>\
-                                        <p>备注：' + random_id + u'_ITW2018</p><hr>\
+                                        <p>备注：' + random_id + u'ITW2018</p><hr>\
 										<p style="color:red;"><strong>注意：</strong></p>\
 										<ol>\
 											<li>请务必在银行转账的备注处填写系统提供的转账备注，以便我们确认您是否缴费成功。否则，我们将无法确认您的缴费，后果需自负。在确认缴费成功后，我们会在7个工作日内给您发邮件确认。</li>\
@@ -175,7 +175,7 @@ def register_mainland():
             template = template + u'<p>Tutorial：无</p>'
         template = template + u'<p>是否需要会议通知和邀请函：' + needInvite + u'</p>\
                                 <p>是否参加外出游览: ' + excursion + u'</p>\
-                                <p>注册费用：￥ ' + str(totalFee) + u'</p>\
+                                <p>注册费用：CNY ' + str(totalFee) + u'</p>\
                                 <p>转账备注：' + random_id + u'_ITW2018</p>\
                                 <p>饮食偏好：' + foodPreference + u'</p>\
                                 <p>是否参加11月30日举办的中山大学编码与信息理论研讨会: ' + gotoTalk + u'</p>'
@@ -219,6 +219,8 @@ def register_outside():
         ename = request.form.get('ename')
         title = request.form.get('title')
         pid = request.form.get('pid')
+        if pid == '':
+            pid = u'None'
         country = request.form.get('country')
         affiliation = request.form.get('work-unit')
         edas1 = request.form.get('edas1')
@@ -291,14 +293,14 @@ def register_outside():
                     edas1=edas1, edas2=edas2, edas3=edas3, email=email, vip_num=vipNum, reg_type=regType, tutorial=tutorial,
                     tutorial_item=tutorialItem, need_invite=needInvite, excursion=excursion, food_preference=foodPreference,
                     goto_talk=gotoTalk, total_fee=totalFee)
-        template = u'<p style="font-size: 20px;font-weight: 600">Your information has been submitted. Your transaction note is: <span style="color:red;">' + random_id + u'_ITW2018</span><p>\
-                    <p style="font-size: 20px;font-weight: 600">Please transfer <span style="color:red;">$ ' + str(totalFee) + u'</span> to the following account within THREE working days.</p>\
+        template = u'<p style="font-size: 20px;font-weight: 600">Your information has been submitted. Your transaction note is: <span style="color:red;">' + random_id + u'ITW2018</span><p>\
+                    <p style="font-size: 20px;font-weight: 600">Please transfer <span style="color:red;">USD ' + str(totalFee) + u'</span> to the following account within THREE working days.</p>\
 										<p>Account Name：Sun Yat-sen University</p>\
 										<p>Account Number：3602864809100002723</p>\
 										<p>Swift Code：ICBKCNBJGDG</p>\
 										<p>Bank：Industrial and Commercial bank of China, Guang Dong branch, sub-branch of Sun Yat-sen University</p>\
 										<p>Address：No. 135 Xin Gang Xi Road Guang Zhou P.R China</p>\
-										<p>Transaction Note：' + random_id + u'_ITW2018</p><hr>\
+										<p>Transaction Note：' + random_id + u'ITW2018</p><hr>\
 										<p style="color:red;"><strong>Caution: </strong></p>\
 										<ol>\
                                             <li>While transferring the registration fee, you MUST write the given transaction note. Your payment can only be traced with the note. Otherwise, your transaction may be lost and we are not responsible for it. After your payment has been confirmed, we will notify you via email within 7 working days.</li>\
@@ -322,18 +324,18 @@ def register_outside():
             edas = edas + edas3
         template = template + edas + u'</p>'
         if vipNum:
-            template = template + u'<p>IEEE member number：' + vipNum + u'</p>'
-        template = template + u'<p>Register type: ' + regType + u'</p>'
+            template = template + u'<p>IEEE Membership Number：' + vipNum + u'</p>'
+        template = template + u'<p>Register Type: ' + regType + u'</p>'
         if tutorial == 'Yes':
             template = template + u'<p>Tutorial：' + tutorialItem + u'</p>'
         else:
             template = template + u'<p>Tutorial：None</p>'
-        template = template + u'<p>Do you need an invitation letter：' + needInvite + u'</p>\
-                                <p>Will you join the excursions: ' + excursion + u'</p>\
-                                <p>Total register fee：$ ' + str(totalFee) + u'</p>\
-                                <p>Transaction note：' + random_id + u'_ITW2018</p>\
+        template = template + u'<p>Do You Need an Invitation Letter：' + needInvite + u'</p>\
+                                <p>Will You Join the Excursions: ' + excursion + u'</p>\
+                                <p>Total Register Fee：USD ' + str(totalFee) + u'</p>\
+                                <p>Transaction Note：' + random_id + u'ITW2018</p>\
                                 <p>Dietary Preference：' + foodPreference + u'</p>\
-                                <p>Will you participate the SYSU Information and Coding Theory Workshop on Nov. 30: ' + gotoTalk + u'</p>'
+                                <p>Will You Participate the SYSU Information and Coding Theory Workshop on Nov. 30: ' + gotoTalk + u'</p>'
         subject = u'ITW 2018 - Registration Step 1 Succeeds'
         ret = send_email(email, ename, template, subject)
         if ret:

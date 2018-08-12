@@ -11,7 +11,7 @@
                     <input id="register-ename" type="text" name="ename"
                             required="required"
                             class="form-control"
-                            placeholder="Please Input Your Name">
+                            placeholder="Please Input Your Name" onchange="checkIcon(event, 0);">
                 </div>
             </div>
             <div class="form-group">
@@ -28,22 +28,12 @@
             </div>
             <div class="form-group">
                 <label class="control-label col-sm-3 text-left"
-                        for="register-pid">* Passport/ID card number</label>
-                <div class="col-sm-8">
-                    <input id="register-pid" type="text" name="pid"
-                            required="required"
-                            class="form-control"
-                            placeholder="Please Input Your Passport/ID Card Number">
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-sm-3 text-left"
                         for="register-pid">* Country</label>
                 <div class="col-sm-8">
                     <input id="register-country" type="text" name="country"
                             required="required"
                             class="form-control"
-                            placeholder="Please Input Your Country">
+                            placeholder="Please Input Your Country" onchange="checkIcon(event, 0);">
                 </div>
             </div>
             <div class="form-group">
@@ -53,7 +43,7 @@
                     <input id="register-work-unit" type="text" name="work-unit"
                             required="required"
                             class="form-control"
-                            placeholder="Please Input Your Affiliation">
+                            placeholder="Please Input Your Affiliation" onchange="checkIcon(event, 0);">
                 </div>
             </div>
             <div class="form-group">
@@ -62,46 +52,56 @@
                 <div class="col-sm-8">
                     <input id="register-edas1" type="text" name="edas1"
                             class="form-control"
-                            placeholder="Please Input Your Paper EDAS Number">
+                            placeholder="Please Input Your Paper EDAS Number" onchange="checkIcon(event, 0);">
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-sm-8 col-sm-offset-3">
                     <input id="register-edas2" type="text" name="edas2"
                             class="form-control"
-                            placeholder="Please Input Your Paper EDAS Number">
+                            placeholder="Please Input Your Paper EDAS Number" onchange="checkIcon(event, 0);">
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-sm-8 col-sm-offset-3">
                     <input id="register-edas3" type="text" name="edas3"
                             class="form-control"
-                            placeholder="Please Input Your Paper EDAS Number">
+                            placeholder="Please Input Your Paper EDAS Number" onchange="checkIcon(event, 0);">
                 </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-sm-3 text-left"
-                    for="register-email">*E-mail</label>
+                    for="register-email">*E-mail Address</label>
                 <div class="col-sm-8">
                     <input id="register-email" type="email" name="email"
                             required="required"
                             class="form-control"
-                            placeholder="Please Input Your E-Mail">
+                            placeholder="Please Input Your E-Mail" onchange="checkIcon(event, 0);">
                 </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-sm-3 text-left"
-                    for="register-vipNum">IEEE member number</label>
+                    for="register-email1">*E-mail Address Confirm</label>
+                <div class="col-sm-8">
+                    <input id="register-email1" type="email" name="email1"
+                            required="required"
+                            class="form-control"
+                            placeholder="Please Input Your E-Mail Again">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3 text-left"
+                    for="register-vipNum">IEEE Membership Number</label>
                 <div class="col-sm-8">
                     <input id="register-vipNum" type="text" name="vipNum"
                             required="required"
                             class="form-control"
-                            placeholder="Please Input Your Member Number">
+                            placeholder="Please Input Your IEEE Membership Number" onchange="checkIcon(event, 0);">
                 </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-sm-3 text-left"
-                    for="register-money">* Please select your registration type</label>
+                    for="register-money">* Please Select Your Registration Type</label>
                 <div class="col-sm-8">
                     <select id="register-money" class="form-control" name="money" required onchange="showMoney(0)">
                         <option value="0">Full Registration (IT soc)-----------------------------------------$590/￥4130</option>
@@ -117,11 +117,14 @@
                         <option value="10">Banquet Only---------------------------------------------------------$100/￥700</option>
                     </select>
                 </div>
+                <div class="col-sm-8 col-sm-offset-3" style="line-height: 30px;">
+                    <strong>All types include Excursions</strong>
+                </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-sm-3 text-left">Total Fee</label>
                 <div id="register-totalFee-icon" class="text-right">
-                    <span>$</span>
+                    <span>USD</span>
                 </div>
                 <div class="col-sm-2">
                     <input id="register-totalFee" type="text" name="totalFee"
@@ -132,7 +135,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-sm-3 text-left">* Will you participate a tutorial on Nov. 25 ($ 80)</label>
+                <label class="control-label col-sm-3 text-left">* Will You Participate a Tutorial on the Afternoon of Nov. 25 (USD 80)</label>
                 <div class="col-sm-8">
                     <label class="checkbox-inline">
                             <input id="register-tutorial1" type="radio" name="tutorial"
@@ -167,20 +170,20 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-sm-3 text-left">* Do you need an invitation letter</label>
+                <label class="control-label col-sm-3 text-left">* Do You Need an Invitation Letter</label>
                 <div class="col-sm-8">
                     <label class="checkbox-inline">
                             <input id="register-needInvit1" type="radio" name="needInvite"
-                            required="required" value="Yes"> Yes
+                            required="required" value="Yes" onclick="toggleGender();"> Yes
                     </label>
                     <label class="checkbox-inline">
                             <input id="register-needInvit2" type="radio" name="needInvite"
-                            required="required" value="No"> No
+                            required="required" value="No" onclick="toggleGender();"> No
                     </label>
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-sm-3 text-left">Will you join the excursions</label>
+                <label class="control-label col-sm-3 text-left">Will You Join the Excursions</label>
                 <div class="col-sm-8 checkbox-wrapper">
                     <label class="checkbox-inline" onclick="toggleGender();">
                             <input id="zhujiang" type="checkbox" name="travel"
@@ -190,6 +193,26 @@
                             <input id="baiyunshan" type="checkbox" name="travel"
                             value="1"> Baiyun mountain walk (Afternoon, Nov. 28)
                     </label>
+                </div>
+            </div>
+            <div id="passport-id" class="form-group radio-toggle">
+                <label class="control-label col-sm-3 text-left"
+                        for="register-pid">* Passport Number (ID Card Number if Your Passport Number is not Applicable)</label>
+                <div class="col-sm-8">
+                    <input id="register-pid" type="text" name="pid"
+                            class="form-control"
+                            placeholder="Please Input Your Passport/ID Card Number" onchange="checkIcon(event, 0);">
+                </div>
+            </div>
+            
+            <div id="birthday-box" class="form-group radio-toggle">
+                <label class="control-label col-sm-3 text-left">* Date of Birth</label>
+                <div class="col-sm-8">
+                    <input id="register-birthday" type="text"
+                            class="form-control"
+                            name="birthday"
+                            required="required"
+                            placeholder="Please input your birthday,formatted as 'YYYY-MM-DD'" onchange="checkIcon(event, 0);">
                 </div>
             </div>
             <div id="gender-list" class="form-group radio-toggle">
@@ -203,17 +226,6 @@
                             <input id="register-gender2" type="radio" name="gender"
                             required="required" value="female"> female
                     </label>
-                </div>
-            </div>
-            
-            <div id="birthday-box" class="form-group radio-toggle">
-                <label class="control-label col-sm-3 text-left">* Date of Birth</label>
-                <div class="col-sm-8">
-                    <input id="register-birthday" type="text"
-                            class="form-control"
-                            name="birthday"
-                            required="required"
-                            placeholder="Please input your birthday,formatted as 'YYYY-MM-DD'">
                 </div>
                 <div class="col-sm-8 col-sm-offset-3">
                     <strong>(The above information is needed for insurance)</strong>
@@ -237,7 +249,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-sm-3 text-left">* Will you participate the SYSU Information and Coding Theory Workshop on Nov. 30 (free)</label>
+                <label class="control-label col-sm-3 text-left"><a href="{{ url_for('main.citw') }}" target="_blank">* Will You Participate the SYSU Information and Coding Theory Workshop on Nov. 30 (free)</a></label>
                 <div class="col-sm-8">
                     <label class="checkbox-inline">
                             <input id="register-gotoTalk1" type="radio" name="gotoTalk"

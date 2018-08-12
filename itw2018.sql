@@ -32,17 +32,8 @@ CREATE TABLE `reservations` (
   `email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `room_type` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `reservations`
---
-
-LOCK TABLES `reservations` WRITE;
-/*!40000 ALTER TABLE `reservations` DISABLE KEYS */;
-/*!40000 ALTER TABLE `reservations` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `rooms`
@@ -69,7 +60,7 @@ CREATE TABLE `rooms` (
 
 LOCK TABLES `rooms` WRITE;
 /*!40000 ALTER TABLE `rooms` DISABLE KEYS */;
-INSERT INTO `rooms` VALUES (1,1,'City View Room',17,17,460,24),(2,2,'City View Room',14,14,460,24),(3,3,'River View Room',1,1,525,25),(4,4,'River View Room',23,23,525,25),(5,5,'Business Suit',8,8,725,24),(6,6,'River View Suit',17,17,880,24),(7,5,'Business Suit',13,13,725,25),(8,2,'City View Room',19,19,460,25),(9,6,'River View Suit',6,6,880,26);
+INSERT INTO `rooms` VALUES (1,1,'City View Room',17,12,460,24),(2,2,'City View Room',14,14,460,24),(3,3,'River View Room',1,1,525,25),(4,4,'River View Room',23,23,525,25),(5,5,'Business Suit',8,8,725,24),(6,6,'River View Suit',17,17,880,24),(7,5,'Business Suit',13,13,725,25),(8,2,'City View Room',19,19,460,25),(9,6,'River View Suit',6,6,880,26);
 /*!40000 ALTER TABLE `rooms` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -85,6 +76,7 @@ CREATE TABLE `users` (
   `random_id` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `cname` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `ename` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `title` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `country` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
   `pid` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `affiliation` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
@@ -101,21 +93,15 @@ CREATE TABLE `users` (
   `tutorial_item` varchar(128) COLLATE utf8_unicode_ci DEFAULT NULL,
   `need_invite` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `excursion` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
+  `gender` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `birthday` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `food_preference` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `goto_talk` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `total_fee` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `users`
---
-
-LOCK TABLES `users` WRITE;
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -126,4 +112,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-08-01 11:06:21
+-- Dump completed on 2018-08-11 22:20:42
