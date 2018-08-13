@@ -433,7 +433,7 @@ $(document).ready(function () {
 									<p>Total Registration Fee：USD ' + data.total_fee + '</p>\
                                 	<p>Transaction Note：' + data.random_id + 'ITW2018</p>\
                                 	<p>Dietary Preference：' + data.food_preference + '</p>\
-                                	<p>Will You Participate the SYSU Information and Coding Theory Workshop on Nov. 30: ' + data.goto_talk + '</p>'
+                                	<p>Will You Participate the SYSU Coding and Information Theory Workshop on Nov. 30: ' + data.goto_talk + '</p>'
 						$("#registration-outside").html(new_html);
 					}
 				}

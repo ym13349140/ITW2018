@@ -10,7 +10,7 @@ def send_email(receiver, user_name, template, subject, **kwargs):
     ret=True
     try:
         app = current_app._get_current_object()
-        cc_add = 'itw2018gz@gmail.com'
+        cc_add = 'itw2018@mail.sysu.edu.cn'
         to_list = [receiver, cc_add]
         my_sender = app.config['MAIL_USERNAME']
         my_pass = app.config['MAIL_PASSWORD']
@@ -29,7 +29,9 @@ def send_email(receiver, user_name, template, subject, **kwargs):
         except:
             print 'CONNECT ERROR ****'
         # gmail uses ssl
+        smtp.ehlo()
         smtp.starttls()
+        smtp.ehlo()
         # login with username & password
         # smtp = smtplib.SMTP_SSL(app.config['MAIL_SERVER'],465)
         try:
@@ -40,6 +42,7 @@ def send_email(receiver, user_name, template, subject, **kwargs):
        
         # server=smtplib.SMTP_SSL("smtp.gmail.com", 25)  # 发件人邮箱中的SMTP服务器，端口是25
         # server.login(my_sender, my_pass)  # 括号中对应的是发件人邮箱账号、邮箱密码
+        # smtp.sendmail(my_sender, to_list, msg.as_string())  # 括号中对应的是发件人邮箱账号、收件人邮箱账号、发送邮件
         smtp.sendmail(my_sender, to_list, msg.as_string())  # 括号中对应的是发件人邮箱账号、收件人邮箱账号、发送邮件
         smtp.quit()  # 关闭连接
     except Exception:  # 如果 try 中的语句没有执行，则会执行下面的 ret=False

@@ -102,11 +102,11 @@ def register_mainland():
             excursion = u''
         for t in travel:
             if t == '0':
-                excursion = u'珠江夜游，11月26号晚'
+                excursion = u'珠江夜游（11月26号晚）'
                 if len(travel) == 2:
-                    excursion += '; '
+                    excursion += '/ '
             elif t == '1':
-                excursion += u'登白云山，11月28号下午'
+                excursion += u'登白云山（11月28号下午）'
         foodPreference = request.form.get('foodPreference')
         # print "Chinese ", '中文中文中文'.decode('utf-8').encode(sys_encoding) 
         if foodPreference == '0':
@@ -176,7 +176,7 @@ def register_mainland():
         template = template + u'<p>是否需要会议通知和邀请函：' + needInvite + u'</p>\
                                 <p>是否参加外出游览: ' + excursion + u'</p>\
                                 <p>注册费用：CNY ' + str(totalFee) + u'</p>\
-                                <p>转账备注：' + random_id + u'_ITW2018</p>\
+                                <p>转账备注：' + random_id + u'ITW2018</p>\
                                 <p>饮食偏好：' + foodPreference + u'</p>\
                                 <p>是否参加11月30日举办的中山大学编码与信息理论研讨会: ' + gotoTalk + u'</p>'
         subject = u'ITW 2018 - Registration Step 1 Succeeds'
@@ -266,7 +266,7 @@ def register_outside():
                 gender = request.form.get('gender')
                 birthday = request.form.get('birthday')
                 if len(travel) == 2:
-                    excursion += '; '
+                    excursion += '/ '
             elif t == '1':
                 excursion += u'Baiyun mountain walk (Afternoon, Nov. 28)'
         foodPreference = request.form.get('foodPreference')
@@ -335,7 +335,7 @@ def register_outside():
                                 <p>Total Register Fee：USD ' + str(totalFee) + u'</p>\
                                 <p>Transaction Note：' + random_id + u'ITW2018</p>\
                                 <p>Dietary Preference：' + foodPreference + u'</p>\
-                                <p>Will You Participate the SYSU Information and Coding Theory Workshop on Nov. 30: ' + gotoTalk + u'</p>'
+                                <p>Will You Participate the SYSU Coding and Information Theory Workshop on Nov. 30: ' + gotoTalk + u'</p>'
         subject = u'ITW 2018 - Registration Step 1 Succeeds'
         ret = send_email(email, ename, template, subject)
         if ret:
