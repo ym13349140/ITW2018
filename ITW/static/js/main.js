@@ -24,7 +24,13 @@ function hideRadio(tag, is_mainland) {
 
 function showMoney(is_mainland) {
 	var selected = $("#register-money").val();
-	var money;
+	var money,arr=['0','1','3','4'];
+	if(arr.indexOf(selected) == -1) {
+		$("#register-vipNum-box").slideUp();
+	}
+	else {
+		$("#register-vipNum-box").slideDown();
+	}
 	if(is_mainland) {
 		money = [4130,4690,5390,2310,2660,3010,1848,1148,1498,798,700];
 	} 

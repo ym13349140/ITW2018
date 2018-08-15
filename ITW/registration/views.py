@@ -169,7 +169,7 @@ def register_mainland():
         if vipNum:
             template = template + u'<p>IEEE 会员号：' + vipNum + u'</p>'
         template = template + u'<p>注册类型：' + regType + u'</p>'
-        if tutorial == 'Yes':
+        if tutorial == u'是':
             template = template + u'<p>Tutorial：' + tutorialItem + u'</p>'
         else:
             template = template + u'<p>Tutorial：无</p>'
