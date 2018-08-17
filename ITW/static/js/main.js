@@ -24,12 +24,24 @@ function hideRadio(tag, is_mainland) {
 
 function showMoney(is_mainland) {
 	var selected = $("#register-money").val();
-	var money,arr=['0','1','3','4'];
+	var money,arr=['0','1','3','4'],hide_arr=['6','7','8','9','10'];
 	if(arr.indexOf(selected) == -1) {
 		$("#register-vipNum-box").slideUp();
+		if(hide_arr.indexOf(selected) != -1) {
+			$(".register-edas-box").slideUp();
+		}
+		else {
+			$(".register-edas-box").slideDown();
+		}
 	}
 	else {
 		$("#register-vipNum-box").slideDown();
+		if(hide_arr.indexOf(selected) != -1) {
+			$(".register-edas-box").slideUp();
+		}
+		else {
+			$(".register-edas-box").slideDown();
+		}
 	}
 	if(is_mainland) {
 		money = [4130,4690,5390,2310,2660,3010,1848,1148,1498,798,700];
@@ -368,7 +380,7 @@ $(document).ready(function () {
 							edas += data.edas3;
 						}
 						new_html += edas + '</p>';
-						if(data.receipt == 'Yes') {
+						if(data.receipt == '是') {
 							new_html += '<p>发票抬头：' + data.receipt_title + '</p>\
 										<p>纳税人识别号：' + data.receipt_id + '</p>';
 						}

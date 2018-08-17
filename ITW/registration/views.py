@@ -157,13 +157,13 @@ def register_mainland():
         if edas1:
             edas = u'' + edas1
         if edas2:
-            edas = edas + u', '
+            edas = edas + u'/ '
             edas = edas + edas2
         if edas3:
-            edas = edas + u', '
+            edas = edas + u'/ '
             edas = edas + edas3
         template = template + edas + u'</p>'
-        if receipt == 'Yes':
+        if receipt == u'是':
             template = template + u'<p>发票抬头：' + receipt_title + u'</p>\
 									<p>纳税人识别号：' + receipt_id + u'</p>'
         if vipNum:
@@ -317,10 +317,10 @@ def register_outside():
         if edas1:
             edas = u'' + edas1
         if edas2:
-            edas = edas + u', '
+            edas = edas + u'/ '
             edas = edas + edas2
         if edas3:
-            edas = edas + u', '
+            edas = edas + u'/ '
             edas = edas + edas3
         template = template + edas + u'</p>'
         if vipNum:
