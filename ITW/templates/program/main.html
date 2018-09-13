@@ -1,7 +1,21 @@
 {% extends 'base.html' %}
 
 {% block title %}ITW 2018{% endblock %}
-{% block header_ext %}{% endblock %}
+{% block header_ext %}
+    <script type="text/x-mathjax-config">
+	  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	</script>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/MathJax.js') }}">
+	</script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/edas.css') }}" type="text/css">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+	<!--[if IE 7]>
+	<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/ie7.css') }}" media="screen,tv" />
+	<![endif]-->
+	<!--[if lte IE 6]>
+	<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/ie6.css') }}" media="screen,tv" />
+	<![endif]-->
+{% endblock %}
 
 {% block content %}
     <div id="article-content" class="container">
@@ -10,7 +24,7 @@
             {% if tag == "glance" %}
                 {% include 'program/glance.html' %}
             {% elif tag == "full_program" %}
-                {% include 'program/full_program.html' %}
+                {% include 'program/Program.html' %}
             {% elif tag == "invited_papers" %}
                 {% include 'program/invited_papers.html' %}
             {% elif tag == "tutorial_call"%}
